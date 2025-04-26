@@ -131,6 +131,7 @@ body {
     width: 180px;
     border-radius: 12px;
     object-fit: cover;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2)
 }
 
 .project-images .button-expand {
