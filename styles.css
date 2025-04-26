@@ -118,6 +118,26 @@ body {
   flex: 1 1 calc(50% - 20px);
 }
 
+.project-images {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.project-images > * {
+    height: 120px;
+    border-radius: 12px;
+    min-width: 180px;
+    background-color: black;
+    color: white;
+}
+
+.project-images .button-expand:hover {
+    cursor: pointer;
+    background-color: grey;
+}
+
 /* Footer */
 .footer {
   text-align: center;
