@@ -57,7 +57,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin-top: 4px;
+  margin-top: 12px;
   gap: 4px;
   color: white;
 }
@@ -141,6 +141,30 @@ body {
   gap: 4vh;
 }
 
+.experience {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.experience-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.experience-title-right{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.experience-title img {
+    height: 56px;
+    border-radius: 8px;
+}
+
 .date {
   color: grey;
   font-size: 0.8rem;
@@ -176,15 +200,16 @@ body {
 }
 
 .project-images {
-  margin: 16px;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  justify-content: space-between;
+  margin: 16px;
+  gap: 16px;
 }
 
 .project-images > * {
   height: 160px;
-  width: 240px;
+  width: 230px;
   border-radius: 12px;
   object-fit: cover;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
