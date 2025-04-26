@@ -43,7 +43,7 @@ body {
 .linklist {
   display: flex;
   list-style: none;
-  margin-top: 16px;
+  margin-top: 24px;
   gap: 12px;
 }
 .linklist a {
@@ -119,7 +119,7 @@ body {
 }
 
 .project-images {
-    margin-top: 8px;
+    margin-top: 12px;
     display: flex;
     flex-direction: row;
     gap: 8px;
