@@ -55,6 +55,7 @@ body {
 
 .taglist {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   margin-top: 4px;
   gap: 4px;
@@ -131,6 +132,7 @@ body {
   flex-direction: column;
   gap: 4vh;
 }
+
 .date {
   color: grey;
   font-size: 0.8rem;
