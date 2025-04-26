@@ -1,0 +1,91 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.taglist {
+    display: flex;
+    margin-top: 8px;
+    list-style: none;
+    gap: 4px;
+    color: white;
+}
+.tag {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    padding: 2px 8px;
+}
+.linklist{
+    display: flex;
+    list-style:none;
+    gap: 4px;
+}
+
+/* Sections */
+.about,
+.projects,
+.contact {
+  padding: 60px 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.about h3,
+.projects h3,
+.contact h3 {
+  margin-bottom: 20px;
+  color: black;
+}
+
+/* Experience */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+.date {
+    color: grey;
+    font-size: 0.8rem;
+}
+.responsibilities {
+    margin-top: 8px;
+    margin-left: 16px;
+}
+
+/* Projects */
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project {
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1 1 calc(50% - 20px);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #777;
+}
