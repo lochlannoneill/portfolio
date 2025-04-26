@@ -19,6 +19,7 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
+  background-color: #f3f3f3;
 }
 
 .container {
@@ -147,10 +148,9 @@ body {
 }
 
 .project {
-  background: white;
   padding: 20px;
   flex: 1 1 calc(50% - 20px);
-  background-color: #eeeeee;
+  background-color: white;
   border-radius: 8px;
 }
 
