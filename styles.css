@@ -1,3 +1,12 @@
+:root {
+  --color-linkedin: rgb(0, 114, 177);
+  --color-github: rgb(121, 0, 121);
+  --color-leetcode: rgb(254, 164, 29);
+  --color-youtube: rgb(254, 0, 0);
+  --color-pdf: #ea4335;
+  --color-primary: blue;
+}
+
 /* Basic Reset */
 * {
   margin: 0;
@@ -19,22 +28,50 @@ body {
 }
 
 .taglist {
-    display: flex;
-    margin-top: 8px;
-    list-style: none;
-    gap: 4px;
-    color: white;
+  display: flex;
+  margin-top: 8px;
+  list-style: none;
+  gap: 4px;
+  color: white;
 }
 .tag {
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
-    padding: 2px 8px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 2px 8px;
 }
-.linklist{
-    display: flex;
-    list-style:none;
-    gap: 4px;
+
+/* Icons */
+.linklist {
+  display: flex;
+  list-style: none;
+  gap: 8px;
 }
+.linklist a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.5rem;
+}
+.linklist a:hover {
+  animation: spinIcon 1.5s infinite;
+}
+.linklist a:visited {
+  color: #333;
+}
+@keyframes spinIcon {
+  0% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(359deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+.linklist .github:hover {color: var(--color-github);}
+.linklist .youtube:hover {color: var(--color-youtube);}
+.linklist .pdf:hover {color: var(--color-pdf);}
+.linklist .primary:hover {color: var(--color-primary);}
 
 /* Sections */
 .about,
@@ -54,17 +91,17 @@ body {
 
 /* Experience */
 .experience-list {
-    display: flex;
-    flex-direction: column;
-    gap: 4vh;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
 }
 .date {
-    color: grey;
-    font-size: 0.8rem;
+  color: grey;
+  font-size: 0.8rem;
 }
 .responsibilities {
-    margin-top: 8px;
-    margin-left: 16px;
+  margin-top: 8px;
+  margin-left: 16px;
 }
 
 /* Projects */
