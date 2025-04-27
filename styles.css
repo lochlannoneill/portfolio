@@ -58,10 +58,11 @@ h3, h4 {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin-top: 12px;
   gap: 4px;
   color: white;
+  margin-top: 16px;
 }
+
 .tag {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 12px;
@@ -116,7 +117,7 @@ h3, h4 {
   border-radius: 16px;
   overflow: hidden;
   position: sticky;
-  top: 16px;
+  top: 4vh;
 }
 
 .profile-cover {
@@ -171,6 +172,12 @@ h3, h4 {
     display:none;
 }
 
+.experience-title-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .experience-title-right {
     display: flex;
     flex-direction: row;
@@ -217,6 +224,7 @@ h3, h4 {
 .education-title-left {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .education-title-right {
@@ -291,8 +299,24 @@ h3, h4 {
   justify-content: space-between;
 }
 
+.project-title-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-title-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .project-title img {
   height: 48px;
+}
+
+.project-description {
+  margin-top: 8px;
 }
 
 .project-images {
