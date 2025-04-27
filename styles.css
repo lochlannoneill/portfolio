@@ -23,18 +23,18 @@ body {
 }
 
 h2 {
-    margin-bottom: 16px !important;
+  margin-bottom: 16px;
 }
 
-h3, h4 {
+.profile h2, h3, h4 {
     margin-bottom: 0 !important;
 }
 
 .section-halves {
   display: flex;
   flex-direction: row;
-  gap: 2vw;
-  padding: 3vh 4vw;
+  gap: 4vh;
+  padding: 2vh 4vw;
 }
 
 /* For tablets */
@@ -88,6 +88,7 @@ h3, h4 {
 }
 .linklist a:hover {
   animation: spinIcon 1.5s infinite;
+  transition: color 0.25s ease;
 }
 .linklist a:visited {
   color: #333;
@@ -122,7 +123,7 @@ h3, h4 {
   border-radius: 16px;
   overflow: hidden;
   position: sticky;
-  top: 4vh;
+  top: 2vh;
 }
 
 .profile-cover {
@@ -329,7 +330,7 @@ h3, h4 {
 /* Projects */
 .projects {
   max-width: 1100px;
-  padding: 3vh 4vw;
+  padding: 2vh 4vw;
   margin: 0 auto;
 }
 
