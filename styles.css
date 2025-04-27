@@ -161,6 +161,47 @@ h3, h4 {
   margin-top: 24px;
 }
 
+.profile-button-resume {
+  background-color: black;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(7deg);
+  }
+  10% {
+    transform: rotate(-7deg);
+  }
+  15% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.profile-button-resume:hover {
+  cursor: pointer;
+  background-color: grey;
+  transition: background-color 0.125s ease;
+  animation: 3s wiggle infinite;
+}
+
+.profile-button-resume:visited {
+  color: white;
+  text-decoration: none;
+}
+
 /* Experience */
 .experience-list {
   display: flex;
