@@ -379,9 +379,16 @@ h3, h4 {
 .project-images {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 16px 0;
+  margin: 16px auto;
   gap: 16px;
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+  .project-images {
+    justify-content: center;
+    gap: 16px;
+  }
 }
 
 .project-images > * {
