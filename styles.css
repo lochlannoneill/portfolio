@@ -30,37 +30,6 @@ h3, h4 {
     margin-bottom: 0 !important;
 }
 
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-/* For tablets */
-@media (max-width: 768px) {
-  .container {
-    width: 95%;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-}
-
-/* For phones */
-@media (max-width: 480px) {
-  .container {
-    width: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
-.section {
-  width: 100%;
-}
-
 .section-halves {
   display: flex;
   flex-direction: row;
@@ -76,9 +45,11 @@ h3, h4 {
 
 .section-half-left {
   flex: 1 1 calc(35% - 20px);
+  padding: 4vw;
 }
 .section-half-right {
   flex: 1 1 calc(65% - 20px);
+  padding: 4vw;
 }
 
 .taglist {
@@ -137,18 +108,43 @@ h3, h4 {
   color: var(--color-primary);
 }
 
-/* Sections */
-.section {
-  padding: 60px 0;
+/* About me */
+.profile {
+  background-color: white;
+  border-radius: 16px;
+  overflow: hidden;
+  position: sticky;
+  top: 16px;
 }
 
-/* For tablets */
-@media (max-width: 768px) {
-  .section {
-    width: 95%;
-    padding: 30px 0;
-  }
+.profile-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px -5px rgba(0, 0, 0, 0.5);
 }
+
+.profile-image {
+  width: 128px;
+  height: auto;
+  border-radius: 50%;
+  margin-top: -96px;
+  margin-left: 16px;
+  border: 4px solid white;
+}
+
+.profile-info {
+  padding: 16px;
+}
+
+.profile-degree {
+  color: grey;
+}
+
+.profile-contact {
+  color: grey;
+}
+
 
 /* Experience */
 .experience-list {
@@ -205,6 +201,12 @@ h3, h4 {
 }
 
 /* Projects */
+.projects {
+  max-width: 1100px;
+  padding: 4vw;
+  margin: 0 auto;
+}
+
 .project-list {
   display: flex;
   flex-direction: column;
