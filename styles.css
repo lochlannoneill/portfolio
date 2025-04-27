@@ -104,6 +104,9 @@ h2 {
     transform: rotate(359deg);
   }
 }
+.linklist .linkedin:hover {
+  color: var(--color-linkedin);
+}
 .linklist .github:hover {
   color: var(--color-github);
 }
