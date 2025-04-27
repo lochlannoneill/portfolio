@@ -36,7 +36,7 @@ h3, h4 {
   justify-content: space-between;
 }
 
-/* For phones */
+/* For tablets */
 @media (max-width: 768px) {
   .section-halves {
     flex-direction: column;
@@ -50,6 +50,9 @@ h3, h4 {
 .section-half-right {
   flex: 1 1 calc(65% - 20px);
   padding: 4vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
 }
 
 .taglist {
@@ -173,10 +176,12 @@ h3, h4 {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
+    gap: 16px;
+    font-weight: 600;
+    color: grey;
 }
 
-/* For phones */
+/* For tablets */
 @media (max-width: 768px) {
     .experience-company-left {
       display: block;
@@ -189,6 +194,66 @@ h3, h4 {
 .experience-title img {
     height: 56px;
     border-radius: 8px;
+}
+
+/* Education */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+}
+
+.education {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.education-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.education-title-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.education-title-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  font-weight: 600;
+  color: grey;
+}
+
+.education-title img {
+  height: 56px;
+  border-radius: 8px;
+}
+
+.education-university-left {
+  display: none;
+}
+
+.education-university-right {
+  display: block;
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+  .education-university-left {
+    display: block;
+  }
+  .education-university-right {
+    display: none;
+  }
+}
+
+.education-description {
+  margin-top: 8px;
 }
 
 .date {
