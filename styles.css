@@ -61,6 +61,26 @@ h3, h4 {
   width: 100%;
 }
 
+.section-halves {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* For phones */
+@media (max-width: 768px) {
+  .section-halves {
+    flex-direction: column;
+  }
+}
+
+.section-half-left {
+  flex: 1 1 calc(35% - 20px);
+}
+.section-half-right {
+  flex: 1 1 calc(65% - 20px);
+}
+
 .taglist {
   display: flex;
   flex-wrap: wrap;
@@ -188,7 +208,7 @@ h3, h4 {
 .project-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 4vh;
 }
 
 .project {
