@@ -326,10 +326,6 @@ hr {
     justify-content: space-between;
 }
 
-.experience-company-left {
-    display:none;
-}
-
 .experience-title-left {
     display: flex;
     flex-direction: column;
@@ -344,16 +340,6 @@ hr {
     font-weight: 600;
     color: grey;
 }
-
-/* For tablets */
-@media (max-width: 768px) {
-    .experience-company-left {
-      display: block;
-    }
-    .experience-company-right {
-      display: none;
-    }
-  }
 
 .experience-title img {
     height: 56px;
@@ -400,22 +386,22 @@ hr {
   border-radius: 8px;
 }
 
-.education-university-left {
-  display: none;
+.education-description {
+  margin-top: 8px;
 }
 
-.education-university-right {
-  display: block;
+/* Certifications */
+.certification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
 }
 
-/* For tablets */
-@media (max-width: 768px) {
-  .education-university-left {
-    display: block;
-  }
-  .education-university-right {
-    display: none;
-  }
+.certification {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .education-description {
