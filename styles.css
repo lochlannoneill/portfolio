@@ -43,8 +43,10 @@ h2 {
   margin-bottom: 16px;
 }
 
-.profile h2, h3, h4 {
-    margin-bottom: 0 !important;
+.profile h2,
+h3,
+h4 {
+  margin-bottom: 0 !important;
 }
 
 .section-halves {
@@ -69,6 +71,16 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 4vh;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  opacity: 0.5;
+  margin: 20px 0;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .taglist {
@@ -148,17 +160,15 @@ h2 {
   padding: 16px 24px;
   background-color: white;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  position: relative; /* Important for positioning mobile dropdown */
+  position: relative;
 }
 
-/* Navbar links (desktop default) */
 .navbar-items {
   display: flex;
   margin: 0 auto;
   gap: 4vw;
 }
 
-/* Navbar links */
 .navbar a {
   text-decoration: none;
   color: #333;
@@ -166,7 +176,6 @@ h2 {
   font-weight: bold;
 }
 
-/* Hamburger menu icon */
 .hamburger {
   display: none;
   cursor: pointer;
@@ -192,18 +201,18 @@ h2 {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 20px 0;
     z-index: 1000;
-    max-height: 0;  /* Initially set to 0 */
-    overflow: hidden;  /* Hide the content */
-    opacity: 0;  /* Initially set to transparent */
-    transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.3s ease;  /* Smooth transition */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.3s ease;
   }
 
   /* Show menu when active */
   .navbar-items.active {
-    transform: translateY(0);  /* Slide into view */
-    max-height: 500px;  /* Set a height for the transition */
-    opacity: 1;  /* Fade in */
-    box-shadow: 0 12px 8px -2px rgba(0, 0, 0, 0.2); /* Shadow ONLY at the bottom */
+    transform: translateY(0);
+    max-height: 500px;
+    opacity: 1;
+    box-shadow: 0 12px 8px -2px rgba(0, 0, 0, 0.2);
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   }
 }
@@ -300,54 +309,40 @@ h2 {
 .experience-list {
   display: flex;
   flex-direction: column;
-  gap: 4vh;
+  gap: 2vh;
+  background-color: white;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 .experience {
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 .experience-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.experience-company-left {
-    display:none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .experience-title-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .experience-title-right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    color: grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: grey;
 }
 
-/* For tablets */
-@media (max-width: 768px) {
-    .experience-company-left {
-      display: block;
-    }
-    .experience-company-right {
-      display: none;
-    }
-  }
-
 .experience-title img {
-    height: 56px;
-    border-radius: 8px;
+  height: 56px;
+  border-radius: 8px;
 }
 
 /* Education */
@@ -390,31 +385,58 @@ h2 {
   border-radius: 8px;
 }
 
-.education-university-left {
-  display: none;
-}
-
-.education-university-right {
-  display: block;
-}
-
-/* For tablets */
-@media (max-width: 768px) {
-  .education-university-left {
-    display: block;
-  }
-  .education-university-right {
-    display: none;
-  }
-}
-
 .education-description {
+  margin-top: 8px;
+}
+
+/* Certifications */
+.certification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+}
+
+.certification {
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.certification-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.certification-title-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.certification-title-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: grey;
+}
+
+.certification-title img {
+  height: 56px;
+  border-radius: 8px;
+}
+
+.certification-description {
   margin-top: 8px;
 }
 
 .date {
   color: grey;
   font-size: 0.8rem;
+  margin-top: 4px;
 }
 .responsibilities {
   margin-top: 8px;
@@ -489,7 +511,7 @@ h2 {
 
 .project-images > * {
   height: 180px;
-  width: 23.5%; /* Prevent images from exceeding 30% of the container width */
+  width: 23.5%;
   box-sizing: border-box;
   border-radius: 12px;
   object-fit: cover;
@@ -499,7 +521,7 @@ h2 {
 /* For tablets */
 @media (max-width: 768px) {
   .project-images > * {
-    width: 30%; /* Prevent images from exceeding 30% of the container width */
+    width: 30%;
     box-sizing: border-box;
   }
 }
@@ -507,7 +529,7 @@ h2 {
 /* For phones */
 @media (max-width: 480px) {
   .project-images > * {
-    width: 45%; /* Prevent images from exceeding 30% of the container width */
+    width: 45%;
     box-sizing: border-box;
   }
 }
