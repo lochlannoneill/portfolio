@@ -154,7 +154,8 @@ h2 {
 /* Navbar links (desktop default) */
 .navbar-items {
   display: flex;
-  gap: 20px;
+  margin: 0 auto;
+  gap: 4vw;
 }
 
 /* Navbar links */
