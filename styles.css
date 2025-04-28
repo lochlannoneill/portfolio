@@ -437,6 +437,7 @@ hr {
 .date {
   color: grey;
   font-size: 0.8rem;
+  margin-top: 4px;
 }
 .responsibilities {
   margin-top: 8px;
