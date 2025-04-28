@@ -3,6 +3,7 @@
   --color-github: rgb(121, 0, 121);
   --color-leetcode: rgb(254, 164, 29);
   --color-youtube: rgb(254, 0, 0);
+  --color-leetcode: #f9c74f;
   --color-pdf: #ea4335;
   --color-primary: blue;
 }
@@ -115,6 +116,9 @@ h2 {
 }
 .linklist .pdf:hover {
   color: var(--color-pdf);
+}
+.linklist .leetcode:hover {
+  color: var(--color-leetcode);
 }
 .linklist .primary:hover {
   color: var(--color-primary);
