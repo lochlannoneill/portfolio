@@ -23,6 +23,13 @@ body {
   background-color: #f3f3f3;
 }
 
+/* For tablets */
+@media (max-width: 768px) {
+  .tablet-hidden {
+    display: none;
+  }
+}
+
 h2 {
   margin-bottom: 16px;
 }
