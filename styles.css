@@ -16,6 +16,10 @@
 }
 
 /* General Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -47,7 +51,7 @@ h2 {
   display: flex;
   flex-direction: row;
   gap: 4vh;
-  padding: 2vh 4vw;
+  padding: 4vh 4vw;
 }
 
 /* For tablets */
@@ -134,6 +138,29 @@ h2 {
 }
 .linklist .primary:hover {
   color: var(--color-primary);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-items {
+  display: flex;
+  margin: 0 auto;
+  gap: 4vw;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 /* About me */
@@ -347,9 +374,9 @@ h2 {
 }
 
 /* Projects */
-.projects {
+#section-projects {
   max-width: 1100px;
-  padding: 2vh 4vw;
+  padding: 4vh 4vw;
   margin: 0 auto;
 }
 
