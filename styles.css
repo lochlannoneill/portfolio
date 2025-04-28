@@ -16,11 +16,27 @@
 }
 
 /* General Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #f3f3f3;
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+  .tablet-hidden {
+    display: none;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 h2 {
@@ -35,7 +51,7 @@ h2 {
   display: flex;
   flex-direction: row;
   gap: 4vh;
-  padding: 2vh 4vw;
+  padding: 4vh 4vw;
 }
 
 /* For tablets */
@@ -124,6 +140,74 @@ h2 {
   color: var(--color-primary);
 }
 
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background-color: white;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative; /* Important for positioning mobile dropdown */
+}
+
+/* Navbar links (desktop default) */
+.navbar-items {
+  display: flex;
+  margin: 0 auto;
+  gap: 4vw;
+}
+
+/* Navbar links */
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Hamburger menu icon */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 2rem;
+  margin-left: auto;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4vh;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 0;
+    z-index: 1000;
+    max-height: 0;  /* Initially set to 0 */
+    overflow: hidden;  /* Hide the content */
+    opacity: 0;  /* Initially set to transparent */
+    transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.3s ease;  /* Smooth transition */
+  }
+
+  /* Show menu when active */
+  .navbar-items.active {
+    transform: translateY(0);  /* Slide into view */
+    max-height: 500px;  /* Set a height for the transition */
+    opacity: 1;  /* Fade in */
+    box-shadow: 0 12px 8px -2px rgba(0, 0, 0, 0.2); /* Shadow ONLY at the bottom */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
 /* About me */
 .profile {
   background-color: white;
@@ -131,6 +215,7 @@ h2 {
   overflow: hidden;
   position: sticky;
   top: 2vh;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .profile-cover {
@@ -222,6 +307,7 @@ h2 {
     padding: 20px;
     background-color: white;
     border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .experience-title {
@@ -335,9 +421,9 @@ h2 {
 }
 
 /* Projects */
-.projects {
+#section-projects {
   max-width: 1100px;
-  padding: 2vh 4vw;
+  padding: 0 4vw;
   margin: 0 auto;
 }
 
@@ -352,6 +438,7 @@ h2 {
   flex: 1 1 calc(50% - 20px);
   background-color: white;
   border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .project-title {

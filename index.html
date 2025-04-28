@@ -10,12 +10,26 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script src="js/hamburger.js"></script>
   </head>
   <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="hamburger" id="hamburger">
+        <i class="fa fa-bars"></i> <!-- FontAwesome hamburger -->
+      </div>
+      <div class="navbar-items">
+        <a href="#section-profile" class="nav-link">Profile</a>
+        <a href="#section-experience" class="nav-link">Experience</a>
+        <a href="#section-education" class="nav-link">Education</a>
+        <a href="#section-projects" class="nav-link">Projects</a>
+      </div>
+    </div>
+
     <div class="section-halves">
       <div class="section-half-left">
         <!-- About Section -->
-          <div class="profile">
+          <div id="section-profile" class="profile">
             <img
               class="profile-cover"
               src="assets\images\cover.jpg"
@@ -64,7 +78,7 @@
                   </li>
                  </ul>
                  <a href="assets/lochlann_oneill_resume.pdf" download class="profile-button-resume">
-                  Download Resume <span class="fa fa-download"></span>
+                  <span class="tablet-hidden">Download </span>Resume <span class="fa fa-download"></span>
                 </a>
                </div>
             </div>
@@ -157,7 +171,7 @@
           </div>
         </div>
         <!-- Education Section -->
-         <div class="section-education">
+         <div id="section-education">
           <h2>Education</h2>
           <div class="education-list">
             <div class="education">
@@ -191,7 +205,7 @@
      </div>
 
     <!-- Projects Section -->
-    <div class="projects">
+    <div id="section-projects">
         <h2>Projects</h2>
         <div class="project-list">
           <div class="project">
@@ -262,7 +276,7 @@
           <div class="project">
             <div class="project-title">
               <div class="project-title-left">
-                <h3>Greaves.store</h3>
+                <h3><a href="https://greaves.pages.dev/">Greaves</a></h3>
                 <p class="date">March 2024</p>
               </div>
               <div class="project-title-right">
@@ -324,7 +338,7 @@
                  </li>
                  <li class="link">
                    <a
-                     href="https://greaves.store/"
+                     href="https://greaves.pages.dev/"
                      class="icon primary fa fa-external-link"
                    ></a>
                  </li>
