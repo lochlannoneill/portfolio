@@ -43,8 +43,10 @@ h2 {
   margin-bottom: 16px;
 }
 
-.profile h2, h3, h4 {
-    margin-bottom: 0 !important;
+.profile h2,
+h3,
+h4 {
+  margin-bottom: 0 !important;
 }
 
 .section-halves {
@@ -202,17 +204,17 @@ hr {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 20px 0;
     z-index: 1000;
-    max-height: 0;  /* Initially set to 0 */
-    overflow: hidden;  /* Hide the content */
-    opacity: 0;  /* Initially set to transparent */
-    transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.3s ease;  /* Smooth transition */
+    max-height: 0; /* Initially set to 0 */
+    overflow: hidden; /* Hide the content */
+    opacity: 0; /* Initially set to transparent */
+    transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.3s ease; /* Smooth transition */
   }
 
   /* Show menu when active */
   .navbar-items.active {
-    transform: translateY(0);  /* Slide into view */
-    max-height: 500px;  /* Set a height for the transition */
-    opacity: 1;  /* Fade in */
+    transform: translateY(0); /* Slide into view */
+    max-height: 500px; /* Set a height for the transition */
+    opacity: 1; /* Fade in */
     box-shadow: 0 12px 8px -2px rgba(0, 0, 0, 0.2); /* Shadow ONLY at the bottom */
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   }
@@ -317,33 +319,33 @@ hr {
 }
 
 .experience {
-    padding: 20px;
+  padding: 20px;
 }
 
 .experience-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .experience-title-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .experience-title-right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    color: grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: grey;
 }
 
 .experience-title img {
-    height: 56px;
-    border-radius: 8px;
+  height: 56px;
+  border-radius: 8px;
 }
 
 /* Education */
