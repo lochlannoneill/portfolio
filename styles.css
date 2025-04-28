@@ -404,7 +404,33 @@ hr {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.education-description {
+.certification-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.certification-title-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.certification-title-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: grey;
+}
+
+.certification-title img {
+  height: 56px;
+  border-radius: 8px;
+}
+
+.certification-description {
   margin-top: 8px;
 }
 
