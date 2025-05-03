@@ -460,10 +460,10 @@ hr {
 }
 
 .date {
-  color: grey;
+  color: lightgrey;
   font-size: 0.8rem;
-  margin-top: 4px;
 }
+
 .responsibilities {
   margin-top: 8px;
   margin-left: 16px;
