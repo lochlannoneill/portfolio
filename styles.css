@@ -524,13 +524,13 @@ hr {
   display: flex;
   flex-wrap: wrap;
   margin: 16px auto;
+  justify-content: center;
   gap: 16px;
 }
 
 /* For tablets */
 @media (max-width: 768px) {
   .project-images {
-    justify-content: center;
     gap: 16px;
   }
 }
