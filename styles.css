@@ -34,6 +34,25 @@ body {
   }
 }
 
+/* For phones */
+@media (max-width: 480px) {
+  p {
+    font-size: 0.9rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.125rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -89,7 +108,7 @@ hr {
   list-style: none;
   gap: 4px;
   color: white;
-  margin-top: 16px;
+  margin-top: 8px;
 }
 
 .tag {
@@ -117,7 +136,7 @@ hr {
 }
 .linklist a:hover {
   animation: spinIcon 1.5s infinite;
-  transition: color 0.25s ease;
+  transition: color 0.5s ease;
 }
 .linklist a:visited {
   color: #333;
@@ -234,6 +253,13 @@ hr {
   box-shadow: 0 4px 15px -5px rgba(0, 0, 0, 0.5);
 }
 
+/* For phones */
+@media (max-width: 480px) {
+  .profile-cover {
+    height: 160px;
+  }
+}
+
 .profile-image {
   width: 128px;
   height: auto;
@@ -295,9 +321,9 @@ hr {
 
 .profile-button-resume:hover {
   cursor: pointer;
-  background-color: grey;
-  transition: background-color 0.125s ease;
+  transition: all 0.25s ease;
   animation: 3s wiggle infinite;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
 }
 
 .profile-button-resume:visited {
@@ -334,7 +360,7 @@ hr {
 .experience-title-right {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   gap: 8px;
   font-weight: 600;
   color: grey;
@@ -519,10 +545,19 @@ hr {
 }
 
 /* For tablets */
+@media (max-width: 1100px) {
+  .project-images > * {
+    width: 35%;
+    height: 150px;
+    box-sizing: border-box;
+  }
+}
+
+/* For tablets */
 @media (max-width: 768px) {
   .project-images > * {
+    height: 120px;
     width: 30%;
-    box-sizing: border-box;
   }
 }
 
@@ -530,7 +565,6 @@ hr {
 @media (max-width: 480px) {
   .project-images > * {
     width: 45%;
-    box-sizing: border-box;
   }
 }
 
