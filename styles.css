@@ -136,7 +136,7 @@ hr {
 }
 .linklist a:hover {
   animation: spinIcon 1.5s infinite;
-  transition: color 0.25s ease;
+  transition: color 0.5s ease;
 }
 .linklist a:visited {
   color: #333;
