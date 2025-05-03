@@ -34,6 +34,25 @@ body {
   }
 }
 
+/* For phones */
+@media (max-width: 480px) {
+  p {
+    font-size: 0.9rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;
