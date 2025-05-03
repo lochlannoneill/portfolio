@@ -253,6 +253,13 @@ hr {
   box-shadow: 0 4px 15px -5px rgba(0, 0, 0, 0.5);
 }
 
+/* For phones */
+@media (max-width: 480px) {
+  .profile-cover {
+    height: 160px;
+  }
+}
+
 .profile-image {
   width: 128px;
   height: auto;
