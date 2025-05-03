@@ -353,7 +353,7 @@ hr {
 .experience-title-right {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   gap: 8px;
   font-weight: 600;
   color: grey;
