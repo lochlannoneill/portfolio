@@ -112,10 +112,10 @@ hr {
 }
 
 .tag {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 16px;
   padding: 2px 10px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 400;
 }
 
@@ -400,7 +400,7 @@ hr {
 .education-title-right {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   gap: 8px;
   font-weight: 600;
   color: grey;
@@ -444,7 +444,7 @@ hr {
 .certification-title-right {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   gap: 8px;
   font-weight: 600;
   color: grey;
@@ -462,8 +462,8 @@ hr {
 .date {
   color: grey;
   font-size: 0.8rem;
-  margin-top: 4px;
 }
+
 .responsibilities {
   margin-top: 8px;
   margin-left: 16px;
@@ -506,7 +506,7 @@ hr {
 .project-title-right {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: top;
   gap: 8px;
   font-weight: 600;
   color: grey;
@@ -524,19 +524,19 @@ hr {
   display: flex;
   flex-wrap: wrap;
   margin: 16px auto;
+  justify-content: center;
   gap: 16px;
 }
 
 /* For tablets */
 @media (max-width: 768px) {
   .project-images {
-    justify-content: center;
     gap: 16px;
   }
 }
 
 .project-images > * {
-  height: 180px;
+  height: 160px;
   width: 23.5%;
   box-sizing: border-box;
   border-radius: 12px;
@@ -548,7 +548,7 @@ hr {
 @media (max-width: 1100px) {
   .project-images > * {
     width: 35%;
-    height: 150px;
+    height: 140px;
     box-sizing: border-box;
   }
 }
@@ -556,7 +556,7 @@ hr {
 /* For tablets */
 @media (max-width: 768px) {
   .project-images > * {
-    height: 120px;
+    height: 100px;
     width: 30%;
   }
 }
