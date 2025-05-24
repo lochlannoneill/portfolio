@@ -28,8 +28,29 @@ body {
 }
 
 /* For tablets */
+@media (max-width: 480px) {
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+/* For tablets */
 @media (max-width: 768px) {
   .tablet-hidden {
+    display: none;
+  }
+}
+
+/* For tablets */
+@media (max-width: 1200px) {
+  .laptop-hidden {
+    display: none;
+  }
+}
+
+/* For tablets */
+@media (max-width: 480px) {
+  .mobile-hidden {
     display: none;
   }
 }
@@ -116,7 +137,7 @@ hr {
 .tag {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 16px;
-  padding: 2px 10px;
+  padding: 1px 10px;
   font-size: 0.85rem;
   font-weight: 400;
 }
