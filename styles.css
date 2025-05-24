@@ -28,8 +28,29 @@ body {
 }
 
 /* For tablets */
+@media (max-width: 480px) {
+  .mobile-hidden {
+    display: none;
+  }
+}
+
+/* For tablets */
 @media (max-width: 768px) {
   .tablet-hidden {
+    display: none;
+  }
+}
+
+/* For tablets */
+@media (max-width: 1200px) {
+  .laptop-hidden {
+    display: none;
+  }
+}
+
+/* For tablets */
+@media (max-width: 480px) {
+  .mobile-hidden {
     display: none;
   }
 }
