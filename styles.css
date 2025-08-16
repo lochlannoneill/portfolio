@@ -57,7 +57,8 @@ body {
 
 /* For phones */
 @media (max-width: 480px) {
-  p, li {
+  p,
+  li {
     font-size: 0.9rem;
   }
   h1 {
