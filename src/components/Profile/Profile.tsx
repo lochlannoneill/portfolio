@@ -1,0 +1,76 @@
+import profileImg from '../../assets/profile.png';
+import backgroundImg from '../../assets/background.jpg';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin, faYoutube} from "@fortawesome/free-brands-svg-icons";
+import { faCode } from "@fortawesome/free-solid-svg-icons"
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import Skills from '../Skills/Skills';
+
+function Profile() {
+  return (
+  <section id="profile" className="relative bg-white-100 rounded-3xl md:shadow-lg max-w-md mx-auto overflow-hidden">
+      {/* top background image with black overlay */}
+      <div className="relative h-36 w-full">
+        <img
+          src={backgroundImg}
+          alt="Background"
+          className="w-full h-full object-cover [filter:blur(1px)]"
+        />
+        <div className="absolute inset-0 bg-black opacity-20"></div>
+      </div>
+
+      <div className="relative flex flex-col p-3 sm:p-4 md:p-6 -mt-28">
+        {/* profile image + name/email side by side */}
+        <div className="flex items-center space-x-4 mb-4">
+          <a
+            href="https://www.linkedin.com/in/lochlannoneill/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <img
+              src={profileImg}
+              alt="Profile"
+              className="w-30 h-30 rounded-full border-5 border-white transition-all duration-300 group-hover:scale-105 group-hover:brightness-90"
+            />
+          </a>
+          <div className="flex flex-col -mt-4">
+            <h2 className="text-2xl font-bold text-white [text-shadow:2px_2px_4px_rgba(0,0,0,0.8)]">Lochlann O Neill</h2>
+            <p className="text-white text-sm">lochlannjoneill@gmail.com</p>
+          </div>
+        </div>
+
+        {/* skills section */}
+        <Skills />
+
+        {/* bio section */}
+        <p className="text-gray-700 text-center text-lg md:text-xl">
+          Hi! I'm a passionate software developer who loves to learn new technologies!
+        </p>
+
+        {/* links section */}
+        <div className="flex justify-center space-x-4 mt-4">
+          <a href="https://github.com/lochlannoneill" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faGithub} className="text-2xl text-purple-700 hover:text-purple-900" />
+          </a>
+          <a href="https://linkedin.com/in/lochlannoneill" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faLinkedin} className="text-2xl text-blue-700 hover:text-blue-900" />
+          </a>
+          <a href="https://www.youtube.com/channel/UCfh3sXBVlA8N5Da3ms8n1Sg" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faYoutube} className="text-2xl text-red-600 hover:text-red-800" />
+          </a>
+          <a href="https://leetcode.com/u/lochlannoneill/" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faCode} className="text-2xl text-amber-400 hover:text-amber-500" />
+          </a>
+          <a href="mailto:lochlannjoneill@gmail.com" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faEnvelope} className="text-2xl text-green-600 hover:text-green-700" />
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+  );
+}
+
+export default Profile;
