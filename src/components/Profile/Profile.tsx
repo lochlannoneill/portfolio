@@ -10,7 +10,7 @@ import FadeInSection from '../../FadeInSection';
 function Profile() {
   return (
     <FadeInSection>
-      <section id="profile" className="relative bg-white-100 rounded-3xl md:shadow-lg max-w-md mx-auto overflow-hidden">
+      <section id="profile" className="relative bg-white-100 md:rounded-3xl md:shadow-lg max-w-md mx-auto overflow-hidden">
         {/* top background image with black overlay */}
         <div className="relative h-36 w-full">
           <img
@@ -21,7 +21,7 @@ function Profile() {
         <div className="absolute inset-0 bg-black opacity-20"></div>
       </div>
 
-      <div className="relative flex flex-col p-3 sm:p-4 md:p-6 -mt-28">
+      <div className="relative flex flex-col p-3 sm:p-4 md:p-6 -mt-26 md:-mt-28">
         {/* profile image + name/email side by side */}
         <div className="flex items-center space-x-4 mb-4">
           <a

@@ -11,7 +11,7 @@ function App() {
     <div id="home" className="text-sm md:text-lg lg:text-xl">
       <Navbar />
 
-      <main className="container mx-auto px-4 pt-0 pb-6 md:pt-10 md:pb-10">
+      <main className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-6">
           {/* Left: sticky profile (becomes top on mobile) */}
           <aside className="lg:col-span-4">

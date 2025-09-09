@@ -189,7 +189,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="bg-white rounded-lg w-full max-w-6xl mx-auto p-3"
+      className="bg-white rounded-lg w-full max-w-6xl mx-auto p-4"
     >
       <FadeInSection>
         <h2 className="block md:hidden text-2xl font-bold text-gray-800 mb-4">

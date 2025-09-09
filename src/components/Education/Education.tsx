@@ -44,7 +44,7 @@ const EDUCATION: EducationItem[] = [
 
 function Education() {
   return (
-    <section id="education" className="bg-white rounded-lg w-full py-4 md:p-6">
+    <section id="education" className="bg-white rounded-lg w-full p-4 md:p-6">
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Education</h2>

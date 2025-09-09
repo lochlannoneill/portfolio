@@ -60,7 +60,7 @@ const EXPERIENCES: ExperienceItem[] = [
 
 function Experience() {
   return (
-    <section id="experience" className="bg-white rounded-lg w-full py-4 md:p-6 md:pt-0">
+    <section id="experience" className="bg-white rounded-lg w-full p-4 md:p-6">
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Experience</h2>
