@@ -3,7 +3,7 @@ import "./Certifications.css";
 import microsoftLogo from "../../assets/logos/microsoft.png";
 import solasLogo from "../../assets/logos/solas.png";
 import FadeInSection from "../../FadeInSection";
-import React, { useState } from "react";
+import { useState } from "react";
 
 type CertificationItem = {
   title: string;

@@ -3,7 +3,7 @@ import "./Education.css";
 import mtuLogo from "../../assets/logos/mtu.png";
 import ctiLogo from "../../assets/logos/cti.jpg";
 import FadeInSection from "../../FadeInSection";
-import React, { useState } from "react";
+import { useState } from "react";
 
 type EducationItem = {
   title: string;

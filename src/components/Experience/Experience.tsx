@@ -3,7 +3,7 @@ import "./Experience.css";
 import vodafoneLogo from "../../assets/logos/vodafone.png";
 import bostonLogo from "../../assets/logos/boston.jpg";
 import FadeInSection from "../../FadeInSection";
-import React, { useState } from "react";
+import { useState } from "react";
 
 type ExperienceItem = {
   title: string;
