@@ -1,7 +1,9 @@
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
   faFilePdf,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
@@ -59,6 +61,11 @@ import defoldPlanner from "../../assets/projects/defold/Planner.png";
 import FadeInSection from "../../FadeInSection";
 
 function Projects() {
+  const LOADED_MORE_PROJECT_COUNT = 3;
+  const [visibleCount, setVisibleCount] = useState(LOADED_MORE_PROJECT_COUNT);
+  const [loading, setLoading] = useState(false);
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
+
   const projects = [
     {
       id: 1,
@@ -186,6 +193,25 @@ function Projects() {
     },
   ];
 
+  // Intersection Observer to load more projects when scrolled to the bottom
+  useEffect(() => {
+    if (visibleCount >= projects.length) return;
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !loading) {
+          setLoading(true);
+          setTimeout(() => {
+            setVisibleCount((prev) => Math.min(prev + LOADED_MORE_PROJECT_COUNT, projects.length));
+            setLoading(false);
+          }, 700); // Simulate loading delay
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (loadMoreRef.current) observer.observe(loadMoreRef.current);
+    return () => observer.disconnect();
+  }, [visibleCount, projects.length, loading]);
+
   return (
     <section
       id="projects"
@@ -198,7 +224,7 @@ function Projects() {
       </FadeInSection>
 
       <ul className="flex flex-col">
-        {projects.map((project, idx) => (
+        {projects.slice(0, visibleCount).map((project, idx) => (
           <FadeInSection key={project.id}>
             {/* Each project */}
             <li className="rounded-lg px-0 py-0 sm:px-8 sm:py-8">
@@ -341,12 +367,25 @@ function Projects() {
               </div>
             </li>
             {/* Horizontal dievider on mobile */}
-            {idx < projects.length - 1 && (
+            {idx < visibleCount - 1 && (
               <hr className="block md:hidden border-t border-gray-200 my-8 w-11/12 mx-auto" />
             )}
           </FadeInSection>
         ))}
       </ul>
+      {/* Sentinel for infinite scroll */}
+      {visibleCount < projects.length && (
+        <div ref={loadMoreRef} className="h-12 flex items-center justify-center m-8">
+          {loading && (
+            <FontAwesomeIcon
+              icon={faSpinner}
+              spin
+              className="text-gray-400 text-5xl"
+              title="Loading more projects..."
+            />
+          )}
+        </div>
+      )}
     </section>
   );
 }
