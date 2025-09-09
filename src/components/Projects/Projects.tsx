@@ -366,7 +366,7 @@ function Projects() {
                 </div>
               </div>
             </li>
-            {/* Horizontal dievider on mobile */}
+            {/* Horizontal divider on mobile */}
             {idx < visibleCount - 1 && (
               <hr className="block md:hidden border-t border-gray-200 my-8 w-11/12 mx-auto" />
             )}

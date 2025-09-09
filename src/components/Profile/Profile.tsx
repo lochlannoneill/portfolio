@@ -27,7 +27,7 @@ function Profile() {
           <a
             href="https://www.linkedin.com/in/lochlannoneill/"
             target="_blank"
-            rel="noopener noreferrer"c
+            rel="noopener noreferrer"
             className="group"
           >
             <img
