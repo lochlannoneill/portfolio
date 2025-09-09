@@ -197,9 +197,10 @@ function Projects() {
         </h2>
       </FadeInSection>
 
-      <ul className="flex flex-col gap-6">
+      <ul className="flex flex-col">
         {projects.map((project, idx) => (
           <FadeInSection key={project.id}>
+            {/* Each project */}
             <li className="rounded-lg px-0 py-0 sm:px-8 sm:py-8">
               <div
                 className={`flex flex-col md:flex-row gap-6 md:gap-8 items-center ${
@@ -339,6 +340,10 @@ function Projects() {
                 </div>
               </div>
             </li>
+            {/* Horizontal dievider on mobile */}
+            {idx < projects.length - 1 && (
+              <hr className="block md:hidden border-t border-gray-200 my-8 w-11/12 mx-auto" />
+            )}
           </FadeInSection>
         ))}
       </ul>
