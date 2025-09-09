@@ -15,7 +15,6 @@ function App() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-6">
           {/* Left: sticky profile (becomes top on mobile) */}
           <aside className="lg:col-span-4">
-            {/* If your Navbar is fixed, adjust `top-*` to its height (e.g., top-20/top-24) */}
             <div className="lg:sticky lg:top-24">
               <Profile />
             </div>

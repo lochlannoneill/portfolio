@@ -5,14 +5,16 @@ import { faGithub, faLinkedin, faYoutube} from "@fortawesome/free-brands-svg-ico
 import { faCode } from "@fortawesome/free-solid-svg-icons"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Skills from '../Skills/Skills';
+import FadeInSection from '../../FadeInSection';
 
 function Profile() {
   return (
-  <section id="profile" className="relative bg-white-100 rounded-3xl md:shadow-lg max-w-md mx-auto overflow-hidden">
-      {/* top background image with black overlay */}
-      <div className="relative h-36 w-full">
-        <img
-          src={backgroundImg}
+    <FadeInSection>
+      <section id="profile" className="relative bg-white-100 rounded-3xl md:shadow-lg max-w-md mx-auto overflow-hidden">
+        {/* top background image with black overlay */}
+        <div className="relative h-36 w-full">
+          <img
+            src={backgroundImg}
           alt="Background"
           className="w-full h-full object-cover [filter:blur(1px)]"
         />
@@ -69,7 +71,8 @@ function Profile() {
 
       </div>
 
-    </section>
+      </section>
+    </FadeInSection>
   );
 }
 
