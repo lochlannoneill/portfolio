@@ -5,8 +5,11 @@ function Skills() {
     "Java",
     "Python",
     "C#",
-    "HTML/CSS/JavaScript",
-    "Tailwind CSS",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "Tailwind",
     "SQL",
     "NoSQL",
     "Quarkus",
@@ -29,7 +32,7 @@ function Skills() {
         {skills.map((skill, idx) => (
           <li
             key={idx}
-            className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-300 transition"
+            className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs md:text-sm font-medium hover:bg-blue-300 transition"
           >
             {skill}
           </li>
