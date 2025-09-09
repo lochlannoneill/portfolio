@@ -1,5 +1,6 @@
 import './App.css'
 import Navbar from './components/Navbar/Navbar';
+import Headroom from '@webappsconception/react-headroom';
 import Profile from './components/Profile/Profile';
 import Experience from './components/Experience/Experience';
 import Education from './components/Education/Education';
@@ -9,9 +10,11 @@ import Projects from './components/Projects/Projects';
 function App() {
   return (
     <div id="home" className="text-sm md:text-lg lg:text-xl">
-      <Navbar />
+      <Headroom>
+        <Navbar />
+      </Headroom>
 
-      <main className="container mx-auto">
+      <main className="container mx-auto pt-0 md:pt-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-6">
           {/* Left: sticky profile (becomes top on mobile) */}
           <aside className="lg:col-span-4">
