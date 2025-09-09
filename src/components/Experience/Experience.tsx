@@ -67,8 +67,8 @@ function Experience() {
         </FadeInSection>
 
         <div className="space-y-3">
-          <FadeInSection>
-            {EXPERIENCES.map((exp, i) => (
+          {EXPERIENCES.map((exp, i) => (
+            <FadeInSection>
               <details
                 key={i}
                 className="group rounded-lg border border-gray-200 open:border-gray-300 open:bg-gray-50"
@@ -129,8 +129,8 @@ function Experience() {
                 </div>
 
               </details>
-            ))}
-          </FadeInSection>
+            </FadeInSection>
+          ))}
         </div>
       </div>
     </section>
