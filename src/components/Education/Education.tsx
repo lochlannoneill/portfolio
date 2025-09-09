@@ -52,10 +52,9 @@ function Education() {
 
         <div className="space-y-3">
           {EDUCATION.map((edu, i) => (
-            <FadeInSection>
+            <FadeInSection key={i}>
               <details
-                key={i}
-                className="group rounded-lg border border-gray-200 open:border-gray-300 open:bg-gray-50"
+                className="group rounded-lg border border-gray-200 open:border-gray-300 open:bg-gray-50 transition-colors duration-200 hover:bg-green-50"
                 {...(edu.defaultOpen ? { open: true } : {})}
               >
                 <summary className="flex items-center justify-between cursor-pointer select-none px-4 py-3">
@@ -93,7 +92,7 @@ function Education() {
                     {edu.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="bg-amber-100 text-amber-700 text-xs font-medium px-3 py-1 rounded-full hover:bg-amber-300 transition"
+                        className="bg-green-100 text-green-700 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-300 transition"
                       >
                         {tag}
                       </span>

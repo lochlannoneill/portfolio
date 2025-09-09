@@ -216,7 +216,7 @@ function Projects() {
                     {project.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full text-xs font-medium hover:bg-gray-300 transition-colors"
+                        className="bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full text-xs md:text-sm font-medium hover:bg-gray-300 transition-colors"
                       >
                         {tag}
                       </span>

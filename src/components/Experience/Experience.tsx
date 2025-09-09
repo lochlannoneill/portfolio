@@ -68,10 +68,9 @@ function Experience() {
 
         <div className="space-y-3">
           {EXPERIENCES.map((exp, i) => (
-            <FadeInSection>
+            <FadeInSection key={i}>
               <details
-                key={i}
-                className="group rounded-lg border border-gray-200 open:border-gray-300 open:bg-gray-50"
+                className="group rounded-lg border border-gray-200 open:border-gray-300 open:bg-gray-50 transition-colors duration-200 hover:bg-purple-50"
                 {...(exp.defaultOpen ? { open: true } : {})}
               >
                 <summary className="flex items-center justify-between cursor-pointer select-none px-4 py-3">
@@ -112,7 +111,7 @@ function Experience() {
                     {exp.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="bg-green-100 text-green-700 text-xs font-medium px-3 py-1 rounded-full hover:bg-green-300 transition"
+                        className="bg-purple-100 text-purple-700 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-300 transition"
                       >
                         {tag}
                       </span>

@@ -61,11 +61,9 @@ function Certifications() {
         
         <div className="space-y-3">
           {CERTIFICATION.map((cert, i) => (
-            <FadeInSection>
-
+            <FadeInSection key={i}>
               <details
-                key={i}
-                className="group rounded-lg border border-gray-200 open:border-gray-300 open:bg-gray-50"
+                className="group rounded-lg border border-gray-200 open:border-gray-300 open:bg-gray-50 transition-colors duration-200 hover:bg-amber-50"
                 {...(cert.defaultOpen ? { open: true } : {})}
               >
                 <summary className="flex items-center justify-between cursor-pointer select-none px-4 py-3">
@@ -103,7 +101,7 @@ function Certifications() {
                     {cert.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="bg-purple-100 text-purple-700 text-xs font-medium px-3 py-1 rounded-full hover:bg-purple-300 transition"
+                        className="bg-amber-100 text-amber-700 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-300 transition"
                       >
                         {tag}
                       </span>
