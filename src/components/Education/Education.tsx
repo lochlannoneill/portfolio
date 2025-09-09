@@ -22,7 +22,7 @@ const EDUCATION: EducationItem[] = [
     dates: "September 2018 - May 2023",
     logo: mtuLogo,
     defaultOpen: true,
-    tags: ["Computer Science", "Software Development"],
+    tags: ["Software Development", "Computer Science"],
     bullets: [
       "Graduated with First Class Honours.",
       "Focused on backend development, web development, database management, distributed systems, cybersecurity, data analytics and cloud computing.",
@@ -35,7 +35,7 @@ const EDUCATION: EducationItem[] = [
     institution: "CTI Clonmel",
     dates: "September 2017 - May 2018",
     logo: ctiLogo,
-    tags: ["Computer Science", "Software Development"],
+    tags: ["Software Development", "Computer Science"],
     bullets: [
       "Graduated with First Class Honours.",
       "Focused on the core concepts of computer science and the fundamentals of backend/web development.",

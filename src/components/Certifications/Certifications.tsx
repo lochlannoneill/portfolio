@@ -22,7 +22,7 @@ const CERTIFICATION: CertificationItem[] = [
     dates: "Coming Soon",
     logo: microsoftLogo,
     defaultOpen: true,
-    tags: ["Cloud Computing", "Azure", "Development", "Cloud Native"],
+    tags: ["Cloud Computing", "Azure", "Cloud Native"],
     bullets: [
       "Developed and deployed cloud applications using Azure services.",
       "Implemented secure cloud solutions following best practices.",
