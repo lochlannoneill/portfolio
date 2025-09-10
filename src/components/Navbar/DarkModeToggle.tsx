@@ -28,8 +28,8 @@ const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ darkMode, setDarkMode }
     </div>
     {/* Slider circle */}
     <span
-      className={`absolute top-1 left-1 w-6 h-6 rounded-full shadow-md flex items-center justify-center transition-colors duration-300
-        ${darkMode ? 'bg-blue-500 translate-x-8' : 'bg-yellow-400 translate-x-0'}`}
+      className={`absolute top-1 left-1 w-6 h-6 rounded-full shadow-md flex items-center justify-center transition-colors duration-300 transform transition-transform duration-300
+        ${darkMode ? 'bg-blue-500 translate-x-8 rotate-[360deg]' : 'bg-yellow-400 translate-x-0 rotate-0'}`}
     >
       {darkMode ? (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 24 24">

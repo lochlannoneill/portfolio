@@ -242,13 +242,13 @@ function Projects() {
                     {project.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs md:text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-700"
+                        className="bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs md:text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-300"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{project.description}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">{project.description}</p>
 
                   {/* Project Links — desktop/tablet */}
                   {project.links && (
@@ -280,7 +280,7 @@ function Projects() {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`text-2xl text-gray-500 dark:text-gray-400 ${hoverClass}`}
+                            className={`text-2xl text-gray-500 dark:text-gray-400 ${hoverClass} transition-colors duration-300`}
                             title={type.charAt(0).toUpperCase() + type.slice(1)}
                           >
                             <FontAwesomeIcon icon={icon} />

@@ -143,7 +143,7 @@ function Navbar() {
                     alt="Profile Picture"
                     className="h-10 w-10 mr-2 rounded-full"
                   />
-                  <a href="#home" className="text-xl font-bold text-gray-800 dark:text-white drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black]">
+                  <a href="#home" className="text-xl font-bold text-gray-800 dark:text-white drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300">
                     Lochlann O Neill
                   </a>
                 </>
