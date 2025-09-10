@@ -1,7 +1,23 @@
 import { useEffect, useState, useRef } from "react";
+import DarkModeToggle from "./DarkModeToggle";
 import profileImg from "../../assets/profile.png";
 
 function Navbar() {
+  // Light/Dark mode toggle
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return document.documentElement.classList.contains('dark');
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
   const [atTop, setAtTop] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showProfile, setShowProfile] = useState(true); // default true for mobile
@@ -72,31 +88,31 @@ function Navbar() {
     <>
       <a
         href="#home"
-        className="block md:inline text-gray-800 hover:text-gray-600 p-8 font-medium md:border-0 border-t border-gray-200 first:border-t-0 drop-shadow-[0_1px_2px_white]"
+        className="block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 first:border-t-0 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
       >
         Home
       </a>
       <a
         href="#experience"
-        className="block md:inline text-gray-800 hover:text-gray-600 p-8 font-medium md:border-0 border-t border-gray-200 drop-shadow-[0_1px_2px_white]"
+        className="block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
       >
         Experience
       </a>
       <a
         href="#education"
-        className="block md:inline text-gray-800 hover:text-gray-600 p-8 font-medium md:border-0 border-t border-gray-200 drop-shadow-[0_1px_2px_white]"
+        className="block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
       >
         Education
       </a>
       <a
         href="#certifications"
-        className="block md:inline text-gray-800 hover:text-gray-600 p-8 font-medium md:border-0 border-t border-gray-200 drop-shadow-[0_1px_2px_white]"
+        className="block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
       >
         Certifications
       </a>
       <a
         href="#projects"
-        className="block md:inline text-gray-800 hover:text-gray-600 p-8 font-medium md:border-0 border-t border-gray-200 drop-shadow-[0_1px_2px_white]"
+        className="block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
       >
         Projects
       </a>
@@ -105,45 +121,51 @@ function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 [transition:backdrop-filter_0.4s,background-color_0.4s]
-        ${atTop ? 'bg-transparent md:bg-white/10 md:backdrop-blur-md' : 'backdrop-blur-md bg-white/10'}
-      `}
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 [transition:backdrop-filter_0.4s,background-color_0.4s] bg-transparent ${atTop ? '' : 'backdrop-blur-md'} md:backdrop-blur-md`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-18">
-          {/* Left: profile + name (hidden at top via opacity) */}
-          <div
-            className={`flex items-center transition-opacity duration-300 ${
-              atTop ? "opacity-0" : "opacity-100"
-            } ${!showProfile ? 'md:opacity-0 md:pointer-events-none' : ''}`}
-          >
-            {showProfile && (
-              <>
-                <img
-                  src={profileImg}
-                  alt="Profile Picture"
-                  className="h-10 w-10 mr-2 rounded-full"
-                />
-                <a href="#home" className="text-xl font-bold text-gray-800 drop-shadow-[0_1px_2px_white]">
-                  Lochlann O Neill
-                </a>
-              </>
-            )}
-          </div>
-          {/* Desktop menu */}
-          <div className="hidden md:block flex-1">
+          {/* Grouped: profile/name, navlinks, dark mode toggle */}
+          <div className={`flex items-center gap-2 md:gap-6 flex-1 transition-colors duration-500
+            md:justify-center md:translate-x-0
+            ${!navCentered ? 'md:justify-end md:translate-x-10' : ''}
+          `} style={{ transitionProperty: 'all' }}>
+            {/* Profile + name */}
             <div
-              className={`flex items-baseline space-x-4 transition-all duration-500
-                md:justify-center md:translate-x-0
-                ${!navCentered ? 'md:justify-end md:translate-x-10' : ''}
-              `}
-              style={{ transitionProperty: 'all' }}
+              className={`flex items-center transition-opacity duration-300 ${
+                atTop ? "opacity-0" : "opacity-100"
+              } ${!showProfile ? 'md:opacity-0 md:pointer-events-none' : ''}`}
             >
-              {navLinks}
+              {showProfile && (
+                <>
+                  <img
+                    src={profileImg}
+                    alt="Profile Picture"
+                    className="h-10 w-10 mr-2 rounded-full"
+                  />
+                  <a href="#home" className="text-xl font-bold text-gray-800 dark:text-white drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black]">
+                    Lochlann O Neill
+                  </a>
+                </>
+              )}
             </div>
+            {/* Navlinks */}
+            <div className="hidden md:block">
+              <div className="flex items-baseline space-x-4">
+                {navLinks}
+              </div>
+            </div>
+            {/* Dark mode toggle: desktop only */}
+            <span className="hidden md:inline">
+              <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+            </span>
           </div>
-          {/* Mobile hamburger (top-right) */}
-          <div className="md:hidden">
+          {/* Right: mobile hamburger and dark mode toggle group */}
+          <div className="md:hidden flex items-center gap-2">
+            {/* Dark mode toggle: mobile only */}
+            <span className="inline md:hidden">
+              <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
+            </span>
             <button
               ref={btnRef}
               type="button"
@@ -159,7 +181,7 @@ function Navbar() {
               {!mobileOpen ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`h-9 w-9 transition-colors duration-300 ${atTop ? "text-white" : "text-black"} md:text-black drop-shadow-[0_1px_4px_white] md:drop-shadow-none`}
+                  className={`h-9 w-9 transition-colors duration-300 ${atTop ? "text-white" : "text-gray-500"} md:text-gray-500 drop-shadow-[0_1px_4px_white] md:drop-shadow-none dark:text-white`}
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -177,7 +199,7 @@ function Navbar() {
         {/* Backdrop below navbar */}
         <div
           onClick={() => setMobileOpen(false)}
-          className={`fixed inset-x-0 bottom-0 top-16 bg-black/30 transition-opacity duration-200 z-40 ${
+          className={`fixed inset-x-0 bottom-0 top-16 bg-black/30 dark:bg-black/60 transition-opacity duration-200 z-40 ${
             mobileOpen ? "opacity-100" : "opacity-0"
           }`}
         />
@@ -186,24 +208,24 @@ function Navbar() {
           id="mobile-menu"
           role="menu"
           aria-label="Mobile navigation"
-          className={`fixed right-4 left-4 top-4 rounded-2xl bg-gray-100 shadow-xl ring-1 ring-black/5 transition-transform transition-opacity duration-300 px-4 pt-4 z-[60]
+          className={`fixed right-4 left-4 top-4 rounded-2xl bg-gray-100 dark:bg-gray-900 shadow-xl ring-1 ring-black/5 dark:ring-white/10 transition-transform transition-opacity duration-300 px-4 pt-4 z-[60]
               ${mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}`}
         >
           <div className="flex items-center justify-between mb-2">
-            <span className="text-lg font-semibold">Menu</span>
+            <span className="text-2xl font-bold text-gray-800 dark:text-gray-100">Menu</span>
             <button
               type="button"
               aria-label="Close menu"
               onClick={() => setMobileOpen(false)}
               className="rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700 dark:text-gray-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M6 6l12 12M6 18L18 6" />
               </svg>
             </button>
           </div>
           <div className="space-y-1" onClick={() => setMobileOpen(false)}>
-            {navLinks}
+            <div className="flex flex-col space-y-1 text-lg font-semibold">{navLinks}</div>
           </div>
         </div>
       </div>

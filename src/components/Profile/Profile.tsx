@@ -10,7 +10,7 @@ import FadeInSection from '../../FadeInSection';
 function Profile() {
   return (
     <FadeInSection>
-      <section id="profile" className="relative bg-white-100 md:rounded-3xl md:shadow-lg md:max-w-lg lg:max-w-xl mx-auto overflow-hidden">
+  <section id="profile" className="relative md:rounded-3xl md:shadow-lg md:dark:shadow-[0_8px_40px_8px_rgba(0,0,0,0.85)] md:max-w-lg lg:max-w-xl mx-auto overflow-hidden transition-colors duration-300">
         {/* top background image with black overlay */}
         <div className="relative h-36 w-screen left-1/2 right-1/2 -translate-x-1/2 md:w-full md:left-0 md:right-0 md:translate-x-0 overflow-hidden bg-black">
           <img
@@ -33,7 +33,7 @@ function Profile() {
             <img
               src={profileImg}
               alt="Profile"
-              className="w-30 h-30 rounded-full border-5 border-white transition-all duration-300 group-hover:scale-105 group-hover:brightness-90"
+              className="w-30 h-30 rounded-full border-5 border-white dark:border-gray-900 transition-colors duration-300 group-hover:scale-105 group-hover:brightness-90"
             />
           </a>
           <div className="flex flex-col -mt-4">
@@ -46,25 +46,25 @@ function Profile() {
         <Skills />
 
         {/* bio section */}
-        <p className="text-gray-700 text-center text-lg md:text-xl">
+        <p className="text-gray-700 dark:text-gray-300 text-center text-lg md:text-xl transition-colors duration-300">
           Hi! I'm a passionate software developer who loves to learn new technologies!
         </p>
 
         {/* links section */}
         <div className="flex justify-center space-x-4 mt-4">
-          <a href="https://github.com/lochlannoneill" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/lochlannoneill" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
             <FontAwesomeIcon icon={faGithub} className="text-2xl text-purple-700 hover:text-purple-900" />
           </a>
-          <a href="https://linkedin.com/in/lochlannoneill" target="_blank" rel="noopener noreferrer">
+          <a href="https://linkedin.com/in/lochlannoneill" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
             <FontAwesomeIcon icon={faLinkedin} className="text-2xl text-blue-700 hover:text-blue-900" />
           </a>
-          <a href="https://www.youtube.com/channel/UCfh3sXBVlA8N5Da3ms8n1Sg" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.youtube.com/channel/UCfh3sXBVlA8N5Da3ms8n1Sg" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
             <FontAwesomeIcon icon={faYoutube} className="text-2xl text-red-600 hover:text-red-800" />
           </a>
-          <a href="https://leetcode.com/u/lochlannoneill/" target="_blank" rel="noopener noreferrer">
+          <a href="https://leetcode.com/u/lochlannoneill/" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
             <FontAwesomeIcon icon={faCode} className="text-2xl text-amber-400 hover:text-amber-500" />
           </a>
-          <a href="mailto:lochlannjoneill@gmail.com" target="_blank" rel="noopener noreferrer">
+          <a href="mailto:lochlannjoneill@gmail.com" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
             <FontAwesomeIcon icon={faEnvelope} className="text-2xl text-green-600 hover:text-green-700" />
           </a>
         </div>

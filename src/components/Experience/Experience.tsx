@@ -64,10 +64,10 @@ function Experience() {
   );
 
   return (
-    <section id="experience" className="bg-white rounded-lg w-full p-4 md:p-6">
+  <section id="experience" className="w-full p-4 md:p-6">
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Experience</h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Experience</h2>
         </FadeInSection>
 
         <div className="space-y-3">
@@ -83,9 +83,9 @@ function Experience() {
                   onKeyDown={e => {
                     if (e.key === "Enter" || e.key === " ") setOpenIdx(isOpen ? null : i);
                   }}
-                  className={`group rounded-lg border border-gray-200 transition-colors duration-200 cursor-pointer
-                    ${isOpen ? "bg-purple-50" : ""}
-                    hover:bg-purple-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-300`}
+                  className={`group rounded-lg ${isOpen ? "border-2" : "border"} border-gray-200 dark:border-gray-700 transition-colors duration-200 cursor-pointer
+                    ${isOpen ? "bg-purple-100 border-purple-400 dark:bg-[#4b206b] dark:border-purple-500" : "bg-white dark:bg-gray-900"}
+                    hover:bg-purple-100 dark:hover:bg-purple-800 hover:border-purple-500 focus:outline-none`}
                 >
                   <div className="flex items-center justify-between px-4 py-3">
                     <div className="flex items-center space-x-4">
@@ -95,11 +95,11 @@ function Experience() {
                         className="h-10 w-10 object-contain rounded"
                       />
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-800">
+                        <h3 className="text-lg font-semibold text-gray-800 dark:text-white transition-colors duration-300">
                           {exp.title}
                         </h3>
-                        <p className="text-gray-600">{exp.company}</p>
-                        <p className="text-gray-500 text-sm">{exp.dates}</p>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{exp.company}</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">{exp.dates}</p>
                       </div>
                     </div>
                     {/* chevron icon */}
@@ -124,14 +124,18 @@ function Experience() {
                         {exp.tags.map((tag, idx) => (
                           <span
                             key={idx}
-                            className="bg-purple-100 text-purple-700 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-300 transition"
+                            className={
+                              isOpen
+                                ? "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
+                                : "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
+                            }
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
                       {/* bullet list */}
-                      <ul className="list-disc list-inside text-gray-700 space-y-1">
+                      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
                         {exp.bullets.map((b, idx) => (
                           <li key={idx}>{b}</li>
                         ))}
