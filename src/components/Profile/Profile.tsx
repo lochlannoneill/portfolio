@@ -1,3 +1,5 @@
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import resumePdf from '../../assets/lochlann_oneill_resume.pdf';
 import profileImg from '../../assets/profile.png';
 import backgroundImg from '../../assets/background.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -68,6 +70,16 @@ function Profile() {
             <FontAwesomeIcon icon={faEnvelope} className="text-2xl text-green-600 group-hover:text-green-700 dark:text-white dark:group-hover:text-white transition-colors duration-300" />
           </a>
         </div>
+        
+        {/* Resume download button */}
+        <div className="flex justify-center mt-6">
+          <a
+            href={resumePdf}
+            download
+            className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-8 py-3 text-lg sm:px-6 sm:py-2 sm:text-base rounded-md shadow-lg transition-all duration-300 transform hover:scale-105"
+          >
+            <FontAwesomeIcon icon={faDownload} className="text-xl sm:text-lg" />
+            Resume
           </a>
         </div>
 
