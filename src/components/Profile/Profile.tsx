@@ -52,20 +52,20 @@ function Profile() {
 
         {/* links section */}
         <div className="flex justify-center space-x-4 mt-4">
-          <a href="https://github.com/lochlannoneill" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
-            <FontAwesomeIcon icon={faGithub} className="text-2xl text-purple-700 hover:text-purple-900" />
+          <a href="https://github.com/lochlannoneill" target="_blank" rel="noopener noreferrer" className="group bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
+            <FontAwesomeIcon icon={faGithub} className="text-2xl text-purple-700 group-hover:text-purple-900 transition-colors duration-300" />
           </a>
-          <a href="https://linkedin.com/in/lochlannoneill" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
-            <FontAwesomeIcon icon={faLinkedin} className="text-2xl text-blue-700 hover:text-blue-900" />
+          <a href="https://linkedin.com/in/lochlannoneill" target="_blank" rel="noopener noreferrer" className="group bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
+            <FontAwesomeIcon icon={faLinkedin} className="text-2xl text-blue-700 group-hover:text-blue-900 transition-colors duration-300" />
           </a>
-          <a href="https://www.youtube.com/channel/UCfh3sXBVlA8N5Da3ms8n1Sg" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
-            <FontAwesomeIcon icon={faYoutube} className="text-2xl text-red-600 hover:text-red-800" />
+          <a href="https://www.youtube.com/channel/UCfh3sXBVlA8N5Da3ms8n1Sg" target="_blank" rel="noopener noreferrer" className="group bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
+            <FontAwesomeIcon icon={faYoutube} className="text-2xl text-red-600 group-hover:text-red-800 transition-colors duration-300" />
           </a>
-          <a href="https://leetcode.com/u/lochlannoneill/" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
-            <FontAwesomeIcon icon={faCode} className="text-2xl text-amber-400 hover:text-amber-500" />
+          <a href="https://leetcode.com/u/lochlannoneill/" target="_blank" rel="noopener noreferrer" className="group bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
+            <FontAwesomeIcon icon={faCode} className="text-2xl text-amber-400 group-hover:text-amber-500 transition-colors duration-300" />
           </a>
-          <a href="mailto:lochlannjoneill@gmail.com" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
-            <FontAwesomeIcon icon={faEnvelope} className="text-2xl text-green-600 hover:text-green-700" />
+          <a href="mailto:lochlannjoneill@gmail.com" target="_blank" rel="noopener noreferrer" className="group bg-white dark:bg-gray-800 rounded-full p-2 transition-colors duration-300 hover:scale-105 shadow-[inset_0_2px_12px_rgba(0,0,0,0.25)]">
+            <FontAwesomeIcon icon={faEnvelope} className="text-2xl text-green-600 group-hover:text-green-700 transition-colors duration-300" />
           </a>
         </div>
 
