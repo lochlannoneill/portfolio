@@ -24,7 +24,7 @@ function Skills() {
   ];
 
   return (
-    <section className="bg-white rounded-lg max-w-md mx-auto pb-4">
+    <section className="rounded-lg max-w-md mx-auto pb-4">
       {/* <h2 className="text-2xl font-bold text-gray-800 mb-4">Skills</h2> */}
       <ul className="flex flex-wrap gap-2">
         {skills.map((skill, idx) => (
