@@ -1,5 +1,4 @@
 // Experience.tsx
-import "./Experience.css";
 import vodafoneLogo from "../../assets/logos/vodafone.png";
 import bostonLogo from "../../assets/logos/boston.jpg";
 import FadeInSection from "../../FadeInSection";

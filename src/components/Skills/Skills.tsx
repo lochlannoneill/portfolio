@@ -1,5 +1,3 @@
-import "./Skills.css";
-
 function Skills() {
   const skills = [
     "Java",

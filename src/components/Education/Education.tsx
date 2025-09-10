@@ -1,5 +1,4 @@
 // Education.tsx
-import "./Education.css";
 import mtuLogo from "../../assets/logos/mtu.png";
 import ctiLogo from "../../assets/logos/cti.jpg";
 import FadeInSection from "../../FadeInSection";
