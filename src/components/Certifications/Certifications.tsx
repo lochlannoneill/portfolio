@@ -1,5 +1,4 @@
 // Certifications.tsx
-import "./Certifications.css";
 import microsoftLogo from "../../assets/logos/microsoft.png";
 import solasLogo from "../../assets/logos/solas.png";
 import FadeInSection from "../../FadeInSection";
@@ -58,12 +57,11 @@ function Certifications() {
   );
 
   return (
-    <section id="certifications" className="bg-white rounded-lg w-full p-4 md:p-6">
+    <section id="certifications" className="w-full p-4 md:p-6">
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Certifications</h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Certifications</h2>
         </FadeInSection>
-        
         <div className="space-y-3">
           {CERTIFICATION.map((cert, i) => {
             const isOpen = openIdx === i;
@@ -77,9 +75,9 @@ function Certifications() {
                   onKeyDown={e => {
                     if (e.key === "Enter" || e.key === " ") setOpenIdx(isOpen ? null : i);
                   }}
-                  className={`group rounded-lg border border-gray-200 transition-colors duration-200 cursor-pointer
-                    ${isOpen ? "bg-amber-50" : ""}
-                    hover:bg-amber-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-300`}
+                  className={`group rounded-lg ${isOpen ? "border-2 border-amber-400 dark:border-amber-500" : "border border-gray-200 dark:border-gray-700"} transition-colors duration-200 cursor-pointer
+                    ${isOpen ? "bg-amber-100 dark:bg-[#78350f]" : "bg-white dark:bg-gray-900"}
+                    hover:bg-amber-100 dark:hover:bg-amber-800 hover:border-amber-500 focus:outline-none`}
                 >
                   <div className="flex items-center justify-between px-4 py-3">
                     <div className="flex items-center space-x-4">
@@ -89,9 +87,9 @@ function Certifications() {
                         className="h-10 w-10 object-contain rounded"
                       />
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-800">{cert.title}</h3>
-                        <p className="text-gray-600">{cert.institution}</p>
-                        <p className="text-gray-500 text-sm">{cert.dates}</p>
+                        <h3 className="text-lg font-semibold text-gray-800 dark:text-white transition-colors duration-300">{cert.title}</h3>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{cert.institution}</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">{cert.dates}</p>
                       </div>
                     </div>
                     {/* chevron */}
@@ -109,21 +107,26 @@ function Certifications() {
                       />
                     </svg>
                   </div>
-
                   {isOpen && (
                     <div className="px-6 pb-4 space-y-3">
+                      {/* tags */}
                       <div className="flex flex-wrap gap-2 mt-3">
                         {cert.tags.map((tag, idx) => (
                           <span
                             key={idx}
-                            className="bg-amber-100 text-amber-700 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-300 transition"
+                            className={
+                              isOpen
+                                ? "bg-amber-300 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
+                                : "bg-amber-300 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
+                            }
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
+                      {/* bullet list */}
                       {cert.bullets && (
-                        <ul className="list-disc list-inside text-gray-700 space-y-1">
+                        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
                           {cert.bullets.map((b, idx) => (
                             <li key={idx}>{b}</li>
                           ))}

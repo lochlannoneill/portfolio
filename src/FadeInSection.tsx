@@ -15,7 +15,7 @@ export default function FadeInSection({ children }: { children: React.ReactNode 
           }
         });
       },
-      { threshold: 0.25 } // trigger when 15% of the element is visible
+      { threshold: 0.175 } // trigger when 17.5% of the element is visible
     );
 
     if (ref.current) observer.observe(ref.current);

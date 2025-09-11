@@ -1,0 +1,5 @@
+/* src/index.css */
+@import "tailwindcss";
+
+/* Tell Tailwind to use the .dark class instead of prefers-color-scheme */
+@custom-variant dark (&:where(.dark, .dark *));

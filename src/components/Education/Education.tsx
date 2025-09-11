@@ -1,5 +1,4 @@
 // Education.tsx
-import "./Education.css";
 import mtuLogo from "../../assets/logos/mtu.png";
 import ctiLogo from "../../assets/logos/cti.jpg";
 import FadeInSection from "../../FadeInSection";
@@ -49,10 +48,10 @@ function Education() {
   );
 
   return (
-    <section id="education" className="bg-white rounded-lg w-full p-4 md:p-6">
+    <section id="education" className="w-full p-4 md:p-6">
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Education</h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Education</h2>
         </FadeInSection>
 
         <div className="space-y-3">
@@ -68,9 +67,9 @@ function Education() {
                   onKeyDown={e => {
                     if (e.key === "Enter" || e.key === " ") setOpenIdx(isOpen ? null : i);
                   }}
-                  className={`group rounded-lg border border-gray-200 transition-colors duration-200 cursor-pointer
-                    ${isOpen ? "bg-green-50" : ""}
-                    hover:bg-green-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-300`}
+                  className={`group rounded-lg ${isOpen ? "border-2" : "border"} border-gray-200 dark:border-gray-700 transition-colors duration-200 cursor-pointer
+                    ${isOpen ? "bg-green-100 border-green-400 dark:bg-[#064e3b] dark:border-green-500" : "bg-white dark:bg-gray-900"}
+                    hover:bg-green-100 dark:hover:bg-green-800 hover:border-green-500 focus:outline-none`}
                 >
                   <div className="flex items-center justify-between px-4 py-3">
                     <div className="flex items-center space-x-4">
@@ -80,9 +79,9 @@ function Education() {
                         className="h-10 w-10 object-contain rounded"
                       />
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-800">{edu.title}</h3>
-                        <p className="text-gray-600">{edu.institution}</p>
-                        <p className="text-gray-500 text-sm">{edu.dates}</p>
+                        <h3 className="text-lg font-semibold text-gray-800 dark:text-white transition-colors duration-300">{edu.title}</h3>
+                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{edu.institution}</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">{edu.dates}</p>
                       </div>
                     </div>
                     {/* chevron */}
@@ -102,18 +101,24 @@ function Education() {
                   </div>
                   {isOpen && (
                     <div className="px-6 pb-4 space-y-3">
+                      {/* tags */}
                       <div className="flex flex-wrap gap-2 mt-3">
                         {edu.tags.map((tag, idx) => (
                           <span
                             key={idx}
-                            className="bg-green-100 text-green-700 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-300 transition"
+                            className={
+                              isOpen
+                                ? "bg-green-300 dark:bg-green-950 text-green-900 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
+                                : "bg-green-300 dark:bg-green-950 text-green-900 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
+                            }
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
+                      {/* bullet list */}
                       {edu.bullets && (
-                        <ul className="list-disc list-inside text-gray-700 space-y-1">
+                        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
                           {edu.bullets.map((b, idx) => (
                             <li key={idx}>{b}</li>
                           ))}

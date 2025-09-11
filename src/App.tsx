@@ -8,7 +8,7 @@ import Projects from './components/Projects/Projects';
 
 function App() {
   return (
-    <div id="home" className="text-sm md:text-lg lg:text-xl">
+    <div id="home" className="text-sm bg-white dark:bg-gray-900 md:text-lg lg:text-xl transition-colors duration-300">
       <Navbar />
 
       <main className="container mx-auto pt-0 md:pt-16">

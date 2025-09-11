@@ -215,10 +215,10 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="bg-white rounded-lg w-full max-w-6xl mx-auto p-4"
+      className="w-full max-w-6xl mx-auto p-4"
     >
       <FadeInSection>
-        <h2 className="block md:hidden text-2xl font-bold text-gray-800 mb-4">
+        <h2 className="block md:hidden text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 transition-colors duration-300">
           Projects
         </h2>
       </FadeInSection>
@@ -235,20 +235,20 @@ function Projects() {
               >
                 {/* Text Section */}
                 <div className="w-full md:w-[45%] min-w-0">
-                  <h2 className="font-semibold text-gray-900 text-xl">
+                  <h2 className="font-semibold text-gray-900 dark:text-gray-200 text-xl md:text-2xl transition-colors duration-300">
                     {project.name}
                   </h2>
                   <div className="flex flex-wrap gap-2 my-2">
                     {project.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full text-xs md:text-sm font-medium hover:bg-gray-300 transition-colors"
+                        className="bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-200 px-3 py-1 rounded-full text-xs md:text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-300"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <p className="text-sm text-gray-600">{project.description}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">{project.description}</p>
 
                   {/* Project Links — desktop/tablet */}
                   {project.links && (
@@ -280,7 +280,8 @@ function Projects() {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`text-2xl text-gray-500 ${hoverClass} transition`}
+                            className={`text-2xl text-gray-700 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-md px-3 py-2 hover:scale-105 ${hoverClass} transition-all duration-300`}
+                            style={!document.documentElement.classList.contains('dark') ? { boxShadow: 'inset 0 2px 8px 0 rgba(0,0,0,0.10), inset 0 2px 12px 0 rgba(0,0,0,0.18)' } : {}}
                             title={type.charAt(0).toUpperCase() + type.slice(1)}
                           >
                             <FontAwesomeIcon icon={icon} />
@@ -354,7 +355,8 @@ function Projects() {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`text-2xl text-gray-500 ${hoverClass} transition`}
+                            className={`text-2xl text-gray-600 bg-white dark:bg-gray-800 rounded-md px-3 py-2 hover:scale-105 ${hoverClass} transition`}
+                            style={!document.documentElement.classList.contains('dark') ? { boxShadow: 'inset 0 2px 8px 0 rgba(0,0,0,0.10), inset 0 2px 12px 0 rgba(0,0,0,0.18)' } : {}}
                             title={type.charAt(0).toUpperCase() + type.slice(1)}
                           >
                             <FontAwesomeIcon icon={icon} />
@@ -368,7 +370,7 @@ function Projects() {
             </li>
             {/* Horizontal divider on mobile */}
             {idx < visibleCount - 1 && (
-              <hr className="block md:hidden border-t border-gray-200 my-8 w-11/12 mx-auto" />
+              <hr className="block md:hidden border-t border-gray-200 dark:border-gray-700 my-8 w-11/12 mx-auto" />
             )}
           </FadeInSection>
         ))}
@@ -380,7 +382,7 @@ function Projects() {
             <FontAwesomeIcon
               icon={faSpinner}
               spin
-              className="text-gray-400 text-5xl"
+              className="text-gray-400 dark:text-gray-500 text-5xl"
               title="Loading more projects..."
             />
           )}
