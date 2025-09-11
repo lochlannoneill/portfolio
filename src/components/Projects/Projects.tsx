@@ -280,7 +280,8 @@ function Projects() {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`text-2xl text-gray-500 dark:text-gray-400 ${hoverClass} transition-colors duration-300`}
+                            className={`text-2xl text-gray-700 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-md px-3 py-2 hover:scale-105 ${hoverClass} transition-all duration-300`}
+                            style={!document.documentElement.classList.contains('dark') ? { boxShadow: 'inset 0 2px 8px 0 rgba(0,0,0,0.10), inset 0 2px 12px 0 rgba(0,0,0,0.18)' } : {}}
                             title={type.charAt(0).toUpperCase() + type.slice(1)}
                           >
                             <FontAwesomeIcon icon={icon} />
@@ -354,7 +355,8 @@ function Projects() {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`text-2xl text-gray-500 ${hoverClass} transition`}
+                            className={`text-2xl text-gray-600 bg-white dark:bg-gray-800 rounded-md px-3 py-2 hover:scale-105 ${hoverClass} transition`}
+                            style={!document.documentElement.classList.contains('dark') ? { boxShadow: 'inset 0 2px 8px 0 rgba(0,0,0,0.10), inset 0 2px 12px 0 rgba(0,0,0,0.18)' } : {}}
                             title={type.charAt(0).toUpperCase() + type.slice(1)}
                           >
                             <FontAwesomeIcon icon={icon} />
