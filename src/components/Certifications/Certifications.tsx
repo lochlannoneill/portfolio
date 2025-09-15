@@ -93,19 +93,21 @@ function Certifications() {
                       </div>
                     </div>
                     {/* chevron */}
-                    <svg
-                      className={`fill-gray-400 dark:fill-gray-600 h-5 w-5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <span className="flex-shrink-0 flex items-center justify-center w-7 h-7">
+                      <svg
+                        className={`fill-gray-400 dark:fill-gray-600 h-5 w-5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
                   </div>
                   <div
                     className={`transition-all duration-500 ease-in-out overflow-hidden px-6 ${isOpen ? 'max-h-96 opacity-100 pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
