@@ -144,7 +144,8 @@ function Navbar() {
                     className="h-10 w-10 mr-2 rounded-full"
                   />
                   <a href="#home" className="text-xl font-bold text-gray-800 dark:text-white drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300">
-                    Lochlann O Neill
+                    <span className="md:hidden">Lochlann</span>
+                    <span className="hidden md:inline">Lochlann O Neill</span>
                   </a>
                 </>
               )}
