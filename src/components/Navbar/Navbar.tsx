@@ -6,7 +6,10 @@ function Navbar() {
   // Light/Dark mode toggle
   const [darkMode, setDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
-      return document.documentElement.classList.contains('dark');
+      // Check for explicit class first (for SSR hydration), else use system preference
+      if (document.documentElement.classList.contains('dark')) return true;
+      if (document.documentElement.classList.contains('light')) return false;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
     return false;
   });
