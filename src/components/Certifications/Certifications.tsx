@@ -95,7 +95,7 @@ function Certifications() {
                     {/* chevron */}
                     <span className="flex-shrink-0 flex items-center justify-center w-7 h-7">
                       <svg
-                        className={`fill-gray-400 dark:fill-gray-600 h-5 w-5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                        className={`fill-gray-400 dark:fill-gray-600 h-5 w-5 transition-all duration-300 ${isOpen ? "rotate-180" : ""}`}
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
