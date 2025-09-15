@@ -52,8 +52,7 @@ const EXPERIENCES: ExperienceItem[] = [
     bullets: [
       "Participated in a rotational program, gaining exposure to multiple teams and learning different aspects of software development and operations.",
       "Helped migrate factory system data into SharePoint, improving accessibility and organization for the team.",
-      "Assisted with code reviews of in-house software to check specification alignment and support component ID format updates.",
-      "Collaborated with external developers to ensure in-house software met specifications and worked smoothly with vendor systems.",
+      "Assisted with code reviews of in-house software to check specification alignment and support component ID format updates."
     ],
   },
 ];
@@ -99,49 +98,54 @@ function Experience() {
                           {exp.title}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{exp.company}</p>
-                        <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">{exp.dates}</p>
+                        <p className="text-gray-400 dark:text-gray-500 text-sm font-medium transition-colors duration-300">{exp.dates}</p>
                       </div>
                     </div>
                     {/* chevron icon */}
-                    <svg
-                      className={`h-5 w-5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <span className="flex-shrink-0 flex items-center justify-center w-7 h-7">
+                      <svg
+                        className={`fill-gray-400 dark:fill-gray-600 h-5 w-5 transition-all duration-300 ${isOpen ? "rotate-180" : ""}`}
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
                   </div>
-                  {isOpen && (
-                    <div className="px-6 pb-4 space-y-3">
-                      {/* tags */}
-                      <div className="flex flex-wrap gap-2 mt-3">
-                        {exp.tags.map((tag, idx) => (
-                          <span
-                            key={idx}
-                            className={
-                              isOpen
-                                ? "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
-                                : "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
-                            }
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      {/* bullet list */}
-                      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
-                        {exp.bullets.map((b, idx) => (
-                          <li key={idx}>{b}</li>
-                        ))}
-                      </ul>
+                  <div
+                    className={`transition-all duration-500 ease-in-out overflow-hidden px-6 ${isOpen ? 'max-h-96 opacity-100 pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
+                    style={{
+                      transitionProperty: 'max-height, opacity, padding-bottom',
+                    }}
+                  >
+                    {/* tags */}
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {exp.tags.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className={
+                            isOpen
+                              ? "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
+                              : "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
+                          }
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                  )}
+                    {/* bullet list */}
+                    <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
+                      {exp.bullets.map((b, idx) => (
+                        <li key={idx}>{b}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </FadeInSection>
             );

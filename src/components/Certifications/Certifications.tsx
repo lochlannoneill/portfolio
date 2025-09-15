@@ -89,51 +89,56 @@ function Certifications() {
                       <div>
                         <h3 className="text-lg font-semibold text-gray-800 dark:text-white transition-colors duration-300">{cert.title}</h3>
                         <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{cert.institution}</p>
-                        <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">{cert.dates}</p>
+                        <p className="text-gray-400 dark:text-gray-500 text-sm font-medium transition-colors duration-300">{cert.dates}</p>
                       </div>
                     </div>
                     {/* chevron */}
-                    <svg
-                      className={`h-5 w-5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <span className="flex-shrink-0 flex items-center justify-center w-7 h-7">
+                      <svg
+                        className={`fill-gray-400 dark:fill-gray-600 h-5 w-5 transition-all duration-300 ${isOpen ? "rotate-180" : ""}`}
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
                   </div>
-                  {isOpen && (
-                    <div className="px-6 pb-4 space-y-3">
-                      {/* tags */}
-                      <div className="flex flex-wrap gap-2 mt-3">
-                        {cert.tags.map((tag, idx) => (
-                          <span
-                            key={idx}
-                            className={
-                              isOpen
-                                ? "bg-amber-300 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
-                                : "bg-amber-300 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
-                            }
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      {/* bullet list */}
-                      {cert.bullets && (
-                        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
-                          {cert.bullets.map((b, idx) => (
-                            <li key={idx}>{b}</li>
-                          ))}
-                        </ul>
-                      )}
+                  <div
+                    className={`transition-all duration-500 ease-in-out overflow-hidden px-6 ${isOpen ? 'max-h-96 opacity-100 pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
+                    style={{
+                      transitionProperty: 'max-height, opacity, padding-bottom',
+                    }}
+                  >
+                    {/* tags */}
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {cert.tags.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className={
+                            isOpen
+                              ? "bg-amber-300 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
+                              : "bg-amber-300 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
+                          }
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                  )}
+                    {/* bullet list */}
+                    {cert.bullets && (
+                      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
+                        {cert.bullets.map((b, idx) => (
+                          <li key={idx}>{b}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                 </div>
               </FadeInSection>
             );

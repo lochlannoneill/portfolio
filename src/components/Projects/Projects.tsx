@@ -355,8 +355,7 @@ function Projects() {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`text-2xl text-gray-600 bg-white dark:bg-gray-800 rounded-md px-3 py-2 hover:scale-105 ${hoverClass} transition`}
-                            style={!document.documentElement.classList.contains('dark') ? { boxShadow: 'inset 0 2px 8px 0 rgba(0,0,0,0.10), inset 0 2px 12px 0 rgba(0,0,0,0.18)' } : {}}
+                            className={`text-2xl text-gray-600 bg-gray-100 dark:bg-gray-800 rounded-md px-3 py-2 hover:scale-105 ${hoverClass} transition-colors duration-300`}
                             title={type.charAt(0).toUpperCase() + type.slice(1)}
                           >
                             <FontAwesomeIcon icon={icon} />
@@ -370,7 +369,7 @@ function Projects() {
             </li>
             {/* Horizontal divider on mobile */}
             {idx < visibleCount - 1 && (
-              <hr className="block md:hidden border-t border-gray-200 dark:border-gray-700 my-8 w-11/12 mx-auto" />
+              <hr className="block md:hidden border-t border-gray-100 dark:border-gray-800 my-8 w-11/12 mx-auto transition-colors duration-300" />
             )}
           </FadeInSection>
         ))}
@@ -382,7 +381,7 @@ function Projects() {
             <FontAwesomeIcon
               icon={faSpinner}
               spin
-              className="text-gray-400 dark:text-gray-500 text-5xl"
+              className="text-gray-400 dark:text-gray-500 text-5xl transition-colors duration-300"
               title="Loading more projects..."
             />
           )}

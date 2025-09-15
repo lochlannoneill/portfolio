@@ -6,7 +6,10 @@ function Navbar() {
   // Light/Dark mode toggle
   const [darkMode, setDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
-      return document.documentElement.classList.contains('dark');
+      // Check for explicit class first (for SSR hydration), else use system preference
+      if (document.documentElement.classList.contains('dark')) return true;
+      if (document.documentElement.classList.contains('light')) return false;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
     return false;
   });
@@ -124,7 +127,7 @@ function Navbar() {
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 [transition:backdrop-filter_0.4s,background-color_0.4s] bg-transparent ${atTop ? '' : 'backdrop-blur-md'} md:backdrop-blur-md`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18">
+        <div className="flex items-center justify-between lg:justify-center h-18">
           {/* Grouped: profile/name, navlinks, dark mode toggle */}
           <div className={`flex items-center gap-2 md:gap-8 flex-1 transition-colors duration-500
             md:justify-center md:translate-x-0
@@ -144,7 +147,8 @@ function Navbar() {
                     className="h-10 w-10 mr-2 rounded-full"
                   />
                   <a href="#home" className="text-xl font-bold text-gray-800 dark:text-white drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300">
-                    Lochlann O Neill
+                    <span className="lg:hidden">Lochlann</span>
+                    <span className="hidden lg:inline">Lochlann O Neill</span>
                   </a>
                 </>
               )}
@@ -156,14 +160,14 @@ function Navbar() {
               </div>
             </div>
             {/* Dark mode toggle: desktop only */}
-            <span className="hidden md:inline">
+            <span className="hidden lg:inline">
               <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
             </span>
           </div>
           {/* Right: mobile hamburger and dark mode toggle group */}
-          <div className="md:hidden flex items-center gap-2">
-            {/* Dark mode toggle: mobile only */}
-            <span className="inline md:hidden">
+          <div className="max-lg:flex lg:hidden items-center gap-2">
+            {/* Dark mode toggle: mobile and md only */}
+            <span className="inline lg:hidden">
               <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
             </span>
             <button
@@ -181,7 +185,7 @@ function Navbar() {
               {!mobileOpen ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`h-9 w-9 transition-colors duration-300 ${atTop ? "text-white" : "text-gray-500"} md:text-gray-500 drop-shadow-[0_1px_4px_white] md:drop-shadow-none dark:text-white`}
+                  className={`h-9 w-9 transition-colors duration-300 ${atTop ? "text-white" : "text-gray-500"} drop-shadow-[0_1px_4px_white] dark:text-white`}
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -194,8 +198,8 @@ function Navbar() {
           </div>
         </div>
       </div>
-      {/* Mobile overlay + slide-down panel */}
-      <div className={`md:hidden ${mobileOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
+  {/* Mobile overlay + slide-down panel (show for screens < lg) */}
+  <div className={`lg:hidden ${mobileOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
         {/* Backdrop below navbar */}
         <div
           onClick={() => setMobileOpen(false)}
