@@ -124,7 +124,7 @@ function Navbar() {
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 [transition:backdrop-filter_0.4s,background-color_0.4s] bg-transparent ${atTop ? '' : 'backdrop-blur-md'} md:backdrop-blur-md`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-center h-18">
+        <div className="flex items-center justify-between lg:justify-center h-18">
           {/* Grouped: profile/name, navlinks, dark mode toggle */}
           <div className={`flex items-center gap-2 md:gap-8 flex-1 transition-colors duration-500
             md:justify-center md:translate-x-0
