@@ -369,7 +369,7 @@ function Projects() {
             </li>
             {/* Horizontal divider on mobile */}
             {idx < visibleCount - 1 && (
-              <hr className="block md:hidden border-t border-gray-100 dark:border-gray-800 my-8 w-11/12 mx-auto tranistion-color duration-300" />
+              <hr className="block md:hidden border-t border-gray-100 dark:border-gray-800 my-8 w-11/12 mx-auto transition-colors duration-300" />
             )}
           </FadeInSection>
         ))}
@@ -381,7 +381,7 @@ function Projects() {
             <FontAwesomeIcon
               icon={faSpinner}
               spin
-              className="text-gray-400 dark:text-gray-500 text-5xl transition-color duration-300"
+              className="text-gray-400 dark:text-gray-500 text-5xl transition-colors duration-300"
               title="Loading more projects..."
             />
           )}
