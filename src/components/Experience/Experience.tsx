@@ -98,7 +98,7 @@ function Experience() {
                           {exp.title}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{exp.company}</p>
-                        <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors duration-300">{exp.dates}</p>
+                        <p className="text-gray-400 dark:text-gray-500 text-sm font-medium transition-colors duration-300">{exp.dates}</p>
                       </div>
                     </div>
                     {/* chevron icon */}
