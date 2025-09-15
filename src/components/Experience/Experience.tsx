@@ -52,8 +52,7 @@ const EXPERIENCES: ExperienceItem[] = [
     bullets: [
       "Participated in a rotational program, gaining exposure to multiple teams and learning different aspects of software development and operations.",
       "Helped migrate factory system data into SharePoint, improving accessibility and organization for the team.",
-      "Assisted with code reviews of in-house software to check specification alignment and support component ID format updates.",
-      "Collaborated with external developers to ensure in-house software met specifications and worked smoothly with vendor systems.",
+      "Assisted with code reviews of in-house software to check specification alignment and support component ID format updates."
     ],
   },
 ];
