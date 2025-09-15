@@ -99,33 +99,36 @@ function Education() {
                       />
                     </svg>
                   </div>
-                  {isOpen && (
-                    <div className="px-6 pb-4 space-y-3">
-                      {/* tags */}
-                      <div className="flex flex-wrap gap-2 mt-3">
-                        {edu.tags.map((tag, idx) => (
-                          <span
-                            key={idx}
-                            className={
-                              isOpen
-                                ? "bg-green-300 dark:bg-green-950 text-green-900 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
-                                : "bg-green-300 dark:bg-green-950 text-green-900 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
-                            }
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      {/* bullet list */}
-                      {edu.bullets && (
-                        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
-                          {edu.bullets.map((b, idx) => (
-                            <li key={idx}>{b}</li>
-                          ))}
-                        </ul>
-                      )}
+                  <div
+                    className={`transition-all duration-500 ease-in-out overflow-hidden px-6 ${isOpen ? 'max-h-96 opacity-100 pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
+                    style={{
+                      transitionProperty: 'max-height, opacity, padding-bottom',
+                    }}
+                  >
+                    {/* tags */}
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {edu.tags.map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className={
+                            isOpen
+                              ? "bg-green-300 dark:bg-green-950 text-green-900 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
+                              : "bg-green-300 dark:bg-green-950 text-green-900 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
+                          }
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                  )}
+                    {/* bullet list */}
+                    {edu.bullets && (
+                      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
+                        {edu.bullets.map((b, idx) => (
+                          <li key={idx}>{b}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
                 </div>
               </FadeInSection>
             );
