@@ -86,7 +86,7 @@ function Education() {
                     </div>
                     {/* chevron */}
                     <svg
-                      className={`h-5 w-5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                      className={`fill-gray-400 dark:fill-gray-600 h-5 w-5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
