@@ -76,7 +76,7 @@ function Profile() {
           <a
             href={resumePdf}
             download
-            className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-8 py-3 text-lg sm:px-6 sm:py-2 sm:text-base rounded-md shadow-lg transition-all duration-300 transform hover:scale-105"
+            className="flex items-center gap-2 bg-blue-700 dark:bg-blue-800 hover:bg-blue-800 dark:hover:bg-blue-900 text-white font-semibold px-8 py-3 text-lg sm:px-6 sm:py-2 sm:text-base rounded-md shadow-lg transform hover:scale-105 mt-4 transition-all duration-300"
           >
             <FontAwesomeIcon icon={faDownload} className="text-xl sm:text-lg" />
             Resume
