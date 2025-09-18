@@ -137,7 +137,7 @@ function Experience() {
                     </span>
                   </div>
                   <div
-                    className={`transition-all duration-500 ease-in-out overflow-hidden px-6 ${isOpen ? 'opacity-100 pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
+                    className={`transition-all duration-800 ease-in-out overflow-hidden px-6 ${isOpen ? 'opacity-100 pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
                     style={{
                       transitionProperty: 'max-height, opacity, padding-bottom',
                     }}

@@ -129,7 +129,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between lg:justify-center h-18">
           {/* Grouped: profile/name, navlinks, dark mode toggle */}
-          <div className={`flex items-center gap-2 md:gap-8 flex-1 transition-colors duration-500
+          <div className={`flex items-center gap-2 md:gap-8 flex-1 transition-colors duration-300
             md:justify-center md:translate-x-0
             ${!navCentered ? 'md:justify-end md:translate-x-10' : ''}
           `.replace('flex-1', '')} style={{ transitionProperty: 'all' }}>
