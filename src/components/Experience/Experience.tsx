@@ -2,7 +2,7 @@
 import vodafoneLogo from "../../assets/logos/vodafone.png";
 import bostonLogo from "../../assets/logos/boston.jpg";
 import FadeInSection from "../../FadeInSection";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 type ExperienceItem = {
   title: string;
@@ -61,12 +61,13 @@ function Experience() {
   const [openIdx, setOpenIdx] = useState<number | null>(
     EXPERIENCES.findIndex(e => e.defaultOpen)
   );
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   return (
-  <section id="experience" className="w-full p-4 md:p-6 scroll-mt-16">
+  <section id="experience" className="w-full p-4 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 transition-colors duration-300">Experience</h2>
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Experience</h2>
         </FadeInSection>
 
         <div className="space-y-3">
@@ -75,16 +76,33 @@ function Experience() {
             return (
               <FadeInSection key={i}>
                 <div
+                  className={`scroll-mt-28 group rounded-lg ${isOpen ? "border-2" : "border"} border-gray-200 dark:border-gray-700 transition-colors duration-300 cursor-pointer
+                    ${isOpen ? "bg-purple-100 border-purple-400 dark:bg-[#4b206b] dark:border-purple-500" : "bg-white dark:bg-gray-900"}
+                    hover:bg-purple-200 dark:hover:bg-purple-800 hover:border-purple-500 focus:outline-none`}
+                  ref={el => { cardRefs.current[i] = el; }}
                   tabIndex={0}
                   role="button"
                   aria-expanded={isOpen}
-                  onClick={() => setOpenIdx(isOpen ? null : i)}
-                  onKeyDown={e => {
-                    if (e.key === "Enter" || e.key === " ") setOpenIdx(isOpen ? null : i);
+                  onClick={() => {
+                    const wasClosed = openIdx !== i;
+                    setOpenIdx(isOpen ? null : i);
+                    if (wasClosed && window.innerWidth < 768) {
+                      setTimeout(() => {
+                        cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }, 10);
+                    }
                   }}
-                  className={`group rounded-lg ${isOpen ? "border-2" : "border"} border-gray-200 dark:border-gray-700 transition-colors duration-200 cursor-pointer
-                    ${isOpen ? "bg-purple-100 border-purple-400 dark:bg-[#4b206b] dark:border-purple-500" : "bg-white dark:bg-gray-900"}
-                    hover:bg-purple-200 dark:hover:bg-purple-800 hover:border-purple-500 focus:outline-none`}
+                  onKeyDown={e => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      const wasClosed = openIdx !== i;
+                      setOpenIdx(isOpen ? null : i);
+                      if (wasClosed && window.innerWidth < 768) {
+                        setTimeout(() => {
+                          cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }, 10);
+                      }
+                    }
+                  }}
                 >
                   <div className="flex items-center justify-between px-4 py-3">
                     <div className="flex items-center space-x-4">
