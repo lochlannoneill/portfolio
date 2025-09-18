@@ -77,7 +77,7 @@ function Certifications() {
                   }}
                   className={`group rounded-lg ${isOpen ? "border-2 border-amber-400 dark:border-amber-500" : "border border-gray-200 dark:border-gray-700"} transition-colors duration-200 cursor-pointer
                     ${isOpen ? "bg-amber-100 dark:bg-[#78350f]" : "bg-white dark:bg-gray-900"}
-                    hover:bg-amber-100 dark:hover:bg-amber-800 hover:border-amber-500 focus:outline-none`}
+                    hover:bg-amber-200 dark:hover:bg-amber-800 hover:border-amber-500 focus:outline-none`}
                 >
                   <div className="flex items-center justify-between px-4 py-3">
                     <div className="flex items-center space-x-4">

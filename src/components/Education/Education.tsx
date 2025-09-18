@@ -69,7 +69,7 @@ function Education() {
                   }}
                   className={`group rounded-lg ${isOpen ? "border-2" : "border"} border-gray-200 dark:border-gray-700 transition-colors duration-200 cursor-pointer
                     ${isOpen ? "bg-green-100 border-green-400 dark:bg-[#064e3b] dark:border-green-500" : "bg-white dark:bg-gray-900"}
-                    hover:bg-green-100 dark:hover:bg-green-800 hover:border-green-500 focus:outline-none`}
+                    hover:bg-green-200 dark:hover:bg-green-800 hover:border-green-500 focus:outline-none`}
                 >
                   <div className="flex items-center justify-between px-4 py-3">
                     <div className="flex items-center space-x-4">
