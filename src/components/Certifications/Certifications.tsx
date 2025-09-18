@@ -79,7 +79,7 @@ function Certifications() {
                   onClick={() => {
                     const wasClosed = openIdx !== i;
                     setOpenIdx(isOpen ? null : i);
-                    if (wasClosed && window.innerWidth < 768) {
+                    if (wasClosed && window.innerWidth < 1024) {
                       setTimeout(() => {
                         cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
                       }, 10);
@@ -89,7 +89,7 @@ function Certifications() {
                     if (e.key === "Enter" || e.key === " ") {
                       const wasClosed = openIdx !== i;
                       setOpenIdx(isOpen ? null : i);
-                      if (wasClosed && window.innerWidth < 768) {
+                      if (wasClosed && window.innerWidth < 1024) {
                         setTimeout(() => {
                           cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
                         }, 10);
