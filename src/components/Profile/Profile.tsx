@@ -13,7 +13,7 @@ import FadeInSection from '../../FadeInSection';
 function Profile() {
   return (
     <FadeInSection>
-  <section id="profile" className="relative md:rounded-3xl md:shadow-lg md:dark:shadow-[0_8px_40px_8px_rgba(0,0,0,0.85)] md:max-w-lg lg:max-w-xl mx-auto overflow-hidden transition-colors transition-shadow duration-700">
+  <section id="profile" className="relative md:rounded-3xl md:shadow-lg md:dark:shadow-[0_8px_40px_8px_rgba(0,0,0,0.45)] md:max-w-lg lg:max-w-xl mx-auto overflow-hidden transition-colors transition-shadow duration-700">
         {/* top background image with black overlay */}
   <div className="relative h-36 overflow-hidden bg-black">
           <img
