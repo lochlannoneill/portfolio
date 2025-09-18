@@ -15,7 +15,7 @@ function App() {
           <div className="flex flex-col lg:gap-12">
             <div className="flex flex-col lg:flex-row 4xl:gap-6 justify-center">
               {/* Left: sticky profile (becomes top on mobile) */}
-              <aside className="px-0 md:px-6">
+              <aside className="px-0 md:p-4">
                 <div className="lg:sticky lg:top-24">
                   <Profile />
                 </div>

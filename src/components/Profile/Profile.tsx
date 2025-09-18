@@ -24,7 +24,7 @@ function Profile() {
           <div className="absolute inset-0 bg-black opacity-20"></div>
         </div>
 
-  <div className="relative flex flex-col p-3 sm:p-4 md:p-6 lg:p-4 xl:p-6 -mt-26 md:-mt-28">
+  <div className="relative flex flex-col p-4 xl:p-6 -mt-26 md:-mt-28">
         {/* profile image + name/email side by side */}
         <div className="flex items-center space-x-4 mb-4">
           <a
@@ -91,7 +91,8 @@ function Profile() {
             className="flex items-center gap-2 bg-green-700 dark:bg-green-800 hover:bg-green-800 dark:hover:bg-green-900 text-white font-semibold px-8 py-3 text-lg sm:px-6 sm:py-2 sm:text-base rounded-md shadow-lg transform hover:scale-105 transition-all duration-300"
           >
             <FontAwesomeIcon icon={faDownload} className="text-xl sm:text-lg" />
-            Cover Letter
+            <span className="sm:hidden">Cover</span>
+            <span className="hidden sm:inline">Cover Letter</span>
           </a>
         </div>
 

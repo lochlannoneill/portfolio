@@ -203,7 +203,7 @@ function Navbar() {
         {/* Backdrop below navbar */}
         <div
           onClick={() => setMobileOpen(false)}
-          className={`fixed inset-x-0 bottom-0 top-16 bg-black/30 dark:bg-black/60 transition-opacity duration-200 z-40 ${
+          className={`fixed inset-x-0 bottom-0 top-16 bg-black/30 dark:bg-black/60 transition-opacity duration-300 z-40 ${
             mobileOpen ? "opacity-100" : "opacity-0"
           }`}
         />

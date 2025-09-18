@@ -215,10 +215,10 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="w-full max-w-6xl mx-auto p-6 scroll-mt-16"
+      className="w-full max-w-6xl mx-auto p-4 xl:p-0 scroll-mt-16"
     >
       <FadeInSection>
-        <h2 className="block lg:hidden text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6 transition-colors duration-300">
+        <h2 className="block lg:hidden text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 transition-colors duration-300">
           Projects
         </h2>
       </FadeInSection>
