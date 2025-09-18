@@ -48,7 +48,7 @@ function Education() {
   );
 
   return (
-    <section id="education" className="w-full p-4 md:p-6">
+    <section id="education" className="w-full p-4 md:p-6 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Education</h2>
@@ -69,7 +69,7 @@ function Education() {
                   }}
                   className={`group rounded-lg ${isOpen ? "border-2" : "border"} border-gray-200 dark:border-gray-700 transition-colors duration-200 cursor-pointer
                     ${isOpen ? "bg-green-100 border-green-400 dark:bg-[#064e3b] dark:border-green-500" : "bg-white dark:bg-gray-900"}
-                    hover:bg-green-100 dark:hover:bg-green-800 hover:border-green-500 focus:outline-none`}
+                    hover:bg-green-200 dark:hover:bg-green-800 hover:border-green-500 focus:outline-none`}
                 >
                   <div className="flex items-center justify-between px-4 py-3">
                     <div className="flex items-center space-x-4">
@@ -87,7 +87,7 @@ function Education() {
                     {/* chevron */}
                     <span className="flex-shrink-0 flex items-center justify-center w-7 h-7">
                       <svg
-                        className={`fill-gray-400 dark:fill-gray-600 h-5 w-5 transition-all duration-300 ${isOpen ? "rotate-180" : ""}`}
+                        className={`h-5 w-5 transition-all duration-300 ${isOpen ? "rotate-180" : ""} ${isOpen ? "fill-green-500 dark:fill-green-300" : "fill-gray-400 dark:fill-gray-600"}`}
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -102,7 +102,7 @@ function Education() {
                     </span>
                   </div>
                   <div
-                    className={`transition-all duration-500 ease-in-out overflow-hidden px-6 ${isOpen ? 'max-h-96 opacity-100 pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
+                    className={`transition-all duration-500 ease-in-out overflow-hidden px-6 ${isOpen ? 'opacity-100 pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
                     style={{
                       transitionProperty: 'max-height, opacity, padding-bottom',
                     }}

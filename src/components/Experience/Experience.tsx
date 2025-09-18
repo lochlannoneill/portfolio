@@ -63,7 +63,7 @@ function Experience() {
   );
 
   return (
-  <section id="experience" className="w-full p-4 md:p-6">
+  <section id="experience" className="w-full p-4 md:p-6 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Experience</h2>
@@ -84,7 +84,7 @@ function Experience() {
                   }}
                   className={`group rounded-lg ${isOpen ? "border-2" : "border"} border-gray-200 dark:border-gray-700 transition-colors duration-200 cursor-pointer
                     ${isOpen ? "bg-purple-100 border-purple-400 dark:bg-[#4b206b] dark:border-purple-500" : "bg-white dark:bg-gray-900"}
-                    hover:bg-purple-100 dark:hover:bg-purple-800 hover:border-purple-500 focus:outline-none`}
+                    hover:bg-purple-200 dark:hover:bg-purple-800 hover:border-purple-500 focus:outline-none`}
                 >
                   <div className="flex items-center justify-between px-4 py-3">
                     <div className="flex items-center space-x-4">
@@ -104,7 +104,7 @@ function Experience() {
                     {/* chevron icon */}
                     <span className="flex-shrink-0 flex items-center justify-center w-7 h-7">
                       <svg
-                        className={`fill-gray-400 dark:fill-gray-600 h-5 w-5 transition-all duration-300 ${isOpen ? "rotate-180" : ""}`}
+                        className={`h-5 w-5 transition-all duration-300 ${isOpen ? "rotate-180" : ""} fill-gray-400 dark:fill-gray-600 ${isOpen ? 'fill-purple-500 dark:fill-purple-300' : ''}`}
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -119,7 +119,7 @@ function Experience() {
                     </span>
                   </div>
                   <div
-                    className={`transition-all duration-500 ease-in-out overflow-hidden px-6 ${isOpen ? 'max-h-96 opacity-100 pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
+                    className={`transition-all duration-500 ease-in-out overflow-hidden px-6 ${isOpen ? 'opacity-100 pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
                     style={{
                       transitionProperty: 'max-height, opacity, padding-bottom',
                     }}

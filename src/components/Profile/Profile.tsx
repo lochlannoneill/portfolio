@@ -1,5 +1,6 @@
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import resumePdf from '../../assets/lochlann_oneill_resume.pdf';
+import coverPdf from '../../assets/lochlann_oneill_cover.pdf';
 import profileImg from '../../assets/profile.png';
 import backgroundImg from '../../assets/background.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,9 +13,9 @@ import FadeInSection from '../../FadeInSection';
 function Profile() {
   return (
     <FadeInSection>
-  <section id="profile" className="relative md:rounded-3xl md:shadow-lg md:dark:shadow-[0_8px_40px_8px_rgba(0,0,0,0.85)] md:max-w-lg lg:max-w-xl mx-auto overflow-hidden transition-colors duration-300">
+  <section id="profile" className="relative md:rounded-3xl md:shadow-lg md:dark:shadow-[0_8px_40px_8px_rgba(0,0,0,0.45)] md:max-w-lg lg:max-w-xl mx-auto overflow-hidden transition-colors transition-shadow duration-700">
         {/* top background image with black overlay */}
-        <div className="relative h-36 w-screen left-1/2 right-1/2 -translate-x-1/2 md:w-full md:left-0 md:right-0 md:translate-x-0 overflow-hidden bg-black">
+  <div className="relative h-36 overflow-hidden bg-black">
           <img
             src={backgroundImg}
             alt="Background"
@@ -23,7 +24,7 @@ function Profile() {
           <div className="absolute inset-0 bg-black opacity-20"></div>
         </div>
 
-      <div className="relative flex flex-col p-3 sm:p-4 md:p-6 -mt-26 md:-mt-28">
+  <div className="relative flex flex-col p-3 sm:p-4 md:p-6 lg:p-4 xl:p-6 -mt-26 md:-mt-28">
         {/* profile image + name/email side by side */}
         <div className="flex items-center space-x-4 mb-4">
           <a
@@ -39,8 +40,11 @@ function Profile() {
             />
           </a>
           <div className="flex flex-col -mt-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-white [text-shadow:2px_2px_4px_rgba(0,0,0,0.8)]">Lochlann O Neill</h2>
-            <p className="text-base text-gray-300 font-semibold">lochlannjoneill@gmail.com</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white [text-shadow:2px_2px_4px_rgba(0,0,0,0.8)]">
+              <span className="hidden lg:inline xl:hidden">Lochlann</span>
+              <span className="inline lg:hidden xl:inline">Lochlann O Neill</span>
+            </h2>
+            <p className="text-sm md:text-base lg:text-sm xl:text-base text-gray-300 font-semibold">lochlannjoneill@gmail.com</p>
           </div>
         </div>
 
@@ -48,7 +52,7 @@ function Profile() {
         <Skills />
 
         {/* bio section */}
-        <p className="text-gray-700 dark:text-gray-300 text-center text-lg md:text-xl transition-colors duration-300">
+        <p className="text-gray-700 dark:text-gray-300 text-center text-lg md:text-xl mt-4 transition-colors duration-300">
           Hi! I'm a passionate software developer who loves to learn new technologies!
         </p>
 
@@ -71,15 +75,23 @@ function Profile() {
           </a>
         </div>
         
-        {/* Resume download button */}
-        <div className="flex justify-center mt-6">
+        {/* Resume and cover letter download buttons side-by-side */}
+        <div className="flex justify-center gap-4 mt-8">
           <a
             href={resumePdf}
             download
-            className="flex items-center gap-2 bg-blue-700 dark:bg-blue-800 hover:bg-blue-800 dark:hover:bg-blue-900 text-white font-semibold px-8 py-3 text-lg sm:px-6 sm:py-2 sm:text-base rounded-md shadow-lg transform hover:scale-105 mt-4 transition-all duration-300"
+            className="flex items-center gap-2 bg-blue-700 dark:bg-blue-800 hover:bg-blue-800 dark:hover:bg-blue-900 text-white font-semibold px-8 py-3 text-lg sm:px-6 sm:py-2 sm:text-base rounded-md shadow-lg transform hover:scale-105 transition-all duration-300"
           >
             <FontAwesomeIcon icon={faDownload} className="text-xl sm:text-lg" />
             Resume
+          </a>
+          <a
+            href={coverPdf}
+            download
+            className="flex items-center gap-2 bg-green-700 dark:bg-green-800 hover:bg-green-800 dark:hover:bg-green-900 text-white font-semibold px-8 py-3 text-lg sm:px-6 sm:py-2 sm:text-base rounded-md shadow-lg transform hover:scale-105 transition-all duration-300"
+          >
+            <FontAwesomeIcon icon={faDownload} className="text-xl sm:text-lg" />
+            Cover Letter
           </a>
         </div>
 

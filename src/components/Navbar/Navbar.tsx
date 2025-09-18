@@ -155,7 +155,7 @@ function Navbar() {
             </div>
             {/* Navlinks */}
             <div className="hidden md:block">
-              <div className="flex items-baseline space-x-4">
+              <div className="flex items-baseline">
                 {navLinks}
               </div>
             </div>
