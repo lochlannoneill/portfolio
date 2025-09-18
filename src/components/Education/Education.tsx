@@ -48,7 +48,7 @@ function Education() {
   );
 
   return (
-    <section id="education" className="w-full p-4 md:p-6">
+    <section id="education" className="w-full p-4 md:p-6 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Education</h2>
