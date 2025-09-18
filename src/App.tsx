@@ -11,27 +11,27 @@ function App() {
     <div id="home" className="text-sm bg-white dark:bg-gray-900 md:text-lg lg:text-xl transition-colors duration-300">
       <Navbar />
 
-      <main className="container mx-auto pt-0 md:pt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-6">
-          {/* Left: sticky profile (becomes top on mobile) */}
-          <aside className="lg:col-span-4">
-            <div className="lg:sticky lg:top-24">
-              <Profile />
+      <main className="pt-0 md:pt-16">
+          <div className="flex flex-col">
+            <div className="flex flex-col lg:flex-row 4xl:gap-6 justify-center">
+              {/* Left: sticky profile (becomes top on mobile) */}
+              <aside className="px-0 md:px-6">
+                <div className="lg:sticky lg:top-24">
+                  <Profile />
+                </div>
+              </aside>
+
+              {/* Right: content */}
+              <section className="">
+                <Experience />
+                <Education />
+                <Certifications />
+              </section>
             </div>
-          </aside>
-
-          {/* Right: content */}
-          <section className="lg:col-span-8">
-            <Experience />
-            <Education />
-            <Certifications />
-          </section>
-
-          <section className="lg:col-span-12">
-            <Projects />
-          </section>
-
-        </div>
+            <section className="w-full mt-6">
+              <Projects />
+            </section>
+          </div>
       </main>
     </div>
   )

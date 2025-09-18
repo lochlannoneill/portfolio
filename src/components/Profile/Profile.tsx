@@ -15,7 +15,7 @@ function Profile() {
     <FadeInSection>
   <section id="profile" className="relative md:rounded-3xl md:shadow-lg md:dark:shadow-[0_8px_40px_8px_rgba(0,0,0,0.85)] md:max-w-lg lg:max-w-xl mx-auto overflow-hidden transition-colors duration-300">
         {/* top background image with black overlay */}
-        <div className="relative h-36 w-screen left-1/2 right-1/2 -translate-x-1/2 md:w-full md:left-0 md:right-0 md:translate-x-0 overflow-hidden bg-black">
+  <div className="relative h-36 overflow-hidden bg-black">
           <img
             src={backgroundImg}
             alt="Background"
@@ -24,7 +24,7 @@ function Profile() {
           <div className="absolute inset-0 bg-black opacity-20"></div>
         </div>
 
-      <div className="relative flex flex-col p-3 sm:p-4 md:p-6 -mt-26 md:-mt-28">
+  <div className="relative flex flex-col p-3 sm:p-4 md:p-6 lg:p-4 xl:p-6 -mt-26 md:-mt-28">
         {/* profile image + name/email side by side */}
         <div className="flex items-center space-x-4 mb-4">
           <a
@@ -40,8 +40,11 @@ function Profile() {
             />
           </a>
           <div className="flex flex-col -mt-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-white [text-shadow:2px_2px_4px_rgba(0,0,0,0.8)]">Lochlann O Neill</h2>
-            <p className="text-sm md:text-base text-gray-300 font-semibold">lochlannjoneill@gmail.com</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white [text-shadow:2px_2px_4px_rgba(0,0,0,0.8)]">
+              <span className="hidden lg:inline xl:hidden">Lochlann</span>
+              <span className="inline lg:hidden xl:inline">Lochlann O Neill</span>
+            </h2>
+            <p className="text-sm md:text-base lg:text-sm xl:text-base text-gray-300 font-semibold">lochlannjoneill@gmail.com</p>
           </div>
         </div>
 
