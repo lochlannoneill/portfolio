@@ -41,7 +41,7 @@ function Profile() {
           </a>
           <div className="flex flex-col -mt-4">
             <h2 className="text-2xl md:text-3xl font-bold text-white [text-shadow:2px_2px_4px_rgba(0,0,0,0.8)]">Lochlann O Neill</h2>
-            <p className="text-base text-gray-300 font-semibold">lochlannjoneill@gmail.com</p>
+            <p className="text-sm md:text-base text-gray-300 font-semibold">lochlannjoneill@gmail.com</p>
           </div>
         </div>
 
