@@ -49,7 +49,7 @@ function Profile() {
         <Skills />
 
         {/* bio section */}
-        <p className="text-gray-700 dark:text-gray-300 text-center text-lg md:text-xl transition-colors duration-300">
+        <p className="text-gray-700 dark:text-gray-300 text-center text-lg md:text-xl mt-4 transition-colors duration-300">
           Hi! I'm a passionate software developer who loves to learn new technologies!
         </p>
 
@@ -73,11 +73,11 @@ function Profile() {
         </div>
         
         {/* Resume and cover letter download buttons side-by-side */}
-        <div className="flex justify-center gap-4 mt-6">
+        <div className="flex justify-center gap-4 mt-8">
           <a
             href={resumePdf}
             download
-            className="flex items-center gap-2 bg-blue-700 dark:bg-blue-800 hover:bg-blue-800 dark:hover:bg-blue-900 text-white font-semibold px-8 py-3 text-lg sm:px-6 sm:py-2 sm:text-base rounded-md shadow-lg transform hover:scale-105 mt-4 transition-all duration-300"
+            className="flex items-center gap-2 bg-blue-700 dark:bg-blue-800 hover:bg-blue-800 dark:hover:bg-blue-900 text-white font-semibold px-8 py-3 text-lg sm:px-6 sm:py-2 sm:text-base rounded-md shadow-lg transform hover:scale-105 transition-all duration-300"
           >
             <FontAwesomeIcon icon={faDownload} className="text-xl sm:text-lg" />
             Resume
@@ -85,7 +85,7 @@ function Profile() {
           <a
             href={coverPdf}
             download
-            className="flex items-center gap-2 bg-green-700 dark:bg-green-800 hover:bg-green-800 dark:hover:bg-green-900 text-white font-semibold px-8 py-3 text-lg sm:px-6 sm:py-2 sm:text-base rounded-md shadow-lg transform hover:scale-105 mt-4 transition-all duration-300"
+            className="flex items-center gap-2 bg-green-700 dark:bg-green-800 hover:bg-green-800 dark:hover:bg-green-900 text-white font-semibold px-8 py-3 text-lg sm:px-6 sm:py-2 sm:text-base rounded-md shadow-lg transform hover:scale-105 transition-all duration-300"
           >
             <FontAwesomeIcon icon={faDownload} className="text-xl sm:text-lg" />
             Cover Letter
