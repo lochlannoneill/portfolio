@@ -44,7 +44,7 @@ const EXPERIENCES: ExperienceItem[] = [
     ],
   },
   {
-    title: "Intern Software Engineer",
+    title: "Co-Op Software Engineer",
     company: "Boston Scientific",
     dates: "March 2021 - August 2021",
     logo: bostonLogo,
@@ -76,31 +76,21 @@ function Experience() {
             return (
               <FadeInSection key={i}>
                 <div
-                  className={`scroll-mt-28 group rounded-lg ${isOpen ? "border-2" : "border"} border-gray-200 dark:border-gray-700 transition-colors duration-300 cursor-pointer
-                    ${isOpen ? "bg-purple-100 border-purple-400 dark:bg-[#4b206b] dark:border-purple-500" : "bg-white dark:bg-gray-900"}
+                  className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer
+                    ${isOpen ? "border-purple-400 dark:border-purple-500 bg-purple-100 dark:bg-[#4b206b]" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
                     hover:bg-purple-200 dark:hover:bg-purple-800 hover:border-purple-500 focus:outline-none`}
                   ref={el => { cardRefs.current[i] = el; }}
                   tabIndex={0}
                   role="button"
                   aria-expanded={isOpen}
                   onClick={() => {
-                    const wasClosed = openIdx !== i;
                     setOpenIdx(isOpen ? null : i);
-                    if (wasClosed && window.innerWidth < 1024) {
-                      setTimeout(() => {
-                        cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
-                      }, 10);
-                    }
+                    // Removed scroll-into-view logic
                   }}
-                  onKeyDown={e => {
+                                    onKeyDown={e => {
                     if (e.key === "Enter" || e.key === " ") {
-                      const wasClosed = openIdx !== i;
                       setOpenIdx(isOpen ? null : i);
-                      if (wasClosed && window.innerWidth < 1024) {
-                        setTimeout(() => {
-                          cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }, 10);
-                      }
+                      // Removed scroll-into-view logic
                     }
                   }}
                 >
@@ -143,7 +133,7 @@ function Experience() {
                     }}
                   >
                     {/* tags */}
-                    <div className="flex flex-wrap gap-2 mt-3 mb-3">
+                    <div className="flex flex-wrap gap-2 py-3 m-0">
                       {exp.tags.map((tag, idx) => (
                         <span
                           key={idx}

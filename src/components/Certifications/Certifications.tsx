@@ -20,7 +20,6 @@ const CERTIFICATION: CertificationItem[] = [
     institution: "Microsoft",
     dates: "Coming Soon",
     logo: microsoftLogo,
-    defaultOpen: true,
     tags: ["Cloud Computing", "Azure", "Cloud Native"],
     bullets: [
       "Developed and deployed cloud applications using Azure services.",
@@ -31,12 +30,15 @@ const CERTIFICATION: CertificationItem[] = [
   {
     title: "AZ-900: Microsoft Azure Fundamentals",
     institution: "Microsoft",
-    dates: "Coming Soon",
+    dates: "September 2025",
     logo: microsoftLogo,
     tags: ["Cloud Computing", "Azure"],
+    defaultOpen: true,
     bullets: [
-      "Fundamental knowledge of cloud concepts and core Azure services.",
-      "Understanding of security, privacy, compliance, and trust in Azure.",
+      "Demonstrated foundational knowledge of cloud computing concepts, including high availability, scalability, and cost management.",
+      "Gained understanding of core Azure services such as compute, networking, storage, and databases.",
+      "Developed awareness of Azure governance, security, compliance, and privacy features.",
+      "Explored Azure pricing, support plans, and service-level agreements (SLAs)."
     ],
   },
   {
@@ -69,31 +71,21 @@ function Certifications() {
             return (
               <FadeInSection key={i}>
                 <div
-                  className={`scroll-mt-28 group rounded-lg ${isOpen ? "border-2 border-amber-400 dark:border-amber-500" : "border border-gray-200 dark:border-gray-700"} transition-colors duration-300 cursor-pointer
-                    ${isOpen ? "bg-amber-100 dark:bg-[#78350f]" : "bg-white dark:bg-gray-900"}
+                  className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer
+                    ${isOpen ? "border-amber-400 dark:border-amber-500 bg-amber-100 dark:bg-[#78350f]" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
                     hover:bg-amber-200 dark:hover:bg-amber-800 hover:border-amber-500 focus:outline-none`}
                   ref={el => { cardRefs.current[i] = el; }}
                   tabIndex={0}
                   role="button"
                   aria-expanded={isOpen}
                   onClick={() => {
-                    const wasClosed = openIdx !== i;
                     setOpenIdx(isOpen ? null : i);
-                    if (wasClosed && window.innerWidth < 1024) {
-                      setTimeout(() => {
-                        cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
-                      }, 10);
-                    }
+                    // Removed scroll-into-view logic
                   }}
                   onKeyDown={e => {
                     if (e.key === "Enter" || e.key === " ") {
-                      const wasClosed = openIdx !== i;
                       setOpenIdx(isOpen ? null : i);
-                      if (wasClosed && window.innerWidth < 1024) {
-                        setTimeout(() => {
-                          cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }, 10);
-                      }
+                      // Removed scroll-into-view logic
                     }
                   }}       
                 >
@@ -134,7 +126,7 @@ function Certifications() {
                     }}
                   >
                     {/* tags */}
-                    <div className="flex flex-wrap gap-2 mt-3">
+                    <div className="flex flex-wrap gap-2 py-3 m-0">
                       {cert.tags.map((tag, idx) => (
                         <span
                           key={idx}
