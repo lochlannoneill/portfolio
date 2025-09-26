@@ -69,23 +69,13 @@ function Education() {
                   role="button"
                   aria-expanded={isOpen}
                   onClick={() => {
-                    const wasClosed = openIdx !== i;
                     setOpenIdx(isOpen ? null : i);
-                    if (wasClosed && window.innerWidth < 1024) {
-                      setTimeout(() => {
-                        cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
-                      }, 10);
-                    }
+                    // Removed scroll-into-view logic as requested
                   }}
                   onKeyDown={e => {
                     if (e.key === "Enter" || e.key === " ") {
-                      const wasClosed = openIdx !== i;
                       setOpenIdx(isOpen ? null : i);
-                      if (wasClosed && window.innerWidth < 1024) {
-                        setTimeout(() => {
-                          cardRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }, 10);
-                      }
+                      // Removed scroll-into-view logic as requested
                     }
                   }}
                 >
