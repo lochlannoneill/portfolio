@@ -61,8 +61,8 @@ function Education() {
             return (
               <FadeInSection key={i}>
                 <div
-                  className={`scroll-mt-28 group rounded-lg ${isOpen ? "border-2" : "border"} border-gray-200 dark:border-gray-700 transition-colors duration-300 cursor-pointer
-                    ${isOpen ? "bg-green-100 border-green-400 dark:bg-[#064e3b] dark:border-green-500" : "bg-white dark:bg-gray-900"}
+                  className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer
+                    ${isOpen ? "border-green-400 dark:border-green-500 bg-green-100 dark:bg-[#064e3b]" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
                     hover:bg-green-200 dark:hover:bg-green-800 hover:border-green-500 focus:outline-none`}
                   ref={el => { cardRefs.current[i] = el; }}
                   tabIndex={0}
