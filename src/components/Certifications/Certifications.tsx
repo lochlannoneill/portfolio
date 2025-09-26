@@ -20,7 +20,6 @@ const CERTIFICATION: CertificationItem[] = [
     institution: "Microsoft",
     dates: "Coming Soon",
     logo: microsoftLogo,
-    defaultOpen: true,
     tags: ["Cloud Computing", "Azure", "Cloud Native"],
     bullets: [
       "Developed and deployed cloud applications using Azure services.",
@@ -31,12 +30,15 @@ const CERTIFICATION: CertificationItem[] = [
   {
     title: "AZ-900: Microsoft Azure Fundamentals",
     institution: "Microsoft",
-    dates: "Coming Soon",
+    dates: "September 2025",
     logo: microsoftLogo,
     tags: ["Cloud Computing", "Azure"],
+    defaultOpen: true,
     bullets: [
-      "Fundamental knowledge of cloud concepts and core Azure services.",
-      "Understanding of security, privacy, compliance, and trust in Azure.",
+      "Demonstrated foundational knowledge of cloud computing concepts, including high availability, scalability, and cost management.",
+      "Gained understanding of core Azure services such as compute, networking, storage, and databases.",
+      "Developed awareness of Azure governance, security, compliance, and privacy features.",
+      "Explored Azure pricing, support plans, and service-level agreements (SLAs)."
     ],
   },
   {
