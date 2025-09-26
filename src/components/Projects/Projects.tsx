@@ -235,10 +235,10 @@ function Projects() {
               >
                 {/* Text Section */}
                 <div className="w-full md:w-[45%] min-w-0">
-                  <h2 className="font-semibold text-gray-900 dark:text-gray-200 text-xl md:text-2xl transition-colors duration-300">
+                  <h2 className="font-semibold mb-0 lg:mb-3 text-gray-900 dark:text-gray-200 text-xl md:text-2xl transition-colors duration-300">
                     {project.name}
                   </h2>
-                  <div className="flex flex-wrap gap-2 my-2">
+                  <div className="flex flex-wrap gap-2 py-3">
                     {project.tags.map((tag, i) => (
                       <span
                         key={i}
@@ -252,7 +252,7 @@ function Projects() {
 
                   {/* Project Links — desktop/tablet */}
                   {project.links && (
-                    <div className="hidden md:flex gap-3 mt-2 justify-center md:justify-start">
+                    <div className="hidden md:flex gap-3 mt-3 justify-center md:justify-start">
                       {Object.entries(project.links).map(([type, url]) => {
                         const icon =
                           type === "github"

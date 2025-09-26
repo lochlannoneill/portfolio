@@ -126,7 +126,7 @@ function Certifications() {
                     }}
                   >
                     {/* tags */}
-                    <div className="flex flex-wrap gap-2 my-3">
+                    <div className="flex flex-wrap gap-2 py-3 m-0">
                       {cert.tags.map((tag, idx) => (
                         <span
                           key={idx}
