@@ -70,12 +70,12 @@ function Education() {
                   aria-expanded={isOpen}
                   onClick={() => {
                     setOpenIdx(isOpen ? null : i);
-                    // Removed scroll-into-view logic as requested
+                    // Removed scroll-into-view logic
                   }}
                   onKeyDown={e => {
                     if (e.key === "Enter" || e.key === " ") {
                       setOpenIdx(isOpen ? null : i);
-                      // Removed scroll-into-view logic as requested
+                      // Removed scroll-into-view logic
                     }
                   }}
                 >
