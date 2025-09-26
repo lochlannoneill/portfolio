@@ -44,7 +44,7 @@ const EXPERIENCES: ExperienceItem[] = [
     ],
   },
   {
-    title: "Intern Software Engineer",
+    title: "Co-Op Software Engineer",
     company: "Boston Scientific",
     dates: "March 2021 - August 2021",
     logo: bostonLogo,
