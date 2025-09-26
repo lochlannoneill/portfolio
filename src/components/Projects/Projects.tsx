@@ -327,7 +327,7 @@ function Projects() {
 
                   {/* Project Links — mobile under images */}
                   {project.links && (
-                    <div className="flex md:hidden gap-3 mt-3 justify-center">
+                    <div className="flex md:hidden gap-3 mt-6 justify-center">
                       {Object.entries(project.links).map(([type, url]) => {
                         const icon =
                           type === "github"
