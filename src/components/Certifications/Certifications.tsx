@@ -30,7 +30,7 @@ const CERTIFICATION: CertificationItem[] = [
   {
     title: "AZ-900: Microsoft Azure Fundamentals",
     institution: "Microsoft",
-    dates: "September 2025",
+    dates: "October 2025",
     logo: microsoftLogo,
     tags: ["Cloud Computing", "Azure"],
     defaultOpen: true,
