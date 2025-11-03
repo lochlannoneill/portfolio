@@ -85,7 +85,7 @@ function Experience() {
               <FadeInSection key={i}>
                 <div
                   className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer
-                    ${isOpen ? "border-amber-400 dark:border-amber-500 bg-amber-100 dark:bg-[#4b206b]" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
+                    ${isOpen ? "border-amber-400 dark:border-amber-500 bg-amber-100 bg-amber-900" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
                     hover:bg-amber-200 dark:hover:bg-amber-800 hover:border-amber-500 focus:outline-none`}
                   ref={el => { cardRefs.current[i] = el; }}
                   tabIndex={0}
