@@ -1,6 +1,7 @@
 // Experience.tsx
 import vodafoneLogo from "../../assets/logos/vodafone.png";
 import bostonLogo from "../../assets/logos/boston.jpg";
+import microsoftLogo from "../../assets/logos/microsoft.png";
 import FadeInSection from "../../FadeInSection";
 import { useState, useRef } from "react";
 
@@ -9,12 +10,19 @@ type ExperienceItem = {
   company: string;
   dates: string;
   tags: string[];
-  bullets: string[];
+  bullets?: string[];
   logo: string;
   defaultOpen?: boolean;
 };
 
 const EXPERIENCES: ExperienceItem[] = [
+    {
+    title: "Software Engineer",
+    company: "Microsoft",
+    dates: "Coming Soon January 2026",
+    logo: microsoftLogo,
+    tags: ["C#", ".NET", "Azure"],
+  },
   {
     title: "Graduate Software Engineer",
     company: "Vodafone",
@@ -148,11 +156,13 @@ function Experience() {
                       ))}
                     </div>
                     {/* bullet list */}
-                    <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
-                      {exp.bullets.map((b, idx) => (
-                        <li key={idx}>{b}</li>
-                      ))}
-                    </ul>
+                    {exp.bullets && (
+                      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
+                        {exp.bullets.map((b, idx) => (
+                          <li key={idx}>{b}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
               </FadeInSection>
