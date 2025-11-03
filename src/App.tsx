@@ -12,7 +12,7 @@ function App() {
       <Navbar />
 
       <main className="pt-0 md:pt-16">
-          <div className="flex flex-col lg:gap-12">
+          <div className="flex flex-col lg:gap-12 lg:pb-12">
             <div className="flex flex-col lg:flex-row 4xl:gap-6 justify-center">
               {/* Left: sticky profile (becomes top on mobile) */}
               <aside className="px-0 md:p-4">

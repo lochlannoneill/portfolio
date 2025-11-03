@@ -1,6 +1,7 @@
 // Experience.tsx
 import vodafoneLogo from "../../assets/logos/vodafone.png";
 import bostonLogo from "../../assets/logos/boston.jpg";
+import microsoftLogo from "../../assets/logos/microsoft.png";
 import FadeInSection from "../../FadeInSection";
 import { useState, useRef } from "react";
 
@@ -9,12 +10,19 @@ type ExperienceItem = {
   company: string;
   dates: string;
   tags: string[];
-  bullets: string[];
+  bullets?: string[];
   logo: string;
   defaultOpen?: boolean;
 };
 
 const EXPERIENCES: ExperienceItem[] = [
+    {
+    title: "Software Engineer",
+    company: "Microsoft",
+    dates: "Coming Soon January 2026",
+    logo: microsoftLogo,
+    tags: ["C#", ".NET", "Azure"],
+  },
   {
     title: "Graduate Software Engineer",
     company: "Vodafone",
@@ -77,8 +85,8 @@ function Experience() {
               <FadeInSection key={i}>
                 <div
                   className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer
-                    ${isOpen ? "border-purple-400 dark:border-purple-500 bg-purple-100 dark:bg-[#4b206b]" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
-                    hover:bg-purple-200 dark:hover:bg-purple-800 hover:border-purple-500 focus:outline-none`}
+                    ${isOpen ? "border-amber-400 dark:border-amber-500 bg-amber-100 dark:bg-[#4b206b]" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
+                    hover:bg-amber-200 dark:hover:bg-amber-800 hover:border-amber-500 focus:outline-none`}
                   ref={el => { cardRefs.current[i] = el; }}
                   tabIndex={0}
                   role="button"
@@ -112,7 +120,7 @@ function Experience() {
                     {/* chevron icon */}
                     <span className="flex-shrink-0 flex items-center justify-center w-7 h-7">
                       <svg
-                        className={`h-5 w-5 transition-all duration-300 ${isOpen ? "rotate-180" : ""} fill-gray-400 dark:fill-gray-600 ${isOpen ? 'fill-purple-500 dark:fill-purple-300' : ''}`}
+                        className={`h-5 w-5 transition-all duration-300 ${isOpen ? "rotate-180" : ""} fill-gray-400 dark:fill-gray-600 ${isOpen ? 'fill-amber-500 dark:fill-amber-300' : ''}`}
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -139,8 +147,8 @@ function Experience() {
                           key={idx}
                           className={
                             isOpen
-                              ? "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
-                              : "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
+                              ? "bg-amber-300 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
+                              : "bg-amber-300 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
                           }
                         >
                           {tag}
@@ -148,11 +156,13 @@ function Experience() {
                       ))}
                     </div>
                     {/* bullet list */}
-                    <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
-                      {exp.bullets.map((b, idx) => (
-                        <li key={idx}>{b}</li>
-                      ))}
-                    </ul>
+                    {exp.bullets && (
+                      <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 transition-colors duration-300">
+                        {exp.bullets.map((b, idx) => (
+                          <li key={idx}>{b}</li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </div>
               </FadeInSection>
