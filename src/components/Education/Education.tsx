@@ -106,7 +106,7 @@ function Education() {
                     {/* chevron */}
                     <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10">
                       <svg
-                        className={`h-6 w-6 lg:h-8 lg:w-8 transition-all duration-300 ${isOpen ? "rotate-180" : ""} ${isOpen ? "fill-green-500 dark:fill-green-300" : "fill-gray-400 dark:fill-gray-600"}`}
+                        className={`h-6 w-6 lg:h-8 lg:w-8 transition-all duration-300 ${isOpen ? "rotate-180" : ""} ${isComingSoon ? "fill-gray-400 dark:fill-gray-600" : isOpen ? "fill-green-500 dark:fill-green-300" : "fill-gray-400 dark:fill-gray-600"}`}
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
