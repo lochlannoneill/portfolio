@@ -121,7 +121,7 @@ function Experience() {
                         className={`h-10 w-10 object-contain rounded ${isComingSoon ? "grayscale opacity-50" : ""}`}
                       />
                       <div>
-                        <h3 className="text-base lg:text-xl font-semibold text-gray-800 dark:text-white transition-colors duration-300">
+                        <h3 className="text-base lg:text-xl font-bold text-gray-800 dark:text-white transition-colors duration-300">
                           {exp.title}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{exp.company}</p>
