@@ -58,12 +58,23 @@ function Education() {
         <div className="space-y-3">
           {EDUCATION.map((edu, i) => {
             const isOpen = openIdx === i;
+            const isComingSoon = edu.dates.includes("Coming Soon");
             return (
               <FadeInSection key={i}>
                 <div
-                  className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer
-                    ${isOpen ? "border-green-400 dark:border-green-500 bg-green-100 dark:bg-[#064e3b]" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
-                    hover:bg-green-200 dark:hover:bg-green-800 hover:border-green-500 focus:outline-none`}
+                  className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer relative
+                    ${isComingSoon ? "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 opacity-60" :
+                    isOpen ? "border-green-400 dark:border-green-500 bg-green-100 dark:bg-[#064e3b]" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
+                    ${!isComingSoon ? "hover:bg-green-200 dark:hover:bg-green-800 hover:border-green-500" : ""} focus:outline-none`}
+                  style={isComingSoon ? {
+                    backgroundImage: `repeating-linear-gradient(
+                      45deg,
+                      transparent,
+                      transparent 10px,
+                      rgba(107, 114, 128, 0.3) 10px,
+                      rgba(107, 114, 128, 0.3) 12px
+                    )`
+                  } : {}}
                   ref={el => { cardRefs.current[i] = el; }}
                   tabIndex={0}
                   role="button"
@@ -84,7 +95,7 @@ function Education() {
                       <img
                         src={edu.logo}
                         alt={`${edu.institution} logo`}
-                        className="h-10 w-10 object-contain rounded"
+                        className={`h-10 w-10 object-contain rounded ${isComingSoon ? "grayscale opacity-50" : ""}`}
                       />
                       <div>
                         <h3 className="text-lg font-semibold text-gray-800 dark:text-white transition-colors duration-300">{edu.title}</h3>

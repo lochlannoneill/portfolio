@@ -68,12 +68,23 @@ function Certifications() {
         <div className="space-y-3">
           {CERTIFICATION.map((cert, i) => {
             const isOpen = openIdx === i;
+            const isComingSoon = cert.dates.includes("Coming Soon");
             return (
               <FadeInSection key={i}>
                 <div
-                  className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer
-                    ${isOpen ? "border-purple-400 dark:border-purple-500 bg-purple-100 dark:bg-purple-900" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
-                    hover:bg-purple-200 dark:hover:bg-purple-800 hover:border-purple-500 focus:outline-none`}
+                  className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer relative
+                    ${isComingSoon ? "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 opacity-60" :
+                    isOpen ? "border-purple-400 dark:border-purple-500 bg-purple-100 dark:bg-purple-900" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
+                    ${!isComingSoon ? "hover:bg-purple-200 dark:hover:bg-purple-800 hover:border-purple-500" : ""} focus:outline-none`}
+                  style={isComingSoon ? {
+                    backgroundImage: `repeating-linear-gradient(
+                      45deg,
+                      transparent,
+                      transparent 10px,
+                      rgba(107, 114, 128, 0.3) 10px,
+                      rgba(107, 114, 128, 0.3) 12px
+                    )`
+                  } : {}}
                   ref={el => { cardRefs.current[i] = el; }}
                   tabIndex={0}
                   role="button"
@@ -94,7 +105,7 @@ function Certifications() {
                       <img
                         src={cert.logo}
                         alt={`${cert.institution} logo`}
-                        className="h-10 w-10 object-contain rounded"
+                        className={`h-10 w-10 object-contain rounded ${isComingSoon ? "grayscale opacity-50" : ""}`}
                       />
                       <div>
                         <h3 className="text-lg font-semibold text-gray-800 dark:text-white transition-colors duration-300">{cert.title}</h3>
