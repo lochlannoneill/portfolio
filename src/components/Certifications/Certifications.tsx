@@ -142,7 +142,9 @@ function Certifications() {
                         <span
                           key={idx}
                           className={
-                            isOpen
+                            isComingSoon
+                              ? "bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs md:text-sm font-medium px-3 py-1 rounded-full transition-colors duration-300"
+                              : isOpen
                               ? "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
                               : "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
                           }

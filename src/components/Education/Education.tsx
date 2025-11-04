@@ -132,7 +132,9 @@ function Education() {
                         <span
                           key={idx}
                           className={
-                            isOpen
+                            isComingSoon
+                              ? "bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs md:text-sm font-medium px-3 py-1 rounded-full transition-colors duration-300"
+                              : isOpen
                               ? "bg-green-300 dark:bg-green-950 text-green-900 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
                               : "bg-green-300 dark:bg-green-950 text-green-900 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
                           }

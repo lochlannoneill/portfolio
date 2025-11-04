@@ -157,7 +157,9 @@ function Experience() {
                         <span
                           key={idx}
                           className={
-                            isOpen
+                            isComingSoon
+                              ? "bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs md:text-sm font-medium px-3 py-1 rounded-full transition-colors duration-300"
+                              : isOpen
                               ? "bg-amber-300 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
                               : "bg-amber-300 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
                           }
