@@ -99,7 +99,7 @@ function Education() {
                       />
                       <div>
                         <h3 className="text-base lg:text-xl font-bold text-gray-800 dark:text-white transition-colors duration-300">{edu.title}</h3>
-                        <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">{edu.institution}</p>
+                        <p className="text-base lg:text-lg text-gray-600 dark:text-gray-300 transition-colors duration-300">{edu.institution}</p>
                         <p className="text-gray-400 dark:text-gray-500 text-sm font-medium transition-colors duration-300">{edu.dates}</p>
                       </div>
                     </div>
