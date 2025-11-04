@@ -73,7 +73,7 @@ function Certifications() {
               <FadeInSection key={i}>
                 <div
                   className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer relative
-                    ${isComingSoon ? "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 opacity-60" :
+                    ${isComingSoon ? "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 opacity-60 hover:bg-gray-200 dark:hover:bg-gray-700" :
                     isOpen ? "border-purple-400 dark:border-purple-500 bg-purple-100 dark:bg-purple-900" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
                     ${!isComingSoon ? "hover:bg-purple-200 dark:hover:bg-purple-800 hover:border-purple-500" : ""} focus:outline-none`}
                   style={isComingSoon ? {
