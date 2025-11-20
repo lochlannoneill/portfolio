@@ -19,7 +19,7 @@ const EXPERIENCES: ExperienceItem[] = [
     {
     title: "Software Engineer",
     company: "Microsoft",
-    dates: "Coming Soon January 2026",
+    dates: "Coming Soon December 2025",
     logo: microsoftLogo,
     tags: ["C#", ".NET", "Azure"],
   },
