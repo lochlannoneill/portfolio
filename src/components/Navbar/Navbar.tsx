@@ -91,25 +91,25 @@ function Navbar() {
     <>
       <a
         href="#experience"
-        className="block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
+        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
       >
         Experience
       </a>
       <a
         href="#education"
-        className="block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
+        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
       >
         Education
       </a>
       <a
         href="#certifications"
-        className="block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
+        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
       >
         Certifications
       </a>
       <a
         href="#projects"
-        className="block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
+        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
       >
         Projects
       </a>

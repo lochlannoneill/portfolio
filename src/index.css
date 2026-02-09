@@ -4,6 +4,24 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Wiggle animation for navbar items */
+@keyframes wiggle {
+  0%, 20% { transform: rotate(0deg); }
+  2% { transform: rotate(-3deg); }
+  4% { transform: rotate(3deg); }
+  6% { transform: rotate(-3deg); }
+  8% { transform: rotate(3deg); }
+  10% { transform: rotate(-2deg); }
+  12% { transform: rotate(2deg); }
+  14% { transform: rotate(-1deg); }
+  16% { transform: rotate(1deg); }
+  18%, 100% { transform: rotate(0deg); }
+}
+
+.wiggle:hover {
+  animation: wiggle 5s ease-in-out infinite;
+}
+
 /* Experience scrollbar (amber theme) */
 .custom-scrollbar-amber {
   scrollbar-width: thin;
