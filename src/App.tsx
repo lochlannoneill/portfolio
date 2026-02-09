@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
+import SectionNavigation from './components/Profile/SectionNavigation';
 import Experience from './components/Experience/Experience';
 import Education from './components/Education/Education';
 import Certifications from './components/Certifications/Certifications';
@@ -18,6 +19,9 @@ function App() {
               <aside className="px-0 md:p-4">
                 <div className="lg:sticky lg:top-24">
                   <Profile />
+                  <div className="hidden md:block">
+                    <SectionNavigation />
+                  </div>
                 </div>
               </aside>
 
