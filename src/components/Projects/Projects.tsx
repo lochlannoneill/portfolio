@@ -64,6 +64,13 @@ function Projects() {
   const LOADED_MORE_PROJECT_COUNT = 3;
   const [visibleCount, setVisibleCount] = useState(LOADED_MORE_PROJECT_COUNT);
   const [loading, setLoading] = useState(false);
+  const [fullscreenSlideshow, setFullscreenSlideshow] = useState<{
+    images: string[];
+    currentIndex: number;
+    projectName: string;
+  } | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   const projects = [
@@ -212,6 +219,68 @@ function Projects() {
     return () => observer.disconnect();
   }, [visibleCount, projects.length, loading]);
 
+  // Keyboard navigation for fullscreen slideshow
+  useEffect(() => {
+    if (!fullscreenSlideshow) return;
+    
+    const handleKeyDown = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'Escape':
+          setFullscreenSlideshow(null);
+          break;
+        case 'ArrowLeft':
+          setFullscreenSlideshow(prev => prev ? {
+            ...prev,
+            currentIndex: prev.currentIndex === 0 ? prev.images.length - 1 : prev.currentIndex - 1
+          } : null);
+          break;
+        case 'ArrowRight':
+          setFullscreenSlideshow(prev => prev ? {
+            ...prev,
+            currentIndex: prev.currentIndex === prev.images.length - 1 ? 0 : prev.currentIndex + 1
+          } : null);
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [fullscreenSlideshow]);
+
+  // Swipe detection functions
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      // Swipe left - go to next image
+      setFullscreenSlideshow(prev => prev ? {
+        ...prev,
+        currentIndex: prev.currentIndex === prev.images.length - 1 ? 0 : prev.currentIndex + 1
+      } : null);
+    }
+    if (isRightSwipe) {
+      // Swipe right - go to previous image
+      setFullscreenSlideshow(prev => prev ? {
+        ...prev,
+        currentIndex: prev.currentIndex === 0 ? prev.images.length - 1 : prev.currentIndex - 1
+      } : null);
+    }
+  };
+
   return (
     <section
       id="projects"
@@ -294,8 +363,19 @@ function Projects() {
 
                 {/* Images Section (Swiper Carousel) */}
                 <div className="flex-shrink-0 w-full md:w-[55%] min-w-0">
-                  <div className="h-48 md:h-72 lg:h-96 bg-gray-100 rounded-lg overflow-hidden relative
-                                  [&_.swiper-pagination-bullets]:!bottom-2 [&_.swiper-pagination-bullets]:!top-auto">
+                  <div 
+                    className="group h-48 md:h-72 lg:h-96 bg-gray-100 rounded-lg overflow-hidden relative transition-all duration-300 hover:scale-95 cursor-pointer
+                                    [&_.swiper-pagination-bullets]:!bottom-2 [&_.swiper-pagination-bullets]:!top-auto"
+                    onClick={() => {
+                      if (Array.isArray(project.images) && project.images.length > 0) {
+                        setFullscreenSlideshow({
+                          images: project.images,
+                          currentIndex: 0,
+                          projectName: project.name
+                        });
+                      }
+                    }}
+                  >
                     {Array.isArray(project.images) && project.images.length > 0 ? (
                       <Swiper
                         modules={[Pagination, A11y, Autoplay, Keyboard]}
@@ -308,11 +388,11 @@ function Projects() {
                         className="h-full w-full"
                       >
                         {project.images.map((src, i) => (
-                          <SwiperSlide key={i} className="flex items-center justify-center">
+                          <SwiperSlide key={i} className="flex items-center justify-center overflow-hidden">
                             <img
                               src={src}
                               alt={`${project.name} screenshot ${i + 1}`}
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                               loading="lazy"
                             />
                           </SwiperSlide>
@@ -384,6 +464,92 @@ function Projects() {
               className="text-gray-400 dark:text-gray-500 text-5xl transition-colors duration-300"
               title="Loading more projects..."
             />
+          )}
+        </div>
+      )}
+
+      {/* Fullscreen Slideshow */}
+      {fullscreenSlideshow && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          onClick={(e) => {
+            // Only close if clicking on the background, not on child elements
+            if (e.target === e.currentTarget) {
+              setFullscreenSlideshow(null);
+            }
+          }}
+        >
+          {/* Close button */}
+          <button
+            onClick={() => setFullscreenSlideshow(null)}
+            className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors duration-300 z-10"
+            aria-label="Close slideshow"
+          >
+            ×
+          </button>
+          
+          {/* Project name */}
+          <div className="absolute top-4 left-4 text-white text-xl font-semibold z-10">
+            {fullscreenSlideshow.projectName}
+          </div>
+
+          {/* Navigation arrows */}
+          {fullscreenSlideshow.images.length > 1 && (
+            <>
+              <button
+                onClick={() => setFullscreenSlideshow(prev => prev ? {
+                  ...prev,
+                  currentIndex: prev.currentIndex === 0 ? prev.images.length - 1 : prev.currentIndex - 1
+                } : null)}
+                className="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 text-white text-6xl hover:text-gray-300 transition-colors duration-300 z-10"
+                aria-label="Previous image"
+              >
+                ‹
+              </button>
+              <button
+                onClick={() => setFullscreenSlideshow(prev => prev ? {
+                  ...prev,
+                  currentIndex: prev.currentIndex === prev.images.length - 1 ? 0 : prev.currentIndex + 1
+                } : null)}
+                className="hidden lg:block absolute right-4 top-1/2 -translate-y-1/2 text-white text-6xl hover:text-gray-300 transition-colors duration-300 z-10"
+                aria-label="Next image"
+              >
+                ›
+              </button>
+            </>
+          )}
+
+          {/* Main image */}
+          <div className="max-w-[90vw] max-h-[90vh] flex items-center justify-center">
+            <img
+              src={fullscreenSlideshow.images[fullscreenSlideshow.currentIndex]}
+              alt={`${fullscreenSlideshow.projectName} screenshot ${fullscreenSlideshow.currentIndex + 1}`}
+              className="min-w-[70vw] max-w-[90vw] max-h-[80vh] object-contain"
+            />
+          </div>
+
+          {/* Pagination dots */}
+          {fullscreenSlideshow.images.length > 1 && (
+            <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+              {fullscreenSlideshow.images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setFullscreenSlideshow(prev => prev ? {
+                    ...prev,
+                    currentIndex: index
+                  } : null)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === fullscreenSlideshow.currentIndex 
+                      ? 'bg-white' 
+                      : 'bg-white/40 hover:bg-white/70'
+                  }`}
+                  aria-label={`Go to image ${index + 1}`}
+                />
+              ))}
+            </div>
           )}
         </div>
       )}
