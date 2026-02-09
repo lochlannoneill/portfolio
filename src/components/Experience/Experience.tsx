@@ -22,7 +22,7 @@ const EXPERIENCES: ExperienceItem[] = [
     dates: "December 2025 - Present",
     logo: microsoftLogo,
     defaultOpen: true,
-    tags: ["C#", ".NET", "Azure", "Batch"],
+    tags: ["C#", "C++", ".NET", "Coyote", "Azure"],
     bullets: [
       "Contributing to the Azure Batch scheduler",
       "Participating in on-call rotation",
@@ -33,7 +33,7 @@ const EXPERIENCES: ExperienceItem[] = [
     company: "Vodafone",
     dates: "May 2025 - Present",
     logo: vodafoneLogo,
-    tags: ["Java", "Quarkus", "Kubernetes", "Docker", "MongoDB", "Git", "Agile"],
+    tags: ["Java", "Quarkus", "Kubernetes", "Docker", "MongoDB"],
     bullets: [
       "Contributed to Java microservices development with Quarkus and Kubernetes, gaining experience in scalable and containerized applications.",
       "Maintained >80% unit test coverage, ensuring code quality and reliability.",
@@ -47,7 +47,7 @@ const EXPERIENCES: ExperienceItem[] = [
     company: "Vodafone",
     dates: "August 2024 - May 2025",
     logo: vodafoneLogo,
-    tags: ["Sunbird DCIM", "Asset Management", "Excel", "Cloud Migration", "Selenium", "HTML", "CSS", "JavaScript"],
+    tags: ["Sunbird DCIM", "Excel"],
     bullets: [
       "Audited 100% of datacenter assets on-site, ensuring precise asset tracking and laying the foundation for a successful cloud migration.",
       "Migrated 70% of datacenter assets to Sunbird DCIM, enabling real-time analytics that improved operational efficiency, reduced downtime and power costs, enhanced scalability, and supported data-driven decision-making for stakeholders.",

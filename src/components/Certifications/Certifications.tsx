@@ -20,7 +20,7 @@ const CERTIFICATION: CertificationItem[] = [
     institution: "Microsoft",
     dates: "Coming Soon",
     logo: microsoftLogo,
-    tags: ["Cloud Computing", "Azure", "Cloud Native"],
+    tags: ["Azure", "App Services", "Azure Functions", "Azure Storage", "Azure Cosmos DB", "Azure Key Vault", "Azure Event Grid"],
     bullets: [
       "Developed and deployed cloud applications using Azure services.",
       "Implemented secure cloud solutions following best practices.",
@@ -32,7 +32,7 @@ const CERTIFICATION: CertificationItem[] = [
     institution: "Microsoft",
     dates: "October 2025",
     logo: microsoftLogo,
-    tags: ["Cloud Computing", "Azure"],
+    tags: ["Azure", "Compute", "Networking", "Storage", "Databases", "Security"],
     defaultOpen: true,
     bullets: [
       "Demonstrated foundational knowledge of cloud computing concepts, including high availability, scalability, and cost management.",
