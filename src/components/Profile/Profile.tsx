@@ -24,19 +24,19 @@ function Profile() {
           <div className="absolute inset-0 bg-black opacity-20"></div>
         </div>
 
-  <div className="relative flex flex-col p-4 xl:p-6 -mt-26 md:-mt-28">
+  <div className="relative flex flex-col p-4 xl:p-6 -mt-28 md:-mt-32">
         {/* profile image + name/email side by side */}
         <div className="flex items-center space-x-4 mb-4">
           <a
             href="https://www.linkedin.com/in/lochlannoneill/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group"
+            className="group w-32 md:w-36 h-32 md:h-36 rounded-full border-5 border-white dark:border-gray-900 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-black/50 hover:scale-95"
           >
             <img
               src={profileImg}
               alt="Profile"
-              className="w-30 h-30 rounded-full border-5 border-white dark:border-gray-900 transition-all duration-300 group-hover:scale-105 group-hover:brightness-90"
+              className="w-full h-full rounded-full object-cover transition-all duration-300 group-hover:scale-110 group-hover:brightness-90"
             />
           </a>
           <div className="flex flex-col -mt-4">
