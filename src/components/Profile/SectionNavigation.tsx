@@ -17,9 +17,10 @@ const SectionNavigation: React.FC<SectionNavigationProps> = () => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight * 0.4;
 
-      // Calculate scroll progress through the sections
-      const firstSection = document.getElementById(sections[0].id);
-      const lastSection = document.getElementById(sections[sections.length - 1].id);
+      // Calculate scroll progress through the sections (excluding projects from progress calculation)
+      const progressSections = sections.filter(section => section.id !== 'projects');
+      const firstSection = document.getElementById(progressSections[0].id);
+      const lastSection = document.getElementById(progressSections[progressSections.length - 1].id);
       
       if (firstSection && lastSection) {
         const firstSectionTop = firstSection.offsetTop;
