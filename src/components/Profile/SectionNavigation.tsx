@@ -97,7 +97,7 @@ const SectionNavigation: React.FC<SectionNavigationProps> = () => {
       </ul>
       
       {/* Progress bar */}
-      <div className="ml-4 w-1 h-24 bg-gray-200 dark:bg-gray-700 rounded-full relative overflow-hidden">
+      <div className="ml-4 w-1 h-24 bg-gray-200 dark:bg-gray-700 rounded-full relative overflow-hidden transition-colors duration-300">
         <div 
           className="absolute top-0 left-0 w-full bg-blue-500 dark:bg-blue-400 rounded-full transition-all duration-300 ease-out"
           style={{ height: `${scrollProgress}%` }}

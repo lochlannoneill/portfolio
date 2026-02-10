@@ -91,25 +91,25 @@ function Navbar() {
     <>
       <a
         href="#experience"
-        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
+        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-all duration-300"
       >
         Experience
       </a>
       <a
         href="#education"
-        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
+        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-all duration-300"
       >
         Education
       </a>
       <a
         href="#certifications"
-        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
+        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-all duration-300"
       >
         Certifications
       </a>
       <a
         href="#projects"
-        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300"
+        className="wiggle block md:inline text-gray-800 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 p-8 font-medium md:border-0 border-t border-gray-200 dark:border-gray-800 drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-all duration-300"
       >
         Projects
       </a>
@@ -140,7 +140,7 @@ function Navbar() {
                     alt="Profile Picture"
                     className="h-10 w-10 mr-2 rounded-full"
                   />
-                  <a href="#home" className="text-xl font-bold text-gray-800 dark:text-white drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-colors duration-300">
+                  <a href="#home" className="text-xl font-bold text-gray-800 dark:text-white drop-shadow-[0_1px_2px_white] dark:drop-shadow-[0_1px_2px_black] transition-all duration-300">
                     <span className="lg:hidden">Lochlann</span>
                     <span className="hidden lg:inline">Lochlann O Neill</span>
                   </a>

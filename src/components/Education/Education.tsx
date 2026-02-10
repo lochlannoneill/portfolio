@@ -63,8 +63,8 @@ function Education() {
               <FadeInSection key={i}>
                 <div
                   className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer relative
-                    ${isComingSoon ? "border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 opacity-60 hover:bg-gray-200 dark:hover:bg-gray-700" :
-                    isOpen ? "border-amber-400 dark:border-amber-600 bg-amber-100 dark:bg-amber-900" : "border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900"}
+                    ${isComingSoon ? "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 opacity-60 hover:bg-gray-200 dark:hover:bg-gray-700" :
+                    isOpen ? "border-amber-400 dark:border-amber-500 bg-amber-100 dark:bg-amber-900" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
                     ${!isComingSoon ? "hover:bg-amber-200 dark:hover:bg-amber-800 hover:border-amber-500" : ""} focus:outline-none`}
                   style={isComingSoon ? {
                     backgroundImage: `repeating-linear-gradient(
