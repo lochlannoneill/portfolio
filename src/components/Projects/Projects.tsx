@@ -287,19 +287,19 @@ function Projects() {
       className="w-full max-w-6xl mx-auto p-4 xl:p-0 scroll-mt-16"
     >
       <FadeInSection>
-        <h2 className="block lg:hidden text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 transition-colors duration-300">
+        <h2 className="block text-3xl text-center font-bold text-gray-800 dark:text-gray-200 mb-4 transition-colors duration-300">
           Projects
         </h2>
       </FadeInSection>
 
-      <ul className="flex flex-col md:gap-12">
+      <ul className="flex flex-col md:gap-16">
         {projects.slice(0, visibleCount).map((project, idx) => (
           <FadeInSection key={project.id}>
             {/* Each project */}
             <li className="rounded-lg">
               <div
                 className={`flex flex-col md:flex-row gap-6 md:gap-8 items-center ${
-                  idx % 2 !== 0 ? "md:flex-row-reverse" : ""
+                  idx % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
                 {/* Text Section */}

@@ -9,7 +9,7 @@ import Projects from './components/Projects/Projects';
 
 function App() {
   return (
-    <div id="home" className="text-sm bg-white dark:bg-gray-900 md:text-lg lg:text-xl transition-colors duration-300">
+    <div id="home" className="text-sm bg-gray-100 dark:bg-gray-900 md:text-lg lg:text-xl transition-colors duration-300">
       <Navbar />
 
       <main className="pt-0 md:pt-16">
