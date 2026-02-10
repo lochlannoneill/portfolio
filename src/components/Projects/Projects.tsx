@@ -485,7 +485,7 @@ function Projects() {
           {/* Close button */}
           <button
             onClick={() => setFullscreenSlideshow(null)}
-            className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors duration-300 z-10 cursor-pointer"
+            className="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors duration-300 z-10"
             aria-label="Close slideshow"
           >
             ×
@@ -504,7 +504,7 @@ function Projects() {
                   ...prev,
                   currentIndex: prev.currentIndex === 0 ? prev.images.length - 1 : prev.currentIndex - 1
                 } : null)}
-                className="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 text-white text-6xl hover:text-gray-300 transition-colors duration-300 z-10 cursor-pointer"
+                className="hidden lg:block absolute left-4 top-1/2 -translate-y-1/2 text-white text-6xl hover:text-gray-300 transition-colors duration-300 z-10"
                 aria-label="Previous image"
               >
                 ‹
@@ -514,7 +514,7 @@ function Projects() {
                   ...prev,
                   currentIndex: prev.currentIndex === prev.images.length - 1 ? 0 : prev.currentIndex + 1
                 } : null)}
-                className="hidden lg:block absolute right-4 top-1/2 -translate-y-1/2 text-white text-6xl hover:text-gray-300 transition-colors duration-300 z-10 cursor-pointer"
+                className="hidden lg:block absolute right-4 top-1/2 -translate-y-1/2 text-white text-6xl hover:text-gray-300 transition-colors duration-300 z-10"
                 aria-label="Next image"
               >
                 ›
