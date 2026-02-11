@@ -164,8 +164,8 @@ function Experience() {
                             isComingSoon
                               ? "bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs md:text-sm font-medium px-3 py-1 rounded-full transition-colors duration-300"
                               : isOpen
-                              ? "bg-blue-200 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-400 dark:hover:bg-blue-900 transition-colors duration-300"
-                              : "bg-blue-200 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-400 dark:hover:bg-blue-900 transition-colors duration-300"
+                              ? "bg-blue-200 dark:bg-blue-950 text-blue-800 dark:text-blue-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-400 dark:hover:bg-blue-900 transition-colors duration-300"
+                              : "bg-blue-200 dark:bg-blue-950 text-blue-800 dark:text-blue-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-400 dark:hover:bg-blue-900 transition-colors duration-300"
                           }
                         >
                           {tag}
