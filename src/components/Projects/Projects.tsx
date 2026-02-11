@@ -334,14 +334,14 @@ function Projects() {
                             ? faFilePdf
                             : faArrowUpRightFromSquare;
 
-                        const hoverClass =
+                        const backgroundClass =
                           type === "website"
-                            ? "hover:text-blue-600"
+                            ? "bg-blue-600 hover:bg-blue-700"
                             : type === "youtube"
-                            ? "hover:text-red-600"
+                            ? "bg-red-600 hover:bg-red-700"
                             : type === "pdf"
-                            ? "hover:text-orange-500"
-                            : "hover:text-purple-700";
+                            ? "bg-orange-500 hover:bg-orange-600"
+                            : "bg-purple-700 hover:bg-purple-800";
 
                         return (
                           <a
@@ -349,8 +349,7 @@ function Projects() {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`text-2xl text-gray-700 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-md px-3 py-2 hover:scale-105 ${hoverClass} transition-all duration-300`}
-                            style={!document.documentElement.classList.contains('dark') ? { boxShadow: 'inset 0 2px 8px 0 rgba(0,0,0,0.10), inset 0 2px 12px 0 rgba(0,0,0,0.18)' } : {}}
+                            className={`text-2xl text-white rounded-md px-3 py-2 hover:scale-105 ${backgroundClass} transition-all duration-300`}
                             title={type.charAt(0).toUpperCase() + type.slice(1)}
                           >
                             <FontAwesomeIcon icon={icon} />
@@ -435,7 +434,8 @@ function Projects() {
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`text-2xl text-gray-600 bg-gray-100 dark:bg-gray-800 rounded-md px-3 py-2 hover:scale-105 ${hoverClass} transition-colors duration-300`}
+                            className={`text-2xl text-gray-700 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-md px-3 py-2 hover:scale-105 ${hoverClass} transition-all duration-300`}
+                            style={!document.documentElement.classList.contains('dark') ? { boxShadow: 'inset 0 2px 8px 0 rgba(0,0,0,0.10), inset 0 2px 12px 0 rgba(0,0,0,0.18)' } : {}}
                             title={type.charAt(0).toUpperCase() + type.slice(1)}
                           >
                             <FontAwesomeIcon icon={icon} />
@@ -449,7 +449,7 @@ function Projects() {
             </li>
             {/* Horizontal divider on mobile */}
             {idx < visibleCount - 1 && (
-              <hr className="block md:hidden border-t border-gray-100 dark:border-gray-800 my-8 w-11/12 mx-auto transition-colors duration-300" />
+              <hr className="block md:hidden border-t border-gray-200 dark:border-gray-800 my-8 w-11/12 mx-auto transition-colors duration-300" />
             )}
           </FadeInSection>
         ))}
