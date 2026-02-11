@@ -10,6 +10,7 @@ const SectionNavigation: React.FC<SectionNavigationProps> = () => {
     { id: 'experience', label: 'Experience' },
     { id: 'education', label: 'Education' },
     { id: 'certifications', label: 'Certifications' },
+    { id: 'volunteering', label: 'Volunteering' },
     { id: 'projects', label: 'Projects' }
   ];
 
@@ -100,8 +101,8 @@ const SectionNavigation: React.FC<SectionNavigationProps> = () => {
       {/* Progress bar */}
       <div className="ml-4 w-1 h-24 bg-gray-200 dark:bg-gray-700 rounded-full relative overflow-hidden transition-colors duration-300">
         <div 
-          className="absolute top-0 left-0 w-full bg-blue-500 dark:bg-blue-400 rounded-full transition-all duration-300 ease-out"
-          style={{ height: `${scrollProgress}%` }}
+          className="absolute top-0 left-0 w-full rounded-full transition-all duration-300 ease-out"
+          style={{ height: `${scrollProgress}%`, backgroundColor: '#007AFF' }}
         />
       </div>
     </nav>
