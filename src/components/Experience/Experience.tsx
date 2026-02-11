@@ -22,7 +22,7 @@ const EXPERIENCES: ExperienceItem[] = [
     dates: "December 2025 - Present",
     logo: microsoftLogo,
     defaultOpen: true,
-    tags: ["C#", ".NET", "Azure", "Batch"],
+    tags: ["C#", "C++", ".NET", "Coyote", "Azure"],
     bullets: [
       "Contributing to the Azure Batch scheduler",
       "Participating in on-call rotation",
@@ -33,7 +33,7 @@ const EXPERIENCES: ExperienceItem[] = [
     company: "Vodafone",
     dates: "May 2025 - Present",
     logo: vodafoneLogo,
-    tags: ["Java", "Quarkus", "Kubernetes", "Docker", "MongoDB", "Git", "Agile"],
+    tags: ["Java", "Quarkus", "Kubernetes", "Docker", "MongoDB"],
     bullets: [
       "Contributed to Java microservices development with Quarkus and Kubernetes, gaining experience in scalable and containerized applications.",
       "Maintained >80% unit test coverage, ensuring code quality and reliability.",
@@ -47,7 +47,7 @@ const EXPERIENCES: ExperienceItem[] = [
     company: "Vodafone",
     dates: "August 2024 - May 2025",
     logo: vodafoneLogo,
-    tags: ["Sunbird DCIM", "Asset Management", "Excel", "Cloud Migration", "Selenium", "HTML", "CSS", "JavaScript"],
+    tags: ["Sunbird DCIM", "Excel"],
     bullets: [
       "Audited 100% of datacenter assets on-site, ensuring precise asset tracking and laying the foundation for a successful cloud migration.",
       "Migrated 70% of datacenter assets to Sunbird DCIM, enabling real-time analytics that improved operational efficiency, reduced downtime and power costs, enhanced scalability, and supported data-driven decision-making for stakeholders.",
@@ -79,7 +79,7 @@ function Experience() {
   <section id="experience" className="w-full p-4 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Experience</h2>
+          <h2 className="text-3xl text-center font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Experience</h2>
         </FadeInSection>
 
         <div className="space-y-3">
@@ -89,10 +89,10 @@ function Experience() {
             return (
               <FadeInSection key={i}>
                 <div
-                  className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer relative
-                    ${isComingSoon ? "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 opacity-60 hover:bg-gray-200 dark:hover:bg-gray-700" :
-                    isOpen ? "border-green-400 dark:border-green-500 bg-green-100 dark:bg-green-900" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
-                    ${!isComingSoon ? "hover:bg-green-200 dark:hover:bg-green-800 hover:border-green-500" : ""} focus:outline-none`}
+                  className={`scroll-mt-28 group rounded-lg border transition-all duration-300 cursor-pointer relative
+                    ${isComingSoon ? "border-gray-300 dark:border-gray-800 bg-gray-100 dark:bg-gray-800 opacity-60 hover:bg-gray-200 dark:hover:bg-gray-700" :
+                    isOpen ? "border-blue-400 dark:border-blue-600 bg-blue-100 dark:bg-blue-800 shadow-lg" : "border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900"}
+                    ${!isComingSoon ? "hover:bg-blue-200 dark:hover:bg-blue-800 hover:border-blue-500" : ""} focus:outline-none`}
                   style={isComingSoon ? {
                     backgroundImage: `repeating-linear-gradient(
                       45deg,
@@ -135,7 +135,7 @@ function Experience() {
                     {/* chevron icon */}
                     <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10">
                       <svg
-                        className={`h-6 w-6 lg:h-8 lg:w-8 transition-all duration-300 ${isOpen ? "rotate-180" : ""} ${isComingSoon ? "fill-gray-400 dark:fill-gray-600" : isOpen ? "fill-green-500 dark:fill-green-300" : "fill-gray-400 dark:fill-gray-600"}`}
+                        className={`h-6 w-6 lg:h-8 lg:w-8 transition-all duration-300 ${isOpen ? "rotate-180" : ""} ${isComingSoon ? "fill-gray-400 dark:fill-gray-600" : isOpen ? "fill-blue-500 dark:fill-blue-300" : "fill-gray-400 dark:fill-gray-600"}`}
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -150,7 +150,7 @@ function Experience() {
                     </span>
                   </div>
                   <div
-                    className={`transition-all duration-800 ease-in-out overflow-hidden px-4 md:px-6 ${isOpen ? 'max-h-96 overflow-y-auto opacity-100 pb-3 md:pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
+                    className={`transition-all duration-800 ease-in-out overflow-hidden px-4 md:px-6 ${isOpen ? 'max-h-96 overflow-y-auto opacity-100 pb-3 md:pb-4 space-y-3 custom-scrollbar-blue' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
                     style={{
                       transitionProperty: 'max-height, opacity, padding-bottom',
                     }}
@@ -164,8 +164,8 @@ function Experience() {
                             isComingSoon
                               ? "bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs md:text-sm font-medium px-3 py-1 rounded-full transition-colors duration-300"
                               : isOpen
-                              ? "bg-green-300 dark:bg-green-950 text-green-800 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
-                              : "bg-green-300 dark:bg-green-950 text-green-800 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
+                              ? "bg-blue-200 dark:bg-blue-950 text-blue-800 dark:text-blue-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-400 dark:hover:bg-blue-900 transition-colors duration-300"
+                              : "bg-blue-200 dark:bg-blue-950 text-blue-800 dark:text-blue-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-400 dark:hover:bg-blue-900 transition-colors duration-300"
                           }
                         >
                           {tag}

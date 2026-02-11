@@ -20,7 +20,7 @@ const CERTIFICATION: CertificationItem[] = [
     institution: "Microsoft",
     dates: "Coming Soon",
     logo: microsoftLogo,
-    tags: ["Cloud Computing", "Azure", "Cloud Native"],
+    tags: ["Azure", "App Services", "Azure Functions", "Azure Storage", "Azure Cosmos DB", "Azure Key Vault", "Azure Event Grid"],
     bullets: [
       "Developed and deployed cloud applications using Azure services.",
       "Implemented secure cloud solutions following best practices.",
@@ -32,7 +32,7 @@ const CERTIFICATION: CertificationItem[] = [
     institution: "Microsoft",
     dates: "October 2025",
     logo: microsoftLogo,
-    tags: ["Cloud Computing", "Azure"],
+    tags: ["Azure", "Compute", "Networking", "Storage", "Databases", "Security"],
     defaultOpen: true,
     bullets: [
       "Demonstrated foundational knowledge of cloud computing concepts, including high availability, scalability, and cost management.",
@@ -63,7 +63,7 @@ function Certifications() {
     <section id="certifications" className="w-full p-4 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <FadeInSection>
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Certifications</h2>
+          <h2 className="text-3xl text-center font-bold text-gray-800 dark:text-white mb-4 transition-colors duration-300">Certifications</h2>
         </FadeInSection>
         <div className="space-y-3">
           {CERTIFICATION.map((cert, i) => {
@@ -72,10 +72,10 @@ function Certifications() {
             return (
               <FadeInSection key={i}>
                 <div
-                  className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer relative
+                  className={`scroll-mt-28 group rounded-lg border transition-all duration-300 cursor-pointer relative
                     ${isComingSoon ? "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 opacity-60 hover:bg-gray-200 dark:hover:bg-gray-700" :
-                    isOpen ? "border-purple-400 dark:border-purple-500 bg-purple-100 dark:bg-purple-900" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
-                    ${!isComingSoon ? "hover:bg-purple-200 dark:hover:bg-purple-800 hover:border-purple-500" : ""} focus:outline-none`}
+                    isOpen ? "border-amber-400 dark:border-amber-500 bg-amber-100 dark:bg-amber-900 shadow-lg" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
+                    ${!isComingSoon ? "hover:bg-amber-200 dark:hover:bg-amber-800 hover:border-amber-500" : ""} focus:outline-none`}
                   style={isComingSoon ? {
                     backgroundImage: `repeating-linear-gradient(
                       45deg,
@@ -116,7 +116,7 @@ function Certifications() {
                     {/* chevron */}
                     <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10">
                         <svg
-                          className={`h-6 w-6 lg:h-8 lg:w-8 transition-all duration-300 ${isOpen ? "rotate-180" : ""} ${isComingSoon ? "fill-gray-400 dark:fill-gray-600" : isOpen ? "fill-purple-500 dark:fill-purple-300" : "fill-gray-400 dark:fill-gray-600"}`}
+                          className={`h-6 w-6 lg:h-8 lg:w-8 transition-all duration-300 ${isOpen ? "rotate-180" : ""} ${isComingSoon ? "fill-gray-400 dark:fill-gray-600" : isOpen ? "fill-amber-500 dark:fill-amber-300" : "fill-gray-400 dark:fill-gray-600"}`}
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -131,7 +131,7 @@ function Certifications() {
                     </span>
                   </div>
                   <div
-                    className={`transition-all duration-800 ease-in-out overflow-hidden px-4 md:px-6 ${isOpen ? 'max-h-96 overflow-y-auto opacity-100 pb-3 md:pb-4 space-y-3' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
+                    className={`transition-all duration-800 ease-in-out overflow-hidden px-4 md:px-6 ${isOpen ? 'max-h-96 overflow-y-auto opacity-100 pb-3 md:pb-4 space-y-3 custom-scrollbar-amber' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
                     style={{
                       transitionProperty: 'max-height, opacity, padding-bottom',
                     }}
@@ -145,8 +145,8 @@ function Certifications() {
                             isComingSoon
                               ? "bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs md:text-sm font-medium px-3 py-1 rounded-full transition-colors duration-300"
                               : isOpen
-                              ? "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
-                              : "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
+                              ? "bg-amber-200 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
+                              : "bg-amber-200 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-amber-400 dark:hover:bg-amber-900 transition-colors duration-300"
                           }
                         >
                           {tag}
