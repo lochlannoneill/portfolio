@@ -450,7 +450,7 @@ function Projects() {
             </li>
             {/* Horizontal divider on mobile */}
             {idx < visibleCount - 1 && (
-              <hr className="block md:hidden border-t border-gray-100 dark:border-gray-800 my-8 w-11/12 mx-auto transition-colors duration-300" />
+              <hr className="block md:hidden border-t border-gray-200 dark:border-gray-800 my-8 w-11/12 mx-auto transition-colors duration-300" />
             )}
           </FadeInSection>
         ))}
