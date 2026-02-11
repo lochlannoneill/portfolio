@@ -10,7 +10,6 @@ const SectionNavigation: React.FC<SectionNavigationProps> = () => {
     { id: 'experience', label: 'Experience' },
     { id: 'education', label: 'Education' },
     { id: 'certifications', label: 'Certifications' },
-    { id: 'volunteering', label: 'Volunteering' },
     { id: 'projects', label: 'Projects' }
   ];
 
