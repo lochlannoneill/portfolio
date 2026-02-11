@@ -72,10 +72,10 @@ function Certifications() {
             return (
               <FadeInSection key={i}>
                 <div
-                  className={`scroll-mt-28 group rounded-lg border transition-colors duration-300 cursor-pointer relative
+                  className={`scroll-mt-28 group rounded-lg border transition-all duration-300 cursor-pointer relative
                     ${isComingSoon ? "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 opacity-60 hover:bg-gray-200 dark:hover:bg-gray-700" :
-                    isOpen ? "border-purple-400 dark:border-purple-500 bg-purple-100 dark:bg-purple-900" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
-                    ${!isComingSoon ? "hover:bg-purple-200 dark:hover:bg-purple-800 hover:border-purple-500" : ""} focus:outline-none`}
+                    isOpen ? "border-blue-400 dark:border-blue-500 bg-blue-100 dark:bg-blue-900 shadow-lg" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
+                    ${!isComingSoon ? "hover:bg-blue-200 dark:hover:bg-blue-800 hover:border-blue-500" : ""} focus:outline-none`}
                   style={isComingSoon ? {
                     backgroundImage: `repeating-linear-gradient(
                       45deg,
@@ -116,7 +116,7 @@ function Certifications() {
                     {/* chevron */}
                     <span className="flex-shrink-0 flex items-center justify-center w-8 h-8 lg:w-10 lg:h-10">
                         <svg
-                          className={`h-6 w-6 lg:h-8 lg:w-8 transition-all duration-300 ${isOpen ? "rotate-180" : ""} ${isComingSoon ? "fill-gray-400 dark:fill-gray-600" : isOpen ? "fill-purple-500 dark:fill-purple-300" : "fill-gray-400 dark:fill-gray-600"}`}
+                          className={`h-6 w-6 lg:h-8 lg:w-8 transition-all duration-300 ${isOpen ? "rotate-180" : ""} ${isComingSoon ? "fill-gray-400 dark:fill-gray-600" : isOpen ? "fill-blue-500 dark:fill-blue-300" : "fill-gray-400 dark:fill-gray-600"}`}
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -131,7 +131,7 @@ function Certifications() {
                     </span>
                   </div>
                   <div
-                    className={`transition-all duration-800 ease-in-out overflow-hidden px-4 md:px-6 ${isOpen ? 'max-h-96 overflow-y-auto opacity-100 pb-3 md:pb-4 space-y-3 custom-scrollbar-purple' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
+                    className={`transition-all duration-800 ease-in-out overflow-hidden px-4 md:px-6 ${isOpen ? 'max-h-96 overflow-y-auto opacity-100 pb-3 md:pb-4 space-y-3 custom-scrollbar-blue' : 'max-h-0 opacity-0 pb-0 space-y-0'}`}
                     style={{
                       transitionProperty: 'max-height, opacity, padding-bottom',
                     }}
@@ -145,8 +145,8 @@ function Certifications() {
                             isComingSoon
                               ? "bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs md:text-sm font-medium px-3 py-1 rounded-full transition-colors duration-300"
                               : isOpen
-                              ? "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
-                              : "bg-purple-300 dark:bg-purple-950 text-purple-800 dark:text-purple-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-purple-400 dark:hover:bg-purple-900 transition-colors duration-300"
+                              ? "bg-blue-200 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-400 dark:hover:bg-blue-900 transition-colors duration-300"
+                              : "bg-blue-200 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-blue-400 dark:hover:bg-blue-900 transition-colors duration-300"
                           }
                         >
                           {tag}
