@@ -1,7 +1,7 @@
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import resumePdf from '../../assets/lochlann_oneill_resume.pdf';
 import coverPdf from '../../assets/lochlann_oneill_cover.pdf';
-import profileImg from '../../assets/profile.png';
+import profileImg from '../../assets/profile.jpeg';
 import backgroundImg from '../../assets/background.jpg';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faYoutube} from "@fortawesome/free-brands-svg-icons";
