@@ -31,7 +31,7 @@ function Profile() {
             href="https://www.linkedin.com/in/lochlannoneill/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group w-32 md:w-36 h-32 md:h-36 rounded-full border-5 border-white dark:border-gray-900 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-black/50 hover:scale-95"
+            className="group w-32 md:w-36 h-32 md:h-36 rounded-full border-5 border-gray-100 dark:border-gray-900 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-black/50 hover:scale-95"
           >
             <img
               src={profileImg}
@@ -76,7 +76,7 @@ function Profile() {
         </div>
         
         {/* Resume and cover letter download buttons side-by-side */}
-        <div className="flex justify-center gap-4 mt-8">
+        <div className="flex justify-center gap-4 mt-6">
           <a
             href={resumePdf}
             download

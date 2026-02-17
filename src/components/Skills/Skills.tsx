@@ -1,32 +1,16 @@
 function Skills() {
   const skills = [
+    "C#",
     "Java",
     "Python",
-    "C#",
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "TypeScript",
-    "Tailwind",
-    "SQL",
-    "NoSQL",
-    "Quarkus",
-    "Spring Boot",
-    "Kubernetes",
-    "Docker",
-    "React.js",
-    "Express.js",
-    "Node.js",
-    "MongoDB",
-    "Git",
+    "React",
     "Azure",
-    "AWS"
   ];
 
   return (
   <section className="rounded-lg">
       {/* <h2 className="text-2xl font-bold text-gray-800 mb-4">Skills</h2> */}
-      <ul className="flex flex-wrap gap-2">
+      <ul className="flex flex-wrap gap-2 justify-center">
         {skills.map((skill, idx) => (
           <li
             key={idx}
