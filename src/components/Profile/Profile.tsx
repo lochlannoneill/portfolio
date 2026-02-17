@@ -26,7 +26,7 @@ function Profile() {
 
   <div className="relative flex flex-col p-4 xl:p-6 -mt-28 md:-mt-32">
         {/* profile image + name/email side by side */}
-        <div className="flex items-center space-x-4 mb-4">
+        <div className="flex items-center space-x-4">
           <a
             href="https://www.linkedin.com/in/lochlannoneill/"
             target="_blank"
