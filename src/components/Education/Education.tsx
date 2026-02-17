@@ -64,8 +64,8 @@ function Education() {
                 <div
                   className={`scroll-mt-28 group rounded-lg border transition-all duration-300 cursor-pointer relative
                     ${isComingSoon ? "border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 opacity-60 hover:bg-gray-200 dark:hover:bg-gray-700" :
-                    isOpen ? "border-green-400 dark:border-green-500 bg-green-100 dark:bg-green-900 shadow-lg" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
-                    ${!isComingSoon ? "hover:bg-green-200 dark:hover:bg-green-800 hover:border-green-500" : ""} focus:outline-none`}
+                    isOpen ? "border-green-400 dark:border-green-500 bg-green-200 dark:bg-green-900 shadow-lg" : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"}
+                    ${!isComingSoon ? "hover:bg-green-300 dark:hover:bg-green-800 hover:border-green-500" : ""} focus:outline-none`}
                   style={isComingSoon ? {
                     backgroundImage: `repeating-linear-gradient(
                       45deg,
@@ -135,8 +135,8 @@ function Education() {
                             isComingSoon
                               ? "bg-gray-300 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs md:text-sm font-medium px-3 py-1 rounded-full transition-colors duration-300"
                               : isOpen
-                              ? "bg-green-200 dark:bg-green-950 text-green-800 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
-                              : "bg-green-200 dark:bg-green-950 text-green-800 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
+                              ? "bg-green-100 dark:bg-green-950 text-green-800 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
+                              : "bg-green-100 dark:bg-green-950 text-green-800 dark:text-green-200 text-xs md:text-sm font-medium px-3 py-1 rounded-full hover:bg-green-400 dark:hover:bg-green-900 transition-colors duration-300"
                           }
                         >
                           {tag}
