@@ -185,7 +185,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
     const skGap = 3;
     const skStep = skCellSize + skGap;
     const skLabelOffset = 30;
-    const skTopOffset = 0;
+    const skTopOffset = 20;
     const skWidth = skLabelOffset + skeletonWeeks * skStep;
     const skHeight = skTopOffset + skeletonRows * skStep;
 
@@ -261,15 +261,34 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
     );
   }
 
+  const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
   const cellSize = 13;
   const cellGap = 3;
   const step = cellSize + cellGap;
   const labelOffset = 30;
-  const topOffset = 0;
+  const topOffset = 20;
   const svgWidth = labelOffset + data.weeks.length * step;
   const svgHeight = topOffset + 7 * step;
 
   const dayLabels = ["", "Mon", "", "Wed", "", "Fri", ""];
+
+  // Compute month label positions from the first valid date in each week
+  const monthLabels: { label: string; x: number }[] = [];
+  let lastMonth = -1;
+  for (let wi = 0; wi < data.weeks.length; wi++) {
+    const firstDay = data.weeks[wi].contributionDays.find((d) => d.date !== "");
+    if (!firstDay) continue;
+    const date = new Date(firstDay.date + "T00:00:00");
+    const month = date.getMonth();
+    if (month !== lastMonth) {
+      monthLabels.push({
+        label: MONTH_NAMES[month],
+        x: labelOffset + wi * step,
+      });
+      lastMonth = month;
+    }
+  }
 
   return (
     <section id="github" className="w-full max-w-6xl mx-auto scroll-mt-16">
@@ -394,13 +413,29 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
               aria-label={`GitHub contribution graph showing ${data.totalContributions} contributions in the last year`}
             >
 
+              {/* Month labels */}
+              {monthLabels.map((m, i) => (
+                <text
+                  key={i}
+                  x={m.x}
+                  y={12}
+                  fill={isDark ? "#9ca3af" : "#6b7280"}
+                  fontSize={10}
+                  fontFamily="system-ui, sans-serif"
+                >
+                  {m.label}
+                </text>
+              ))}
+
               {/* Day labels */}
               {dayLabels.map((label, i) => (
                 <text
                   key={i}
                   x={0}
                   y={topOffset + i * step + cellSize - 2}
-                  style={{ fill: isDark ? "#9ca3af" : "#9ca3af", fontSize: 10, fontFamily: "system-ui, sans-serif" }}
+                  fill={isDark ? "#9ca3af" : "#9ca3af"}
+                  fontSize={10}
+                  fontFamily="system-ui, sans-serif"
                 >
                   {label}
                 </text>
