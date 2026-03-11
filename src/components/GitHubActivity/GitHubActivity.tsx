@@ -70,6 +70,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
   const yearScrollRef = useRef<HTMLDivElement>(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [cellsVisible, setCellsVisible] = useState(false);
 
   // Watch for dark mode changes
   useEffect(() => {
@@ -84,6 +85,22 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
     });
     return () => observer.disconnect();
   }, []);
+
+  // Trigger cell animation when SVG scrolls into view
+  useEffect(() => {
+    if (!svgRef.current) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setCellsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(svgRef.current);
+    return () => observer.disconnect();
+  }, [data]);
 
   // Close dropdown on click outside
   useEffect(() => {
@@ -453,8 +470,8 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                     rx={2}
                     ry={2}
                     fill={colors[day.contributionLevel]}
-                    className="transition-colors duration-300"
-                    style={{ cursor: day.date ? "pointer" : "default" }}
+                    className={`${cellsVisible ? "cell-fade-in" : "opacity-0"} transition-colors duration-300`}
+                    style={{ cursor: day.date ? "pointer" : "default", animationDelay: cellsVisible ? `${wi * 15}ms` : undefined }}
                     onClick={() => {
                       if (!day.date) return;
                       window.open(
