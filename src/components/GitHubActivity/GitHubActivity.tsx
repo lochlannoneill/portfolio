@@ -256,7 +256,7 @@ function GitHubActivity() {
       <FadeInSection>
         <div className="bg-white dark:bg-[#0a0f1f] rounded-lg border border-gray-200 dark:border-gray-800 p-4 md:p-6 transition-colors duration-300">
           {/* Header + Year selector */}
-          <div className="flex items-center justify-between gap-4 mb-4">
+          <div className="relative mb-4">
             {/* Header */}
             <div className="flex items-center gap-3 shrink-0">
               <a
@@ -286,9 +286,9 @@ function GitHubActivity() {
               </div>
             </div>
 
-            {/* Year selector - dropdown on small screens, pill buttons on lg+ */}
+            {/* Year selector */}
             {/* Dropdown (small/medium screens) */}
-            <div ref={dropdownRef} className="relative lg:hidden">
+            <div ref={dropdownRef} className="absolute right-0 top-1/2 -translate-y-1/2 lg:hidden z-10">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 className="flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium cursor-pointer bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-300"
@@ -333,7 +333,7 @@ function GitHubActivity() {
             {/* Pill buttons (lg+ screens) */}
             <div
               ref={yearScrollRef}
-              className="hidden lg:block overflow-x-auto scrollbar-none md:custom-scrollbar-gray max-w-[50%]"
+              className="absolute right-0 top-1/2 -translate-y-1/2 hidden lg:block overflow-x-auto scrollbar-none md:custom-scrollbar-gray z-10"
             >
               <div className="flex flex-nowrap gap-2 justify-end w-max ml-auto">
               {yearOptions.map((year) => (
