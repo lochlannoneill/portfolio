@@ -455,6 +455,14 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                     fill={colors[day.contributionLevel]}
                     className="transition-colors duration-300"
                     style={{ cursor: day.date ? "pointer" : "default" }}
+                    onClick={() => {
+                      if (!day.date) return;
+                      window.open(
+                        `https://github.com/search?q=author%3A${username}+committer-date%3A${day.date}&type=commits`,
+                        "_blank",
+                        "noopener,noreferrer"
+                      );
+                    }}
                     onMouseEnter={(e) => {
                       if (!day.date) return;
                       const rect = (e.target as SVGRectElement).getBoundingClientRect();
