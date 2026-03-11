@@ -74,6 +74,8 @@ function GitHubActivity() {
 
   // Watch for dark mode changes
   useEffect(() => {
+    // Sync initial state (dark class may be added after first render by Navbar)
+    setIsDark(document.documentElement.classList.contains("dark"));
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.classList.contains("dark"));
     });
