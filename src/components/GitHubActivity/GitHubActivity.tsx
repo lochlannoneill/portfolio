@@ -42,11 +42,6 @@ const LEVEL_COLORS_DARK: Record<string, string> = {
   FOURTH_QUARTILE: "#39d353",
 };
 
-const MONTH_LABELS = [
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-];
-
 function GitHubActivity() {
   const currentYear = new Date().getFullYear();
   // Generate year options: from GitHub join year to current year + "Last 12 months"
@@ -182,29 +177,6 @@ function GitHubActivity() {
     fetchContributions();
   }, [selectedYear]);
 
-  // Compute month labels with their column positions
-  const getMonthLabels = () => {
-    if (!data) return [];
-    const labels: { label: string; col: number }[] = [];
-    let lastMonth = -1;
-
-    for (let w = 0; w < data.weeks.length; w++) {
-      const days = data.weeks[w].contributionDays;
-      for (const day of days) {
-        if (!day.date) continue;
-        // Parse date parts directly to avoid timezone issues
-        const parts = day.date.split("-");
-        const month = parseInt(parts[1], 10) - 1; // 0-indexed
-        if (month !== lastMonth) {
-          labels.push({ label: MONTH_LABELS[month], col: w });
-          lastMonth = month;
-        }
-        break; // only check first valid day per week
-      }
-    }
-    return labels;
-  };
-
   const colors = isDark ? LEVEL_COLORS_DARK : LEVEL_COLORS_LIGHT;
 
   if (loading) {
@@ -214,7 +186,7 @@ function GitHubActivity() {
     const skGap = 3;
     const skStep = skCellSize + skGap;
     const skLabelOffset = 30;
-    const skTopOffset = 20;
+    const skTopOffset = 0;
     const skWidth = skLabelOffset + skeletonWeeks * skStep;
     const skHeight = skTopOffset + skeletonRows * skStep;
 
@@ -290,12 +262,11 @@ function GitHubActivity() {
     );
   }
 
-  const monthLabels = getMonthLabels();
   const cellSize = 13;
   const cellGap = 3;
   const step = cellSize + cellGap;
-  const labelOffset = 30; // space for day labels on the left
-  const topOffset = 20; // space for month labels on top
+  const labelOffset = 30;
+  const topOffset = 0;
   const svgWidth = labelOffset + data.weeks.length * step;
   const svgHeight = topOffset + 7 * step;
 
@@ -423,17 +394,6 @@ function GitHubActivity() {
               role="img"
               aria-label={`GitHub contribution graph showing ${data.totalContributions} contributions in the last year`}
             >
-              {/* Month labels */}
-              {monthLabels.map((m, i) => (
-                <text
-                  key={i}
-                  x={labelOffset + m.col * step}
-                  y={12}
-                  style={{ fill: isDark ? "#9ca3af" : "#6b7280", fontSize: 11, fontFamily: "system-ui, sans-serif" }}
-                >
-                  {m.label}
-                </text>
-              ))}
 
               {/* Day labels */}
               {dayLabels.map((label, i) => (
