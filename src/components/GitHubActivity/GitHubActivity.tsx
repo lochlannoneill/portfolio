@@ -117,22 +117,20 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
         if (!response.ok) throw new Error("Failed to fetch");
         const json = await response.json();
 
-        // The API returns { total, contributions } where contributions is a date-keyed object
-        const contributions: Record<
-          string,
-          { count: number; level: number }
-        > = json.contributions;
+        // The API returns { total, contributions } where contributions is an array of { date, count, level }
+        const contributions: { date: string; count: number; level: number }[] =
+          json.contributions;
 
-        // Build weeks array from the contributions data
-        const dates = Object.keys(contributions).sort();
-        if (dates.length === 0) throw new Error("No data");
+        // Sort by date
+        contributions.sort((a, b) => a.date.localeCompare(b.date));
+        if (contributions.length === 0) throw new Error("No data");
 
         // Group by weeks (Sunday start)
         const weeks: ContributionWeek[] = [];
         let currentWeek: ContributionDay[] = [];
 
         // Pad the first week so it starts on Sunday
-        const firstDate = new Date(dates[0] + "T00:00:00");
+        const firstDate = new Date(contributions[0].date + "T00:00:00");
         const firstDay = firstDate.getDay();
         for (let i = 0; i < firstDay; i++) {
           currentWeek.push({
@@ -151,11 +149,10 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
         ] as const;
 
         let total = 0;
-        for (const date of dates) {
-          const entry = contributions[date];
+        for (const entry of contributions) {
           total += entry.count;
           currentWeek.push({
-            date,
+            date: entry.date,
             contributionCount: entry.count,
             contributionLevel: levelMap[entry.level] || "NONE",
           });
