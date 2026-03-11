@@ -58,6 +58,42 @@ html {
   background-color: rgb(251 191 36);
 }
 
+/* Experience scrollbar (blue theme) */
+.custom-scrollbar-blue {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(59 130 246) transparent;
+}
+
+.custom-scrollbar-blue::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar-blue::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar-blue::-webkit-scrollbar-thumb {
+  background-color: rgb(59 130 246);
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-scrollbar-blue::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(37 99 235);
+}
+
+.dark .custom-scrollbar-blue {
+  scrollbar-color: rgb(96 165 250) transparent;
+}
+
+.dark .custom-scrollbar-blue::-webkit-scrollbar-thumb {
+  background-color: rgb(96 165 250);
+}
+
+.dark .custom-scrollbar-blue::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(59 130 246);
+}
+
 /* Education scrollbar (green theme) */
 .custom-scrollbar-green {
   scrollbar-width: thin;
