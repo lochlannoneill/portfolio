@@ -307,6 +307,48 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
     }
   }
 
+  // Compute streak stats
+  const allDays = data.weeks
+    .flatMap((w) => w.contributionDays)
+    .filter((d) => d.date !== "")
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  let currentStreak = 0;
+  let longestStreak = 0;
+  let streak = 0;
+  let busiestDay = allDays[0];
+
+  // Walk forward to compute longest streak and busiest day
+  for (const day of allDays) {
+    if (day.contributionCount > 0) {
+      streak++;
+      if (streak > longestStreak) longestStreak = streak;
+    } else {
+      streak = 0;
+    }
+    if (day.contributionCount > busiestDay.contributionCount) {
+      busiestDay = day;
+    }
+  }
+
+  // Walk backward from today/end to compute current streak
+  for (let i = allDays.length - 1; i >= 0; i--) {
+    // Skip today if it has 0 contributions (day isn't over yet)
+    if (i === allDays.length - 1 && allDays[i].contributionCount === 0) continue;
+    if (allDays[i].contributionCount > 0) {
+      currentStreak++;
+    } else {
+      break;
+    }
+  }
+
+  const busiestFormatted = busiestDay
+    ? new Date(busiestDay.date + "T00:00:00").toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+      })
+    : "";
+
   return (
     <section id="github" className="w-full max-w-6xl mx-auto scroll-mt-16">
       <FadeInSection>
@@ -538,23 +580,40 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
             document.body
           )}
 
-          {/* Legend */}
-          <div className="flex items-center justify-end gap-2 mt-3">
-            <span className="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300">
-              Less
-            </span>
-            {["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"].map(
-              (level) => (
-                <div
-                  key={level}
-                  className="w-3 h-3 rounded-sm transition-colors duration-300"
-                  style={{ backgroundColor: colors[level] }}
-                />
-              )
-            )}
-            <span className="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300">
-              More
-            </span>
+          {/* Legend + Stats */}
+          <div className="flex flex-wrap items-center justify-between gap-2 mt-3">
+            <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">
+              {currentStreak > 0 && (
+                <span>
+                  <span className="font-semibold text-gray-700 dark:text-gray-200">{currentStreak}</span> day streak
+                </span>
+              )}
+              <span>
+                Longest: <span className="font-semibold text-gray-700 dark:text-gray-200">{longestStreak}</span> days
+              </span>
+              {busiestDay && busiestDay.contributionCount > 0 && (
+                <span className="hidden sm:inline">
+                  Busiest: <span className="font-semibold text-gray-700 dark:text-gray-200">{busiestFormatted}</span> ({busiestDay.contributionCount})
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300">
+                Less
+              </span>
+              {["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"].map(
+                (level) => (
+                  <div
+                    key={level}
+                    className="w-3 h-3 rounded-sm transition-colors duration-300"
+                    style={{ backgroundColor: colors[level] }}
+                  />
+                )
+              )}
+              <span className="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300">
+                More
+              </span>
+            </div>
           </div>
         </div>
       </FadeInSection>
