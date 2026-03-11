@@ -39,7 +39,7 @@ import unityLighting from "../../assets/projects/unity/lighting.png";
 import unityMovement from "../../assets/projects/unity/movement.png";
 import unityTesting from "../../assets/projects/unity/testing.png";
 
-// Enrollment System (Spring)
+// REST Enrollment System (Spring)
 import springAop from "../../assets/projects/spring/aop.png";
 import springHttpGetDepartments from "../../assets/projects/spring/http_get_departments.png";
 import springTests from "../../assets/projects/spring/tests.png";
@@ -123,7 +123,7 @@ function Projects() {
     },
     {
       id: 3,
-      name: "Unity Game",
+      name: "Final Year Project",
       tags: ["C#", "Unity", "Blender", "LaTeX", "Photoshop"],
       links: {
         github: "https://github.com/lochlannoneill/INTR8016-Unity",
@@ -132,7 +132,7 @@ function Projects() {
         pdf: "https://drive.google.com/file/d/1BhyH0ZYfyij9_DidtuW9Glae_oQekhwR/view",
       },
       description:
-        "Final Year Project involving the culmination of a full game development pipeline, from concept art and 3D modeling to game logic, and final presentation. It demonstrates skills in Unity game development, C# programming, 3D asset integration, project management, and multimedia presentation.",
+        "A 3D game built in Unity featuring custom character movement, interactive object mechanics, and dynamic camera controls. Implemented animation blend trees for fluid character movement, physics-based falling mechanics, and environmental interaction systems. Self-directed project spanning 4 months with complete documentation and testing framework.",
       images: [
         unityBlendTree,
         unityCamera,
@@ -146,13 +146,13 @@ function Projects() {
     },
     {
       id: 4,
-      name: "Enrollment System",
+      name: "REST API",
       tags: ["Java", "SpringBoot", "Maven", "REST", "H2", "SQL", "Lombok"],
       links: {
         github: "https://github.com/lochlannoneill/SOFT8020-SpringBoot",
       },
       description:
-        "Developed a school enrollment system using Spring Boot, Java, and Spring Data JPA with secure RESTful APIs and authentication. Integrated H2 in-memory database, and unit testing with MockMVC. Supports department and office management, including CRUD operations. Endpoint testing via Postman.",
+        "Developed an enrollment system using Spring Boot, Java, and Spring Data JPA with secure RESTful APIs and authentication. Integrated H2 in-memory database, and unit testing with MockMVC. Supports department and office management, including CRUD operations. Endpoint testing via Postman.",
       images: [springAop, springHttpGetDepartments, springTests],
     },
     {
