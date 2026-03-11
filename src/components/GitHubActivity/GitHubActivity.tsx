@@ -73,6 +73,17 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [cellsVisible, setCellsVisible] = useState(false);
+  const [repoCount, setRepoCount] = useState<number | null>(null);
+
+  // Fetch public repo count
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${username}`)
+      .then((res) => res.json())
+      .then((json) => {
+        if (typeof json.public_repos === "number") setRepoCount(json.public_repos);
+      })
+      .catch(() => {});
+  }, [username]);
 
   // Watch for dark mode changes
   useEffect(() => {
@@ -364,6 +375,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
     : "";
 
   const activeDays = allDays.filter((d) => d.contributionCount > 0).length;
+  const avgPerActiveDay = activeDays > 0 ? (data.totalContributions / activeDays).toFixed(1) : "0";
 
   const DAY_NAMES = ["Sundays", "Mondays", "Tuesdays", "Wednesdays", "Thursdays", "Fridays", "Saturdays"];
   const dayTotals = [0, 0, 0, 0, 0, 0, 0];
@@ -413,7 +425,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                     alt={username}
                     className="w-5 h-5 rounded-full"
                   />
-                  @{username}
+                  @{username}{repoCount !== null && <span className="opacity-60"> · {repoCount} repositories</span>}
                 </a>
               </div>
             </div>
@@ -614,6 +626,9 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                 </span>
                 <span>
                   Active days: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{activeDays}</span>
+                </span>
+                <span className="hidden lg:inline">
+                  Avgerage: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{avgPerActiveDay}</span> per active day
                 </span>
                 {busiestDay && busiestDay.contributionCount > 0 && (
                   <span className="hidden sm:inline">
