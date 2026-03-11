@@ -535,9 +535,8 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                     height={cellSize}
                     rx={2}
                     ry={2}
-                    fill={colors[day.contributionLevel]}
-                    className={`${cellsVisible ? "cell-fade-in" : "opacity-0"} transition-colors duration-300`}
-                    style={{ cursor: day.date ? "pointer" : "default", animationDelay: cellsVisible ? `${wi * 15}ms` : undefined }}
+                    className={`${cellsVisible ? "cell-fade-in" : "opacity-0"}`}
+                    style={{ fill: colors[day.contributionLevel], cursor: day.date ? "pointer" : "default", transition: "fill 0.3s ease", animationDelay: cellsVisible ? `${wi * 15}ms` : undefined }}
                     onClick={() => {
                       if (!day.date) return;
                       window.open(
@@ -587,7 +586,9 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
             >
               <div
                 style={{
-                  background: isDark ? "#1f2937" : "#24292f",
+                  background: isDark ? "rgba(31, 41, 55, 0.55)" : "rgba(36, 41, 47, 0.55)",
+                  backdropFilter: "blur(8px)",
+                  WebkitBackdropFilter: "blur(8px)",
                   color: "#fff",
                   padding: "6px 10px",
                   borderRadius: "6px",
@@ -609,18 +610,18 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">
                 <span>
-                  Longest streak: <span className="font-semibold text-gray-700 dark:text-gray-200">{longestStreak}</span> days
+                  Longest streak: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{longestStreak}</span> days
                 </span>
                 <span>
-                  Active days: <span className="font-semibold text-gray-700 dark:text-gray-200">{activeDays}</span>
+                  Active days: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{activeDays}</span>
                 </span>
                 {busiestDay && busiestDay.contributionCount > 0 && (
                   <span className="hidden sm:inline">
-                    Busiest day: <span className="font-semibold text-gray-700 dark:text-gray-200">{busiestFormatted}</span> ({busiestDay.contributionCount} commits)
+                    Busiest day: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{busiestFormatted}</span> ({busiestDay.contributionCount} commits)
                   </span>
                 )}
                 <span className="hidden md:inline">
-                  Most active: <span className="font-semibold text-gray-700 dark:text-gray-200">{mostActiveDow}</span>
+                  Most active: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{mostActiveDow}</span>
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -644,7 +645,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
             {currentStreak > 0 && (
                 <div className="flex items-center justify-center gap-1 text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">
                 <FontAwesomeIcon icon={faFire} className="text-green-500" />
-                <span><span className="font-semibold text-gray-700 dark:text-gray-200">{currentStreak}</span> day streak</span>
+                <span><span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{currentStreak}</span> day streak</span>
                 </div>
             )}
           </div>
