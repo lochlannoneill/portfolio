@@ -4,6 +4,15 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
 /* Wiggle animation for navbar items */
 @keyframes wiggle {
   0%, 20% { transform: rotate(0deg); }

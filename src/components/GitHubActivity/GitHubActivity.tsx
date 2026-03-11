@@ -70,6 +70,7 @@ function GitHubActivity() {
     y: number;
   } | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
+  const yearScrollRef = useRef<HTMLDivElement>(null);
 
   // Watch for dark mode changes
   useEffect(() => {
@@ -82,6 +83,13 @@ function GitHubActivity() {
     });
     return () => observer.disconnect();
   }, []);
+
+  // Scroll year selector to the right on mount
+  useEffect(() => {
+    if (yearScrollRef.current) {
+      yearScrollRef.current.scrollLeft = yearScrollRef.current.scrollWidth;
+    }
+  }, [data]);
 
   useEffect(() => {
     const fetchContributions = async () => {
@@ -261,12 +269,16 @@ function GitHubActivity() {
           </div>
 
           {/* Year selector */}
-          <div className="flex flex-wrap gap-2 mb-4 justify-end">
+          <div
+            ref={yearScrollRef}
+            className="overflow-x-auto scrollbar-none md:custom-scrollbar-green mb-4"
+          >
+            <div className="flex flex-nowrap gap-2 justify-end w-max ml-auto">
             {yearOptions.map((year) => (
               <button
                 key={year}
                 onClick={() => setSelectedYear(year)}
-                className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer ${
+                className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer shrink-0 ${
                   selectedYear === year
                     ? "bg-green-500 dark:bg-green-600 text-white"
                     : "bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
@@ -275,6 +287,7 @@ function GitHubActivity() {
                 {year === "last" ? "Last 12 months" : year}
               </button>
             ))}
+            </div>
           </div>
 
           {/* Contribution Graph */}
