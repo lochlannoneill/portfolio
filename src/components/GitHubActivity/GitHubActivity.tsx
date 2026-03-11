@@ -4,8 +4,6 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FadeInSection from "../../FadeInSection";
 
-const GITHUB_USERNAME = "lochlannoneill";
-
 interface ContributionDay {
   date: string;
   contributionCount: number;
@@ -42,12 +40,16 @@ const LEVEL_COLORS_DARK: Record<string, string> = {
   FOURTH_QUARTILE: "#39d353",
 };
 
-function GitHubActivity() {
+interface GitHubActivityProps {
+  username: string;
+  joinYear?: number;
+}
+
+function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
   const currentYear = new Date().getFullYear();
   // Generate year options: from GitHub join year to current year + "Last 12 months"
-  const GITHUB_JOIN_YEAR = 2021;
   const yearOptions: (number | "last")[] = [];
-  for (let y = GITHUB_JOIN_YEAR; y <= currentYear; y++) {
+  for (let y = joinYear; y <= currentYear; y++) {
     yearOptions.push(y);
   }
   yearOptions.push("last");
@@ -110,7 +112,7 @@ function GitHubActivity() {
         // Use the GitHub contributions API via a public proxy
         const yearParam = selectedYear === "last" ? "last" : selectedYear;
         const response = await fetch(
-          `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=${yearParam}`
+          `https://github-contributions-api.jogruber.de/v4/${username}?y=${yearParam}`
         );
         if (!response.ok) throw new Error("Failed to fetch");
         const json = await response.json();
@@ -249,7 +251,7 @@ function GitHubActivity() {
         <FadeInSection>
           <div className="flex justify-center items-center h-32">
             <a
-              href={`https://github.com/${GITHUB_USERNAME}`}
+              href={`https://github.com/${username}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
@@ -281,7 +283,7 @@ function GitHubActivity() {
             {/* Header */}
             <div className="flex items-center gap-3 shrink-0">
               <a
-                href={`https://github.com/${GITHUB_USERNAME}`}
+                href={`https://github.com/${username}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
@@ -291,7 +293,7 @@ function GitHubActivity() {
               <div className="flex flex-col">
                 <span className="text-gray-600 dark:text-gray-400 text-sm md:text-base transition-colors duration-300">
                   <a
-                    href={`https://github.com/search?q=author%3A${GITHUB_USERNAME}+sort%3Acommitter-date-desc&type=commits`}
+                    href={`https://github.com/search?q=author%3A${username}+sort%3Acommitter-date-desc&type=commits`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
@@ -302,17 +304,17 @@ function GitHubActivity() {
                   <span className="sm:hidden">contributions</span>
                 </span>
                 <a
-                  href={`https://github.com/${GITHUB_USERNAME}`}
+                  href={`https://github.com/${username}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
                 >
                   <img
-                    src={`https://github.com/${GITHUB_USERNAME}.png?size=40`}
-                    alt={GITHUB_USERNAME}
+                    src={`https://github.com/${username}.png?size=40`}
+                    alt={username}
                     className="w-5 h-5 rounded-full"
                   />
-                  @{GITHUB_USERNAME}
+                  @{username}
                 </a>
               </div>
             </div>

@@ -294,10 +294,10 @@ function Projects() {
       </FadeInSection>
 
       <ul className="flex flex-col md:gap-16">
-        
+
         {/* Interactive Github contributions */}
         <FadeInSection>
-          <GitHubActivity />
+          <GitHubActivity username="lochlannoneill" />
         </FadeInSection>
 
         {projects.slice(0, visibleCount).map((project, idx) => (
