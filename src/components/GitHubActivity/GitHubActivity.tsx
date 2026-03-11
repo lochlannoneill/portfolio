@@ -28,18 +28,18 @@ interface GitHubData {
 
 const LEVEL_COLORS_LIGHT: Record<string, string> = {
   NONE: "#ebedf0",
-  FIRST_QUARTILE: "#9be9a8",
-  SECOND_QUARTILE: "#40c463",
-  THIRD_QUARTILE: "#30a14e",
-  FOURTH_QUARTILE: "#216e39",
+  FIRST_QUARTILE: "#c2dfff",
+  SECOND_QUARTILE: "#79b8ff",
+  THIRD_QUARTILE: "#2188ff",
+  FOURTH_QUARTILE: "#0366d6",
 };
 
 const LEVEL_COLORS_DARK: Record<string, string> = {
   NONE: "#1e2530",
-  FIRST_QUARTILE: "#0e4429",
-  SECOND_QUARTILE: "#006d32",
-  THIRD_QUARTILE: "#26a641",
-  FOURTH_QUARTILE: "#39d353",
+  FIRST_QUARTILE: "#12395a",
+  SECOND_QUARTILE: "#1b6ec2",
+  THIRD_QUARTILE: "#3b9bff",
+  FOURTH_QUARTILE: "#79c0ff",
 };
 
 const MONTH_LABELS = [
@@ -272,7 +272,8 @@ function GitHubActivity() {
                   <span className="font-semibold text-gray-800 dark:text-gray-200 transition-colors duration-300">
                     {data.totalContributions.toLocaleString()}
                   </span>{" "}
-                  contributions in {selectedYear === "last" ? "the last year" : selectedYear}
+                  <span className="hidden sm:inline">contributions in {selectedYear === "last" ? "the last year" : selectedYear}</span>
+                  <span className="sm:hidden">contributions</span>
                 </span>
                 <a
                   href={`https://github.com/${GITHUB_USERNAME}`}
@@ -319,7 +320,7 @@ function GitHubActivity() {
                       onClick={() => { setSelectedYear(year); setDropdownOpen(false); }}
                       className={`block w-full text-left px-3 py-1.5 text-xs font-medium transition-colors duration-200 cursor-pointer ${
                         selectedYear === year
-                          ? "bg-green-500 dark:bg-green-600 text-white"
+                          ? "bg-blue-500 dark:bg-blue-600 text-white"
                           : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
                       }`}
                     >
@@ -332,7 +333,7 @@ function GitHubActivity() {
             {/* Pill buttons (lg+ screens) */}
             <div
               ref={yearScrollRef}
-              className="hidden lg:block overflow-x-auto scrollbar-none md:custom-scrollbar-green max-w-[50%]"
+              className="hidden lg:block overflow-x-auto scrollbar-none md:custom-scrollbar-gray max-w-[50%]"
             >
               <div className="flex flex-nowrap gap-2 justify-end w-max ml-auto">
               {yearOptions.map((year) => (
@@ -341,7 +342,7 @@ function GitHubActivity() {
                   onClick={() => setSelectedYear(year)}
                   className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer shrink-0 ${
                     selectedYear === year
-                      ? "bg-green-500 dark:bg-green-600 text-white"
+                      ? "bg-blue-500 dark:bg-blue-600 text-white"
                       : "bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
                   }`}
                 >
@@ -353,7 +354,7 @@ function GitHubActivity() {
           </div>
 
           {/* Contribution Graph */}
-          <div className="overflow-x-auto custom-scrollbar-green">
+          <div className="overflow-x-auto custom-scrollbar-gray">
             <svg
               ref={svgRef}
               width={svgWidth}
