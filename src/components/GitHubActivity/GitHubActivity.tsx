@@ -73,6 +73,14 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [cellsVisible, setCellsVisible] = useState(false);
   const [repoCount, setRepoCount] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+
+  // Track screen size for responsive cell sizing
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Fetch public repo count
   useEffect(() => {
@@ -292,8 +300,8 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
 
   const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-  const cellSize = 13;
-  const cellGap = 3;
+  const cellSize = isMobile ? 10 : 13;
+  const cellGap = isMobile ? 2 : 3;
   const step = cellSize + cellGap;
   const labelOffset = 30;
   const topOffset = 20;
@@ -410,8 +418,8 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
               >
                 <FontAwesomeIcon icon={faGithub} className="text-[2.5rem]" />
               </a> */}
-              <div className="flex flex-col">
-                <span className="text-gray-600 dark:text-gray-400 text-base md:text-lg transition-colors duration-300">
+              <div className="flex flex-col gap-1">
+                <span className="text-gray-600 dark:text-gray-400 text-lg md:text-xl transition-colors duration-300">
                   <a
                     href={`https://github.com/search?q=author%3A${username}+sort%3Acommitter-date-desc&type=commits`}
                     target="_blank"
@@ -442,7 +450,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                       href={`https://github.com/${username}?tab=repositories`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="opacity-60 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
+                      className="hidden sm:inline opacity-60 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
                     >
                       · {repoCount} repositories
                     </a>
@@ -642,7 +650,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
           <div className="mt-3 space-y-2">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">
-                <span>
+                <span className="hidden sm:inline">
                   Longest streak: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{longestStreak}</span> days
                 </span>
                 <span>
