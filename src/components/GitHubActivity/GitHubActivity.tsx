@@ -71,6 +71,8 @@ function GitHubActivity() {
   } | null>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const yearScrollRef = useRef<HTMLDivElement>(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Watch for dark mode changes
   useEffect(() => {
@@ -84,6 +86,17 @@ function GitHubActivity() {
       attributeFilter: ["class"],
     });
     return () => observer.disconnect();
+  }, []);
+
+  // Close dropdown on click outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Scroll year selector to the right on mount
@@ -242,9 +255,10 @@ function GitHubActivity() {
     <section id="github" className="w-full max-w-6xl mx-auto scroll-mt-16">
       <FadeInSection>
         <div className="bg-white dark:bg-[#0a0f1f] rounded-lg border border-gray-200 dark:border-gray-800 p-4 md:p-6 transition-colors duration-300">
-          {/* Header */}
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
+          {/* Header + Year selector */}
+          <div className="flex items-center justify-between gap-4 mb-4">
+            {/* Header */}
+            <div className="flex items-center gap-3 shrink-0">
               <a
                 href={`https://github.com/${GITHUB_USERNAME}`}
                 target="_blank"
@@ -253,42 +267,88 @@ function GitHubActivity() {
               >
                 <FontAwesomeIcon icon={faGithub} className="text-2xl" />
               </a>
-              <span className="text-gray-600 dark:text-gray-400 text-sm md:text-base transition-colors duration-300">
-                <span className="font-semibold text-gray-800 dark:text-gray-200 transition-colors duration-300">
-                  {data.totalContributions.toLocaleString()}
-                </span>{" "}
-                contributions in {selectedYear === "last" ? "the last year" : selectedYear}
-              </span>
+              <div className="flex flex-col">
+                <span className="text-gray-600 dark:text-gray-400 text-sm md:text-base transition-colors duration-300">
+                  <span className="font-semibold text-gray-800 dark:text-gray-200 transition-colors duration-300">
+                    {data.totalContributions.toLocaleString()}
+                  </span>{" "}
+                  contributions in {selectedYear === "last" ? "the last year" : selectedYear}
+                </span>
+                <a
+                  href={`https://github.com/${GITHUB_USERNAME}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
+                >
+                  @{GITHUB_USERNAME}
+                </a>
+              </div>
             </div>
-            <a
-              href={`https://github.com/${GITHUB_USERNAME}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300 hidden sm:inline"
-            >
-              @{GITHUB_USERNAME}
-            </a>
-          </div>
 
-          {/* Year selector */}
-          <div
-            ref={yearScrollRef}
-            className="overflow-x-auto scrollbar-none md:custom-scrollbar-green mb-4"
-          >
-            <div className="flex flex-nowrap gap-2 justify-end w-max ml-auto">
-            {yearOptions.map((year) => (
+            {/* Year selector - dropdown on small screens, pill buttons on lg+ */}
+            {/* Dropdown (small/medium screens) */}
+            <div ref={dropdownRef} className="relative lg:hidden">
               <button
-                key={year}
-                onClick={() => setSelectedYear(year)}
-                className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer shrink-0 ${
-                  selectedYear === year
-                    ? "bg-green-500 dark:bg-green-600 text-white"
-                    : "bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium cursor-pointer bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-300"
+              >
+                {selectedYear === "last" ? "Last 12 months" : selectedYear}
+                <svg
+                  className={`h-4 w-4 transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""} fill-gray-400 dark:fill-gray-500`}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                className={`absolute right-0 mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden min-w-[140px] transition-all duration-200 origin-top ${
+                  dropdownOpen
+                    ? "opacity-100 scale-y-100 pointer-events-auto"
+                    : "opacity-0 scale-y-0 pointer-events-none"
                 }`}
               >
-                {year === "last" ? "Last 12 months" : year}
-              </button>
-            ))}
+                  {[...yearOptions].reverse().map((year) => (
+                    <button
+                      key={year}
+                      onClick={() => { setSelectedYear(year); setDropdownOpen(false); }}
+                      className={`block w-full text-left px-3 py-1.5 text-xs font-medium transition-colors duration-200 cursor-pointer ${
+                        selectedYear === year
+                          ? "bg-green-500 dark:bg-green-600 text-white"
+                          : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      }`}
+                    >
+                      {year === "last" ? "Last 12 months" : year}
+                    </button>
+                  ))}
+              </div>
+            </div>
+
+            {/* Pill buttons (lg+ screens) */}
+            <div
+              ref={yearScrollRef}
+              className="hidden lg:block overflow-x-auto scrollbar-none md:custom-scrollbar-green max-w-[50%]"
+            >
+              <div className="flex flex-nowrap gap-2 justify-end w-max ml-auto">
+              {yearOptions.map((year) => (
+                <button
+                  key={year}
+                  onClick={() => setSelectedYear(year)}
+                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer shrink-0 ${
+                    selectedYear === year
+                      ? "bg-green-500 dark:bg-green-600 text-white"
+                      : "bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  {year === "last" ? "Last 12 months" : year}
+                </button>
+              ))}
+              </div>
             </div>
           </div>
 
