@@ -282,14 +282,14 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
           <div className="relative mb-4">
             {/* Header */}
             <div className="flex items-center gap-3 shrink-0">
-              <a
-                href={`https://github.com/${username}`}
+              {/* <a
+                href={`https://github.com/`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
               >
                 <FontAwesomeIcon icon={faGithub} className="text-[2.5rem]" />
-              </a>
+              </a> */}
               <div className="flex flex-col">
                 <span className="text-gray-600 dark:text-gray-400 text-sm md:text-base transition-colors duration-300">
                   <a
