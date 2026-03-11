@@ -91,7 +91,7 @@ function Experience() {
                 <div
                   className={`scroll-mt-28 group rounded-lg border transition-all duration-300 cursor-pointer relative
                     ${isComingSoon ? "border-gray-300 dark:border-gray-800 bg-gray-100 dark:bg-gray-800 opacity-60 hover:bg-gray-200 dark:hover:bg-gray-700" :
-                    isOpen ? "border-blue-400 dark:border-blue-600 bg-blue-200 dark:bg-blue-800 shadow-lg" : "border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900"}
+                    isOpen ? "border-blue-400 dark:border-blue-600 bg-blue-200 dark:bg-blue-800 shadow-lg" : "border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0a0f1f]"}
                     ${!isComingSoon ? "hover:bg-blue-300 dark:hover:bg-blue-700 hover:border-blue-500" : ""} focus:outline-none`}
                   style={isComingSoon ? {
                     backgroundImage: `repeating-linear-gradient(

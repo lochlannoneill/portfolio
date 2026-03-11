@@ -59,6 +59,7 @@ import defoldKanban from "../../assets/projects/defold/kanban.png";
 import defoldLevel3 from "../../assets/projects/defold/level3.png";
 import defoldPlanner from "../../assets/projects/defold/Planner.png";
 import FadeInSection from "../../FadeInSection";
+import GitHubActivity from "../GitHubActivity/GitHubActivity";
 
 function Projects() {
   const LOADED_MORE_PROJECT_COUNT = 3;
@@ -293,6 +294,12 @@ function Projects() {
       </FadeInSection>
 
       <ul className="flex flex-col md:gap-16">
+
+        {/* Interactive Github contributions */}
+        <FadeInSection>
+          <GitHubActivity username="lochlannoneill" />
+        </FadeInSection>
+
         {projects.slice(0, visibleCount).map((project, idx) => (
           <FadeInSection key={project.id}>
             {/* Each project */}

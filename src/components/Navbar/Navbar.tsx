@@ -118,7 +118,7 @@ function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 [transition:backdrop-filter_0.4s,background-color_0.4s] bg-transparent ${atTop ? '' : 'backdrop-blur-md'} md:backdrop-blur-md`}
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 [transition:backdrop-filter_0.4s,background-color_0.4s] ${atTop ? 'bg-transparent' : 'bg-gray-100/70 dark:bg-slate-900/70 backdrop-blur-md'} md:bg-gray-100/70 md:dark:bg-slate-900/70 md:backdrop-blur-md`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between lg:justify-center h-18">
