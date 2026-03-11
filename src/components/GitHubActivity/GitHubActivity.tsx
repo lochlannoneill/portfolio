@@ -48,6 +48,16 @@ const MONTH_LABELS = [
 ];
 
 function GitHubActivity() {
+  const currentYear = new Date().getFullYear();
+  // Generate year options: from GitHub join year to current year + "Last 12 months"
+  const GITHUB_JOIN_YEAR = 2021;
+  const yearOptions: (number | "last")[] = [];
+  for (let y = GITHUB_JOIN_YEAR; y <= currentYear; y++) {
+    yearOptions.push(y);
+  }
+  yearOptions.push("last");
+
+  const [selectedYear, setSelectedYear] = useState<number | "last">("last");
   const [data, setData] = useState<GitHubData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -75,10 +85,14 @@ function GitHubActivity() {
 
   useEffect(() => {
     const fetchContributions = async () => {
+      setLoading(true);
+      setError(false);
+      setData(null);
       try {
         // Use the GitHub contributions API via a public proxy
+        const yearParam = selectedYear === "last" ? "last" : selectedYear;
         const response = await fetch(
-          `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=last`
+          `https://github-contributions-api.jogruber.de/v4/${GITHUB_USERNAME}?y=${yearParam}`
         );
         if (!response.ok) throw new Error("Failed to fetch");
         const json = await response.json();
@@ -143,7 +157,7 @@ function GitHubActivity() {
     };
 
     fetchContributions();
-  }, []);
+  }, [selectedYear]);
 
   // Compute month labels with their column positions
   const getMonthLabels = () => {
@@ -233,7 +247,7 @@ function GitHubActivity() {
                 <span className="font-semibold text-gray-800 dark:text-gray-200">
                   {data.totalContributions.toLocaleString()}
                 </span>{" "}
-                contributions in the last year
+                contributions in {selectedYear === "last" ? "the last year" : selectedYear}
               </span>
             </div>
             <a
@@ -244,6 +258,23 @@ function GitHubActivity() {
             >
               @{GITHUB_USERNAME}
             </a>
+          </div>
+
+          {/* Year selector */}
+          <div className="flex flex-wrap gap-2 mb-4 justify-end">
+            {yearOptions.map((year) => (
+              <button
+                key={year}
+                onClick={() => setSelectedYear(year)}
+                className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer ${
+                  selectedYear === year
+                    ? "bg-green-500 dark:bg-green-600 text-white"
+                    : "bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
+                }`}
+              >
+                {year === "last" ? "Last 12 months" : year}
+              </button>
+            ))}
           </div>
 
           {/* Contribution Graph */}
