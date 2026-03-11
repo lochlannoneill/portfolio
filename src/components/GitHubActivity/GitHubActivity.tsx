@@ -28,18 +28,18 @@ interface GitHubData {
 
 const LEVEL_COLORS_LIGHT: Record<string, string> = {
   NONE: "#ebedf0",
-  FIRST_QUARTILE: "#9be9a8",
-  SECOND_QUARTILE: "#40c463",
-  THIRD_QUARTILE: "#30a14e",
-  FOURTH_QUARTILE: "#216e39",
+  FIRST_QUARTILE: "#d8b4fe",
+  SECOND_QUARTILE: "#a855f7",
+  THIRD_QUARTILE: "#7e22ce",
+  FOURTH_QUARTILE: "#9333ea",
 };
 
 const LEVEL_COLORS_DARK: Record<string, string> = {
   NONE: "#161b22",
-  FIRST_QUARTILE: "#0e4429",
-  SECOND_QUARTILE: "#006d32",
-  THIRD_QUARTILE: "#26a641",
-  FOURTH_QUARTILE: "#39d353",
+  FIRST_QUARTILE: "#3b0764",
+  SECOND_QUARTILE: "#6b21a8",
+  THIRD_QUARTILE: "#9333ea",
+  FOURTH_QUARTILE: "#c084fc",
 };
 
 interface GitHubActivityProps {
@@ -281,7 +281,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
               href={`https://github.com/${username}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
+              className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
             >
               View my GitHub profile &rarr;
             </a>
@@ -405,7 +405,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                 href={`https://github.com/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
+                className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
               >
                 <FontAwesomeIcon icon={faGithub} className="text-[2.5rem]" />
               </a> */}
@@ -415,7 +415,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                     href={`https://github.com/search?q=author%3A${username}+sort%3Acommitter-date-desc&type=commits`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
+                    className="font-semibold text-gray-800 dark:text-gray-200 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
                   >
                     {data.totalContributions.toLocaleString()}
                   </a>{" "}
@@ -432,7 +432,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                     href={`https://github.com/${username}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
+                    className="font-semibold hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
                   >
                     @{username}
                   </a>
@@ -441,7 +441,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                       href={`https://github.com/${username}?tab=repositories`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="opacity-60 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
+                      className="opacity-60 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
                     >
                       · {repoCount} repositories
                     </a>
@@ -484,7 +484,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                       onClick={() => { setSelectedYear(year); setDropdownOpen(false); }}
                       className={`block w-full text-left px-3 py-1.5 text-xs font-medium transition-colors duration-200 cursor-pointer ${
                         selectedYear === year
-                          ? "bg-green-600 dark:bg-green-600 text-white"
+                          ? "bg-purple-600 dark:bg-purple-600 text-white"
                           : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
                       }`}
                     >
@@ -506,7 +506,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                   onClick={() => setSelectedYear(year)}
                   className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer shrink-0 ${
                     selectedYear === year
-                      ? "bg-green-600 dark:bg-green-600 text-white"
+                      ? "bg-purple-600 dark:bg-purple-600 text-white"
                       : "bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
                   }`}
                 >
@@ -682,7 +682,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
             </div>
             {currentStreak > 0 && (
                 <div className="flex items-center justify-center gap-1 text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">
-                <FontAwesomeIcon icon={faFire} className="text-green-500" />
+                <FontAwesomeIcon icon={faFire} className="text-purple-500" />
                 <span><span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{currentStreak}</span> day streak</span>
                 </div>
             )}
