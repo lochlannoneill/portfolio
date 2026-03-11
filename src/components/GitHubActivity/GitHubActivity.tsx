@@ -586,16 +586,16 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
             >
               <div
                 style={{
-                  background: isDark ? "rgba(31, 41, 55, 0.55)" : "rgba(36, 41, 47, 0.55)",
+                  background: isDark ? "rgba(31, 41, 55, 0.55)" : "rgba(255, 255, 255, 0.55)",
                   backdropFilter: "blur(8px)",
                   WebkitBackdropFilter: "blur(8px)",
-                  color: "#fff",
+                  color: isDark ? "#fff" : "#1f2937",
                   padding: "6px 10px",
                   borderRadius: "6px",
                   fontSize: "12px",
                   fontFamily: "system-ui, sans-serif",
                   whiteSpace: "nowrap",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+                  boxShadow: isDark ? "0 2px 8px rgba(0,0,0,0.3)" : "0 2px 8px rgba(0,0,0,0.1)",
                   lineHeight: "1.4",
                 }}
               >
