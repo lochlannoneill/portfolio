@@ -385,6 +385,14 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
   }
   const mostActiveDow = DAY_NAMES[dayTotals.indexOf(Math.max(...dayTotals))];
 
+  // Most active month
+  const monthTotals = new Array(12).fill(0);
+  for (const day of allDays) {
+    const m = new Date(day.date + "T00:00:00").getMonth();
+    monthTotals[m] += day.contributionCount;
+  }
+  const mostActiveMonth = MONTH_NAMES[monthTotals.indexOf(Math.max(...monthTotals))];
+
   return (
     <section id="github" className="w-full max-w-6xl mx-auto scroll-mt-16">
       <FadeInSection>
@@ -647,6 +655,9 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                     Busiest day: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{busiestFormatted}</span> ({busiestDay.contributionCount} commits)
                   </span>
                 )}
+                <span className="hidden lg:inline">
+                  Busiest month: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{mostActiveMonth}</span>
+                </span>
                 <span className="hidden md:inline">
                   Most active: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{mostActiveDow}</span>
                 </span>
