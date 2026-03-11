@@ -343,14 +343,16 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
     }
   }
 
-  // Walk backward from today/end to compute current streak
-  for (let i = allDays.length - 1; i >= 0; i--) {
-    // Skip today if it has 0 contributions (day isn't over yet)
-    if (i === allDays.length - 1 && allDays[i].contributionCount === 0) continue;
-    if (allDays[i].contributionCount > 0) {
-      currentStreak++;
-    } else {
-      break;
+  // Walk backward from today to compute current streak (only for "last 12 months" view)
+  if (selectedYear === "last") {
+    for (let i = allDays.length - 1; i >= 0; i--) {
+      // Skip today if it has 0 contributions (day isn't over yet)
+      if (i === allDays.length - 1 && allDays[i].contributionCount === 0) continue;
+      if (allDays[i].contributionCount > 0) {
+        currentStreak++;
+      } else {
+        break;
+      }
     }
   }
 
