@@ -344,12 +344,34 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
     }
   }
 
+  const ordinalSuffix = (d: number) => {
+    if (d > 3 && d < 21) return "th";
+    switch (d % 10) {
+      case 1: return "st";
+      case 2: return "nd";
+      case 3: return "rd";
+      default: return "th";
+    }
+  };
+
   const busiestFormatted = busiestDay
-    ? new Date(busiestDay.date + "T00:00:00").toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-      })
+    ? (() => {
+        const d = new Date(busiestDay.date + "T00:00:00");
+        const month = d.toLocaleDateString("en-US", { month: "short" });
+        const day = d.getDate();
+        return `${month} ${day}${ordinalSuffix(day)}`;
+      })()
     : "";
+
+  const activeDays = allDays.filter((d) => d.contributionCount > 0).length;
+
+  const DAY_NAMES = ["Sundays", "Mondays", "Tuesdays", "Wednesdays", "Thursdays", "Fridays", "Saturdays"];
+  const dayTotals = [0, 0, 0, 0, 0, 0, 0];
+  for (const day of allDays) {
+    const dow = new Date(day.date + "T00:00:00").getDay();
+    dayTotals[dow] += day.contributionCount;
+  }
+  const mostActiveDow = DAY_NAMES[dayTotals.indexOf(Math.max(...dayTotals))];
 
   return (
     <section id="github" className="w-full max-w-6xl mx-auto scroll-mt-16">
@@ -589,11 +611,17 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                 <span>
                   Longest streak: <span className="font-semibold text-gray-700 dark:text-gray-200">{longestStreak}</span> days
                 </span>
+                <span>
+                  Active days: <span className="font-semibold text-gray-700 dark:text-gray-200">{activeDays}</span>
+                </span>
                 {busiestDay && busiestDay.contributionCount > 0 && (
                   <span className="hidden sm:inline">
                     Busiest day: <span className="font-semibold text-gray-700 dark:text-gray-200">{busiestFormatted}</span> ({busiestDay.contributionCount} commits)
                   </span>
                 )}
+                <span className="hidden md:inline">
+                  Most active: <span className="font-semibold text-gray-700 dark:text-gray-200">{mostActiveDow}</span>
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300">
