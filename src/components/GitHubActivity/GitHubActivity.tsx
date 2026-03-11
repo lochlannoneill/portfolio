@@ -229,9 +229,9 @@ function GitHubActivity() {
   const dayLabels = ["", "Mon", "", "Wed", "", "Fri", ""];
 
   return (
-    <section id="github" className="w-full max-w-6xl mx-auto p-4 xl:p-0 scroll-mt-16">
+    <section id="github" className="w-full max-w-6xl mx-auto scroll-mt-16">
       <FadeInSection>
-        <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-800 p-4 md:p-6 transition-colors duration-300">
+        <div className="bg-white dark:bg-[#0a0f1f] rounded-lg border border-gray-200 dark:border-gray-800 p-4 md:p-6 transition-colors duration-300">
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
@@ -244,7 +244,7 @@ function GitHubActivity() {
                 <FontAwesomeIcon icon={faGithub} className="text-2xl" />
               </a>
               <span className="text-gray-600 dark:text-gray-400 text-sm md:text-base transition-colors duration-300">
-                <span className="font-semibold text-gray-800 dark:text-gray-200">
+                <span className="font-semibold text-gray-800 dark:text-gray-200 transition-colors duration-300">
                   {data.totalContributions.toLocaleString()}
                 </span>{" "}
                 contributions in {selectedYear === "last" ? "the last year" : selectedYear}
