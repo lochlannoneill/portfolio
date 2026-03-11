@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FadeInSection from "../../FadeInSection";
 
@@ -581,39 +582,42 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
           )}
 
           {/* Legend + Stats */}
-          <div className="flex flex-wrap items-center justify-between gap-2 mt-3">
-            <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">
-              {currentStreak > 0 && (
+          <div className="mt-3 space-y-2">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">
                 <span>
-                  <span className="font-semibold text-gray-700 dark:text-gray-200">{currentStreak}</span> day streak
+                  Longest streak: <span className="font-semibold text-gray-700 dark:text-gray-200">{longestStreak}</span> days
                 </span>
-              )}
-              <span>
-                Longest: <span className="font-semibold text-gray-700 dark:text-gray-200">{longestStreak}</span> days
-              </span>
-              {busiestDay && busiestDay.contributionCount > 0 && (
-                <span className="hidden sm:inline">
-                  Busiest: <span className="font-semibold text-gray-700 dark:text-gray-200">{busiestFormatted}</span> ({busiestDay.contributionCount})
+                {busiestDay && busiestDay.contributionCount > 0 && (
+                  <span className="hidden sm:inline">
+                    Busiest day: <span className="font-semibold text-gray-700 dark:text-gray-200">{busiestFormatted}</span> ({busiestDay.contributionCount} commits)
+                  </span>
+                )}
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300">
+                  Less
                 </span>
-              )}
+                {["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"].map(
+                    (level) => (
+                        <div
+                        key={level}
+                        className="w-3 h-3 rounded-sm transition-colors duration-300"
+                        style={{ backgroundColor: colors[level] }}
+                        />
+                    )
+                )}
+                <span className="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300">
+                  More
+                </span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300">
-                Less
-              </span>
-              {["NONE", "FIRST_QUARTILE", "SECOND_QUARTILE", "THIRD_QUARTILE", "FOURTH_QUARTILE"].map(
-                (level) => (
-                  <div
-                    key={level}
-                    className="w-3 h-3 rounded-sm transition-colors duration-300"
-                    style={{ backgroundColor: colors[level] }}
-                  />
-                )
-              )}
-              <span className="text-xs text-gray-400 dark:text-gray-500 transition-colors duration-300">
-                More
-              </span>
-            </div>
+            {currentStreak > 0 && (
+                <div className="flex items-center justify-center gap-1 text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">
+                <FontAwesomeIcon icon={faFire} className="text-green-500" />
+                <span><span className="font-semibold text-gray-700 dark:text-gray-200">{currentStreak}</span> day streak</span>
+                </div>
+            )}
           </div>
         </div>
       </FadeInSection>
