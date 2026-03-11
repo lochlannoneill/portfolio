@@ -414,19 +414,31 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                   <span className="hidden sm:inline">contributions in {selectedYear === "last" ? "the last year" : selectedYear}</span>
                   <span className="sm:hidden">contributions</span>
                 </span>
-                <a
-                  href={`https://github.com/${username}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
-                >
+                <span className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">
                   <img
                     src={`https://github.com/${username}.png?size=40`}
                     alt={username}
                     className="w-5 h-5 rounded-full"
                   />
-                  @{username}{repoCount !== null && <span className="opacity-60"> · {repoCount} repositories</span>}
-                </a>
+                  <a
+                    href={`https://github.com/${username}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
+                  >
+                    @{username}
+                  </a>
+                  {repoCount !== null && (
+                    <a
+                      href={`https://github.com/${username}?tab=repositories`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="opacity-60 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
+                    >
+                      · {repoCount} repositories
+                    </a>
+                  )}
+                </span>
               </div>
             </div>
 
