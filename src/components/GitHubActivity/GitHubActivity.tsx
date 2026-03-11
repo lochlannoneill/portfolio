@@ -403,7 +403,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
   const mostActiveMonth = MONTH_NAMES[monthTotals.indexOf(Math.max(...monthTotals))];
 
   return (
-    <section id="github" className="w-full max-w-6xl mx-auto scroll-mt-16">
+    <section id="github" className="w-full max-w-6xl mx-auto mb-8 md:mb-0 scroll-mt-16">
       <FadeInSection>
         <div className="bg-white dark:bg-[#0a0f1f] rounded-lg border border-gray-200 dark:border-gray-800 p-4 md:p-6 transition-colors duration-300">
           {/* Header + Year selector */}
