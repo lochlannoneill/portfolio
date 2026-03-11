@@ -28,18 +28,18 @@ interface GitHubData {
 
 const LEVEL_COLORS_LIGHT: Record<string, string> = {
   NONE: "#ebedf0",
-  FIRST_QUARTILE: "#c2dfff",
-  SECOND_QUARTILE: "#79b8ff",
-  THIRD_QUARTILE: "#2188ff",
-  FOURTH_QUARTILE: "#0366d6",
+  FIRST_QUARTILE: "#9be9a8",
+  SECOND_QUARTILE: "#40c463",
+  THIRD_QUARTILE: "#30a14e",
+  FOURTH_QUARTILE: "#216e39",
 };
 
 const LEVEL_COLORS_DARK: Record<string, string> = {
-  NONE: "#1e2530",
-  FIRST_QUARTILE: "#12395a",
-  SECOND_QUARTILE: "#1b6ec2",
-  THIRD_QUARTILE: "#3b9bff",
-  FOURTH_QUARTILE: "#79c0ff",
+  NONE: "#161b22",
+  FIRST_QUARTILE: "#0e4429",
+  SECOND_QUARTILE: "#006d32",
+  THIRD_QUARTILE: "#26a641",
+  FOURTH_QUARTILE: "#39d353",
 };
 
 const MONTH_LABELS = [
@@ -208,12 +208,62 @@ function GitHubActivity() {
   const colors = isDark ? LEVEL_COLORS_DARK : LEVEL_COLORS_LIGHT;
 
   if (loading) {
+    const skeletonWeeks = 52;
+    const skeletonRows = 7;
+    const skCellSize = 13;
+    const skGap = 3;
+    const skStep = skCellSize + skGap;
+    const skLabelOffset = 30;
+    const skTopOffset = 20;
+    const skWidth = skLabelOffset + skeletonWeeks * skStep;
+    const skHeight = skTopOffset + skeletonRows * skStep;
+
     return (
       <section id="github" className="w-full max-w-6xl mx-auto p-4 xl:p-0 scroll-mt-16">
         <FadeInSection>
-          <div className="flex justify-center items-center h-40">
-            <div className="animate-pulse text-gray-400 dark:text-gray-600 text-lg">
-              Loading contributions...
+          <div className="bg-white dark:bg-[#0a0f1f] rounded-lg border border-gray-200 dark:border-gray-800 p-4 md:p-6 transition-colors duration-300">
+            {/* Skeleton header */}
+            <div className="flex items-center gap-3 mb-4 animate-pulse">
+              <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700" />
+              <div className="flex flex-col gap-2">
+                <div className="h-4 w-48 rounded bg-gray-200 dark:bg-gray-700" />
+                <div className="h-3 w-28 rounded bg-gray-200 dark:bg-gray-700" />
+              </div>
+            </div>
+
+            {/* Skeleton heatmap grid */}
+            <div className="overflow-x-auto custom-scrollbar-gray">
+              <svg
+                width={skWidth}
+                height={skHeight}
+                className="block mx-auto animate-pulse"
+                role="img"
+                aria-label="Loading contribution graph"
+              >
+                {Array.from({ length: skeletonWeeks }).map((_, wi) =>
+                  Array.from({ length: skeletonRows }).map((_, di) => (
+                    <rect
+                      key={`${wi}-${di}`}
+                      x={skLabelOffset + wi * skStep}
+                      y={skTopOffset + di * skStep}
+                      width={skCellSize}
+                      height={skCellSize}
+                      rx={2}
+                      ry={2}
+                      fill={isDark ? "#1e2530" : "#ebedf0"}
+                    />
+                  ))
+                )}
+              </svg>
+            </div>
+
+            {/* Skeleton legend */}
+            <div className="flex items-center justify-end gap-2 mt-3 animate-pulse">
+              <div className="h-3 w-8 rounded bg-gray-200 dark:bg-gray-700" />
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div key={i} className="w-3 h-3 rounded-sm bg-gray-200 dark:bg-gray-700" />
+              ))}
+              <div className="h-3 w-8 rounded bg-gray-200 dark:bg-gray-700" />
             </div>
           </div>
         </FadeInSection>
@@ -230,7 +280,7 @@ function GitHubActivity() {
               href={`https://github.com/${GITHUB_USERNAME}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
+              className="text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
             >
               View my GitHub profile &rarr;
             </a>
@@ -263,15 +313,20 @@ function GitHubActivity() {
                 href={`https://github.com/${GITHUB_USERNAME}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
+                className="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
               >
-                <FontAwesomeIcon icon={faGithub} className="text-2xl" />
+                <FontAwesomeIcon icon={faGithub} className="text-[2.5rem]" />
               </a>
               <div className="flex flex-col">
                 <span className="text-gray-600 dark:text-gray-400 text-sm md:text-base transition-colors duration-300">
-                  <span className="font-semibold text-gray-800 dark:text-gray-200 transition-colors duration-300">
+                  <a
+                    href={`https://github.com/search?q=author%3A${GITHUB_USERNAME}+sort%3Acommitter-date-desc&type=commits`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-gray-800 dark:text-gray-200 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
+                  >
                     {data.totalContributions.toLocaleString()}
-                  </span>{" "}
+                  </a>{" "}
                   <span className="hidden sm:inline">contributions in {selectedYear === "last" ? "the last year" : selectedYear}</span>
                   <span className="sm:hidden">contributions</span>
                 </span>
@@ -279,8 +334,13 @@ function GitHubActivity() {
                   href={`https://github.com/${GITHUB_USERNAME}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-gray-500 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
+                  className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
                 >
+                  <img
+                    src={`https://github.com/${GITHUB_USERNAME}.png?size=40`}
+                    alt={GITHUB_USERNAME}
+                    className="w-5 h-5 rounded-full"
+                  />
                   @{GITHUB_USERNAME}
                 </a>
               </div>
@@ -320,7 +380,7 @@ function GitHubActivity() {
                       onClick={() => { setSelectedYear(year); setDropdownOpen(false); }}
                       className={`block w-full text-left px-3 py-1.5 text-xs font-medium transition-colors duration-200 cursor-pointer ${
                         selectedYear === year
-                          ? "bg-blue-500 dark:bg-blue-600 text-white"
+                          ? "bg-green-600 dark:bg-green-600 text-white"
                           : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
                       }`}
                     >
@@ -342,7 +402,7 @@ function GitHubActivity() {
                   onClick={() => setSelectedYear(year)}
                   className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer shrink-0 ${
                     selectedYear === year
-                      ? "bg-blue-500 dark:bg-blue-600 text-white"
+                      ? "bg-green-600 dark:bg-green-600 text-white"
                       : "bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-300 dark:hover:bg-gray-700"
                   }`}
                 >
