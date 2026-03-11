@@ -411,7 +411,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                 <FontAwesomeIcon icon={faGithub} className="text-[2.5rem]" />
               </a> */}
               <div className="flex flex-col">
-                <span className="text-gray-600 dark:text-gray-400 text-sm md:text-base transition-colors duration-300">
+                <span className="text-gray-600 dark:text-gray-400 text-base md:text-lg transition-colors duration-300">
                   <a
                     href={`https://github.com/search?q=author%3A${username}+sort%3Acommitter-date-desc&type=commits`}
                     target="_blank"
@@ -424,17 +424,17 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                   <span className="sm:hidden">contributions</span>
                 </span>
                 <span className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">
-                  <img
-                    src={`https://github.com/${username}.png?size=40`}
-                    alt={username}
-                    className="w-5 h-5 rounded-full"
-                  />
                   <a
                     href={`https://github.com/${username}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
+                    className="flex items-center gap-1.5 font-semibold hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
                   >
+                    <img
+                      src={`https://github.com/${username}.png?size=40`}
+                      alt={username}
+                      className="w-5 h-5 rounded-full"
+                    />
                     @{username}
                   </a>
                   {repoCount !== null && (
