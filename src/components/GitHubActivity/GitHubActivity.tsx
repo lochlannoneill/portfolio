@@ -657,7 +657,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                   Active days: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{activeDays}</span>
                 </span>
                 <span className="hidden lg:inline">
-                  Avgerage: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{avgPerActiveDay}</span> per active day
+                  Avgerage commits per active day: <span className="font-semibold text-gray-700 dark:text-gray-200 transition-colors duration-300">{avgPerActiveDay}</span>
                 </span>
                 {busiestDay && busiestDay.contributionCount > 0 && (
                   <span className="hidden sm:inline">
