@@ -15,7 +15,7 @@
 
 .cell-fade-in {
   opacity: 0;
-  animation: cellFadeIn 0.4s ease-out forwards;
+  animation: cellFadeIn 0.3s ease-out forwards;
 }
 
 /* GitHub Activity scrollbar (gray/muted theme) */
