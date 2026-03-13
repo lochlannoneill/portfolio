@@ -227,7 +227,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
     const skHeight = skTopOffset + skeletonRows * skStep;
 
     return (
-      <section id="github" className="w-full max-w-6xl mx-auto p-4 xl:p-0 scroll-mt-16">
+      <section id="github" className="w-full max-w-6xl mx-auto mb-8 md:mb-0 scroll-mt-16">
         <FadeInSection>
           <div className="bg-white dark:bg-[#0a0f1f] rounded-lg border border-gray-200 dark:border-gray-800 p-4 md:p-6 transition-colors duration-300">
             {/* Skeleton header */}
@@ -248,6 +248,33 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                 role="img"
                 aria-label="Loading contribution graph"
               >
+                {/* Skeleton month labels */}
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <rect
+                    key={`month-${i}`}
+                    x={skLabelOffset + i * 4 * skStep + skStep}
+                    y={4}
+                    width={20}
+                    height={8}
+                    rx={2}
+                    fill={isDark ? "#1e2530" : "#ebedf0"}
+                  />
+                ))}
+
+                {/* Skeleton day labels */}
+                {[1, 3, 5].map((i) => (
+                  <rect
+                    key={`day-${i}`}
+                    x={0}
+                    y={skTopOffset + i * skStep + skCellSize - 10}
+                    width={22}
+                    height={8}
+                    rx={2}
+                    fill={isDark ? "#1e2530" : "#ebedf0"}
+                  />
+                ))}
+
+                {/* Skeleton cells */}
                 {Array.from({ length: skeletonWeeks }).map((_, wi) =>
                   Array.from({ length: skeletonRows }).map((_, di) => (
                     <rect
@@ -281,7 +308,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
 
   if (error || !data) {
     return (
-      <section id="github" className="w-full max-w-6xl mx-auto p-4 xl:p-0 scroll-mt-16">
+      <section id="github" className="w-full max-w-6xl mx-auto mb-8 md:mb-0 scroll-mt-16">
         <FadeInSection>
           <div className="flex justify-center items-center h-32">
             <a
@@ -410,15 +437,18 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
           <div className="relative mb-4">
             {/* Header */}
             <div className="flex items-center gap-3 shrink-0">
-              {/* <a
-                href={`https://github.com/`}
+              <a
+                href={`https://github.com/${username}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
               >
-                <FontAwesomeIcon icon={faGithub} className="text-[2.5rem]" />
-              </a> */}
-              <div className="flex flex-col gap-1">
+                <img
+                  src={`https://github.com/${username}.png?size=40`}
+                  alt={username}
+                  className="w-10 h-10 rounded-full"
+                />
+              </a>
+              <div className="flex flex-col">
                 <span className="text-gray-600 dark:text-gray-400 text-lg md:text-xl transition-colors duration-300">
                   <a
                     href={`https://github.com/search?q=author%3A${username}+sort%3Acommitter-date-desc&type=commits`}
@@ -436,13 +466,8 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                     href={`https://github.com/${username}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 font-semibold hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
+                    className="font-semibold hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300"
                   >
-                    <img
-                      src={`https://github.com/${username}.png?size=40`}
-                      alt={username}
-                      className="w-5 h-5 rounded-full"
-                    />
                     @{username}
                   </a>
                   {repoCount !== null && (
