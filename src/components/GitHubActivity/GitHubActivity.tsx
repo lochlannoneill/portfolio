@@ -29,8 +29,8 @@ const LEVEL_COLORS_LIGHT: Record<string, string> = {
   NONE: "#ebedf0",
   FIRST_QUARTILE: "#d8b4fe",
   SECOND_QUARTILE: "#a855f7",
-  THIRD_QUARTILE: "#7e22ce",
-  FOURTH_QUARTILE: "#9333ea",
+  THIRD_QUARTILE: "#9333ea",
+  FOURTH_QUARTILE: "#7e22ce",
 };
 
 const LEVEL_COLORS_DARK: Record<string, string> = {
