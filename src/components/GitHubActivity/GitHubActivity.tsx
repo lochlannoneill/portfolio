@@ -431,7 +431,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                   <span className="hidden sm:inline">contributions in {selectedYear === "last" ? "the last year" : selectedYear}</span>
                   <span className="sm:hidden">contributions</span>
                 </span>
-                <span className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">
+                <span className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400">
                   <a
                     href={`https://github.com/${username}`}
                     target="_blank"
@@ -481,7 +481,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                 </svg>
               </button>
               <div
-                className={`absolute right-0 mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden min-w-[140px] transition-all duration-200 origin-top ${
+                className={`absolute right-0 mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden min-w-[140px] transition-all duration-300 origin-top ${
                   dropdownOpen
                     ? "opacity-100 scale-y-100 pointer-events-auto"
                     : "opacity-0 scale-y-0 pointer-events-none"
@@ -491,7 +491,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                     <button
                       key={year}
                       onClick={() => { setSelectedYear(year); setDropdownOpen(false); }}
-                      className={`block w-full text-left px-3 py-1.5 text-xs font-medium transition-colors duration-200 cursor-pointer ${
+                      className={`block w-full text-left px-3 py-1.5 text-xs font-medium transition-colors duration-300 cursor-pointer ${
                         selectedYear === year
                           ? "bg-purple-600 dark:bg-purple-600 text-white"
                           : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -546,6 +546,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                   fill={isDark ? "#9ca3af" : "#6b7280"}
                   fontSize={10}
                   fontFamily="system-ui, sans-serif"
+                  style={{ transition: "fill 300ms" }}
                 >
                   {m.label}
                 </text>
