@@ -555,7 +555,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
           </div>
 
           {/* Contribution Graph */}
-          <div className="overflow-x-auto custom-scrollbar-gray">
+          <div className="overflow-x-auto custom-scrollbar-gray pb-2 sm:pb-0">
             <svg
               ref={svgRef}
               width={svgWidth}
