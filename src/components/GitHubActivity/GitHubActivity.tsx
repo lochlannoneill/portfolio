@@ -441,12 +441,15 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
                 href={`https://github.com/${username}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="group/avatar inline-block rounded-full w-10 h-10 transition-all duration-300 hover:scale-[0.95] hover:shadow-[0_0_18px_4px_rgba(168,85,247,0.2)]"
               >
-                <img
-                  src={`https://github.com/${username}.png?size=40`}
-                  alt={username}
-                  className="w-10 h-10 rounded-full"
-                />
+                <div className="w-full h-full rounded-full overflow-hidden">
+                  <img
+                    src={`https://github.com/${username}.png?size=40`}
+                    alt={username}
+                    className="w-full h-full rounded-full transition-transform duration-300 group-hover/avatar:scale-[1.15]"
+                  />
+                </div>
               </a>
               <div className="flex flex-col">
                 <span className="text-gray-600 dark:text-gray-400 text-lg md:text-xl transition-colors duration-300">
@@ -552,7 +555,7 @@ function GitHubActivity({ username, joinYear = 2021 }: GitHubActivityProps) {
           </div>
 
           {/* Contribution Graph */}
-          <div className="overflow-x-auto custom-scrollbar-gray">
+          <div className="overflow-x-auto custom-scrollbar-gray pb-2 sm:pb-0">
             <svg
               ref={svgRef}
               width={svgWidth}
