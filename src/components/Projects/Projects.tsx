@@ -77,7 +77,7 @@ function Projects() {
   const projects = [
     {
       id: 1,
-      name: "E-commerce Store",
+      name: "Full Stack E-Commerce Store",
       tags: [
         "Azure",
         "React.js",
