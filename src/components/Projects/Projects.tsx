@@ -58,6 +58,9 @@ import defoldDiscord from "../../assets/projects/defold/discord.png";
 import defoldKanban from "../../assets/projects/defold/kanban.png";
 import defoldLevel3 from "../../assets/projects/defold/level3.png";
 import defoldPlanner from "../../assets/projects/defold/Planner.png";
+// FixMyBlock
+import fixmyblockScreenshot from "../../assets/projects/fixmyblock/Screenshot 2026-03-26 051943.png";
+
 import FadeInSection from "../../FadeInSection";
 import GitHubActivity from "../GitHubActivity/GitHubActivity";
 
@@ -77,6 +80,24 @@ function Projects() {
   const projects = [
     {
       id: 1,
+      name: "FixMyBlock",
+      tags: [
+        "Azure",
+        "React.js",
+        "CosmosDB",
+        "Functions",
+        "Tailwind CSS",
+      ],
+      links: {
+        github: "https://github.com/lochlannoneill/fixmyblock",
+        website: "https://fixmyblock.net/",
+      },
+      description:
+        "A web platform that enables residents to report and request repairs for public infrastructure in their area. Built with React and Tailwind CSS on the frontend, backed by Azure Functions and CosmosDB for a serverless, scalable architecture.",
+      images: [fixmyblockScreenshot],
+    },
+    {
+      id: 2,
       name: "Full Stack E-Commerce Store",
       tags: [
         "Azure",
@@ -97,7 +118,7 @@ function Projects() {
       images: [greavesHome, greavesProduct, greavesCart],
     },
     {
-      id: 2,
+      id: 3,
       name: "Cloud Automation",
       tags: [
         "AWS",
@@ -123,7 +144,7 @@ function Projects() {
       ],
     },
     {
-      id: 3,
+      id: 4,
       name: "Final Year Project",
       tags: ["C#", "Unity", "Blender", "LaTeX", "Photoshop"],
       links: {
@@ -146,7 +167,7 @@ function Projects() {
       ],
     },
     {
-      id: 4,
+      id: 5,
       name: "REST API",
       tags: ["Java", "SpringBoot", "Maven", "REST", "H2", "SQL", "Lombok"],
       links: {
@@ -157,7 +178,7 @@ function Projects() {
       images: [springAop, springHttpGetDepartments, springTests],
     },
     {
-      id: 5,
+      id: 6,
       name: "Containerization",
       tags: [
         "Python",
@@ -178,7 +199,7 @@ function Projects() {
       images: [dockerDockerHub, dockerOutput, dockerPrometheus],
     },
     {
-      id: 6,
+      id: 7,
       name: "Group Project",
       tags: ["Lua", "Defold", "Agile"],
       links: {
