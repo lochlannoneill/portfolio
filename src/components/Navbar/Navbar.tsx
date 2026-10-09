@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import DarkModeToggle from "./DarkModeToggle";
-import profileImg from "../../assets/profile.jpeg";
+import profileImg from "../../assets/profile.png";
 
 function Navbar() {
   // Light/Dark mode toggle

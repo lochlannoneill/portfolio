@@ -64,6 +64,15 @@ import fixmyblockScreenshot from "../../assets/projects/fixmyblock/Screenshot 20
 import FadeInSection from "../../FadeInSection";
 import GitHubActivity from "../GitHubActivity/GitHubActivity";
 
+const raxelScreenshots = Object.entries(
+  import.meta.glob<string>("../../assets/projects/raxeldcim/*.{png,jpg,jpeg,webp}", {
+    eager: true,
+    query: "?url",
+    import: "default",
+  })
+).sort(([firstPath], [secondPath]) => firstPath.localeCompare(secondPath))
+  .map(([, imageUrl]) => imageUrl);
+
 function Projects() {
   const LOADED_MORE_PROJECT_COUNT = 3;
   const [visibleCount, setVisibleCount] = useState(LOADED_MORE_PROJECT_COUNT);
@@ -78,6 +87,18 @@ function Projects() {
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   const projects = [
+    {
+      id: 8,
+      name: "Raxel DCIM",
+      tags: ["Azure"],
+      links: {
+        github: null,
+        website: "https://raxeldcim.com/",
+      },
+      description:
+        "Real-time digital twins and granular asset intelligence for modern datacenters.",
+      images: raxelScreenshots,
+    },
     {
       id: 1,
       name: "FixMyBlock",
@@ -371,6 +392,22 @@ function Projects() {
                             ? "hover:text-orange-500"
                             : "hover:text-purple-700";
 
+                        if (!url) {
+                          return (
+                            <button
+                              key={type}
+                              type="button"
+                              disabled
+                              aria-label={`${project.name} ${type} unavailable`}
+                              title={`${type.charAt(0).toUpperCase() + type.slice(1)} unavailable`}
+                              className="text-2xl text-gray-700 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-md px-3 py-2 opacity-40 cursor-not-allowed"
+                              style={!document.documentElement.classList.contains('dark') ? { boxShadow: 'inset 0 2px 8px 0 rgba(0,0,0,0.10), inset 0 2px 12px 0 rgba(0,0,0,0.18)' } : {}}
+                            >
+                              <FontAwesomeIcon icon={icon} />
+                            </button>
+                          );
+                        }
+
                         return (
                           <a
                             key={type}
@@ -456,6 +493,22 @@ function Projects() {
                             : type === "pdf"
                             ? "hover:text-orange-500"
                             : "hover:text-purple-700";
+
+                        if (!url) {
+                          return (
+                            <button
+                              key={type}
+                              type="button"
+                              disabled
+                              aria-label={`${project.name} ${type} unavailable`}
+                              title={`${type.charAt(0).toUpperCase() + type.slice(1)} unavailable`}
+                              className="text-2xl text-gray-700 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-md px-3 py-2 opacity-40 cursor-not-allowed"
+                              style={!document.documentElement.classList.contains('dark') ? { boxShadow: 'inset 0 2px 8px 0 rgba(0,0,0,0.10), inset 0 2px 12px 0 rgba(0,0,0,0.18)' } : {}}
+                            >
+                              <FontAwesomeIcon icon={icon} />
+                            </button>
+                          );
+                        }
 
                         return (
                           <a
